@@ -1,1 +1,37 @@
 @import 'tailwindcss';
+
+:root {
+  font-family: 'Rubik', sans-serif;
+}
+
+@theme {
+  /* === Brand Core === */
+  --color-primary: var(--color-emerald-600); /* main brand green */
+  --color-secondary: var(--color-emerald-400); /* supportive blue tone */
+  --color-accent: var(--color-amber-500); /* highlight / energy accent */
+
+  /* === Text === */
+  --color-text-heading: var(--color-primary);
+  --color-text-primary: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-600);
+
+  --color-text-primary-light: var(--color-white);
+  --color-text-secondary-light: var(--color-slate-200);
+
+  /* === Backgrounds === */
+  --color-bg-base: var(--color-white);
+  --color-bg-muted: var(--color-slate-50);
+  --color-bg-primary: var(--color-primary);
+  --color-bg-secondary: var(--color-blue-50);
+
+  /* === Borders & UI === */
+  --color-border: var(--color-slate-200);
+  --color-border-hover: var(--color-slate-300);
+  --color-border-strong: var(--color-slate-400);
+
+  /* === States === */
+  --color-success: var(--color-emerald-500);
+  --color-warning: var(--color-amber-400);
+  --color-danger: var(--color-rose-500);
+  --color-info: var(--color-blue-500);
+}
