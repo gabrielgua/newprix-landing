@@ -1,3 +1,1 @@
-<template>
-  Hello World from Home Component!
-</template>
+<template>Hello World from Home Component!</template>

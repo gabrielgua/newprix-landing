@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import Icon from './Icon.vue';
-
+import Icon from './Icon.vue'
 </script>
 
 <template>
@@ -9,6 +8,6 @@ import Icon from './Icon.vue';
 
 <style scoped>
 .title {
-  font-family: "Madimi One", sans-serif;
+  font-family: 'Madimi One', sans-serif;
 }
 </style>

@@ -1,10 +1,14 @@
+<script setup lang="ts">
+defineProps<{ margin?: string }>();
+</script>
 <template>
-  <div class="container-custom mx-auto">
+  <div class="container-custom mx-auto" :style="{ '--margin': margin }">
     <slot />
   </div>
 </template>
 <style lang="css">
 .container-custom {
-  width: min(1536px, 100%);
+  --margin: 1rem;
+  width: min(1536px, 100% - calc(var(--margin) * 2));
 }
 </style>

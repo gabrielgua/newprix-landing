@@ -6,8 +6,8 @@
 
 @theme {
   /* === Brand Core === */
-  --color-primary: var(--color-emerald-600); /* main brand green */
-  --color-secondary: var(--color-emerald-400); /* supportive blue tone */
+  --color-primary: var(--color-emerald-500); /* main brand green */
+  --color-secondary: var(--color-blue-500); /* supportive blue tone */
   --color-accent: var(--color-amber-500); /* highlight / energy accent */
 
   /* === Text === */
