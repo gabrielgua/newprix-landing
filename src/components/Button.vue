@@ -20,17 +20,17 @@ const buttonStyles = new Map<ButtonVariant, string>([
 ])
 
 const buttonSizes = new Map<ButtonSize, string>([
-  ['xs', 'p-2 px-3 text-xs'],
-  ['sm', 'p-2 px-3 text-sm'],
-  ['md', 'p-3 px-4 text-sm'],
-  ['lg', 'p-4 px-5 text-base'],
-  ['xl', 'p-5 px-6 text-lg']
+  ['xs', 'p-2 px-3 text-xs gap-3'],
+  ['sm', 'p-2 px-3 text-sm gap-3'],
+  ['md', 'p-3 px-4 text-sm gap-4'],
+  ['lg', 'p-4 px-5 text-base gap-5'],
+  ['xl', 'p-5 px-6 text-lg gap-6']
 ])
 
 </script>
 
 <template>
-  <button class="flex items-center gap-4 rounded-full active:scale-[98%] cursor-pointer transition-all shadow-xs"
+  <button class="flex items-center rounded-full active:scale-[98%] cursor-pointer transition-all shadow-xs"
     :class="[buttonStyles.get(variant), buttonSizes.get(size)]">
     <slot />
   </button>

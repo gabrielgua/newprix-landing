@@ -20,10 +20,11 @@ const closeBar = () => {
           class="h-[60px] w-[120px] object-cover object-top -ms-2" />
         <p>
           <span class="font-semibold">Lançamento! </span>
-          <span class="font-semibold text-secondary">NWX</span> Protetores Auriculares Antirruído.
+          <span class="font-semibold text-secondary font-[Madimi_One]">NWX</span> Protetores Auriculares Antirruído.
         </p>
         <Button variant="secondary" size="xs">
           Confira já!
+          <Icon icon="arrow-right" />
         </Button>
         <Button @click="closeBar()" variant="neutral" size="xs" class="size-8 p-0! grid place-items-center ml-auto">
           <Icon icon="xmark" />

@@ -5,7 +5,7 @@ import Logo from './Logo.vue'
 </script>
 
 <template>
-  <header class="sticky top-0 bg-bg-base [--padding:1.5rem] md:[--padding:2rem] lg:[--padding:3rem] transition-all"
+  <header class="bg-bg-base [--padding:1.5rem] md:[--padding:2rem] lg:[--padding:3rem] transition-all"
     style="padding-block: var(--padding)">
     <Container margin="var(--padding)" class="flex items-center justify-between">
       <Logo />

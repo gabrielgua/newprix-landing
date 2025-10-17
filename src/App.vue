@@ -4,8 +4,10 @@ import Header from './components/Header.vue'
 </script>
 
 <template>
-  <AnnouncementBar />
-  <Header />
+  <div class="sticky top-0 z-10">
+    <AnnouncementBar />
+    <Header />
+  </div>
   <RouterView />
 </template>
 
