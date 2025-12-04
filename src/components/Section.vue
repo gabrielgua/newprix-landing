@@ -2,16 +2,16 @@
 import Container from './Container.vue';
 import Icon from './Icon.vue';
 
-defineProps<{ icon?: string, flexRow?: boolean }>()
+defineProps<{ icon?: string, flexRow?: boolean, centered?: boolean }>()
 
 </script>
 
 <template>
-  <section class="py-10 lg:py-16">
+  <section class="py-10 lg:py-24">
     <Container class="gap-8 flex flex-col [--padding:1.5rem] md:[--padding:2rem] lg:[--padding:3rem]"
-      :class="{ 'lg:flex-row lg:space-x-24': flexRow }" margin="var(--padding)">
-      <div class="flex flex-col space-y-12">
-        <header class="space-y-2">
+      :class="[{ 'lg:flex-row lg:space-x-24': flexRow }]" margin="var(--padding)">
+      <div class="flex flex-col space-y-12" :class="{ 'items-center': centered }">
+        <div class="flex flex-col space-y-2" :class="{ 'items-center': centered }">
           <div class="flex items-center gap-4">
             <h5 class="text-base font-semibold uppercase text-primary">
               <slot name="title"></slot>
@@ -24,7 +24,7 @@ defineProps<{ icon?: string, flexRow?: boolean }>()
           <p class="text-base text-text-secondary">
             <slot name="subtitle"></slot>
           </p>
-        </header>
+        </div>
         <div class="mt-auto" v-if="$slots['first-column-content']">
           <slot name="first-column-content" />
         </div>

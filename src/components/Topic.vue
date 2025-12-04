@@ -7,7 +7,7 @@ defineProps<{ icon: string }>();
 
 <template>
   <div class="flex gap-4">
-    <div class="min-w-10 min-h-10 max-w-10 max-h-10 rounded-full grid place-items-center bg-primary-100">
+    <div class="min-w-12 min-h-12 max-w-12 max-h-12 rounded-2xl grid place-items-center bg-primary-100">
       <Icon :icon="icon" class="text-primary-600 text-xl" />
     </div>
     <div>

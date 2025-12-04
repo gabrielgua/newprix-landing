@@ -1,30 +1,37 @@
 <script setup lang="ts">
-import Button from './Button.vue';
 import Divider from './Divider.vue';
 import Icon from './Icon.vue';
 
 defineProps<{
   imgSrc: string;
+  shadowColor?: string
+  hoverColor?: string
 }>();
 
 </script>
 
 
 <template>
-  <div class="flex flex-col shadow-lg shadow-slate-200 rounded-3xl space-y-4 p-4 bg-bg-base">
-    <img :src="imgSrc" class="object-cover rounded-xl" />
-    <div class="space-y-1">
-      <h4 class="font-semibold">
-        <slot name="title" />
-      </h4>
-      <p class="text-sm text-text-secondary">
-        <slot name="description" />
+  <div
+    class="flex flex-col shadow-xl rounded-3xl bg-bg-base overflow-hidden hover:-translate-y-2 hover:scale-102 hover:cursor-pointer transition-all group"
+    :class="shadowColor">
+    <div class="h-46">
+      <img :src="imgSrc" class="object-center object-cover h-full w-full " />
+    </div>
+    <div class="p-4 space-y-4 flex flex-col flex-1">
+      <div class="space-y-1">
+        <h4 class="font-semibold text-lg transition-colors text-text-primary" :class="hoverColor">
+          <slot name="title" />
+        </h4>
+        <p class="text-sm text-text-secondary font-light">
+          <slot name="description" />
+        </p>
+      </div>
+      <Divider class="mt-auto" />
+      <p class="text-sm text-text-primary font-medium" :class="hoverColor">
+        Ver Produtos
+        <Icon icon="arrow-right" class="text-xs group-hover:translate-x-2 transition-all" />
       </p>
     </div>
-    <Divider class="mt-auto" />
-    <Button variant="neutral" size="sm" class="w-full justify-center text-text-secondary">
-      Ver Produtos
-      <Icon icon="arrow-right" class="text-xs " />
-    </Button>
   </div>
 </template>

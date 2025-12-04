@@ -9,7 +9,7 @@ import Topic from './Topic.vue';
 </script>
 
 <template>
-  <Section icon="feather-pointed" flex-row>
+  <Section icon="feather-pointed" class="bg-white rounded-b-[80px] border-b border-b-slate-200" flex-row>
     <template #title>Nossa Hístoria</template>
     <template #title-hero>
       Conectando você às <span class="text-primary">melhores marcas</span> com total segurança.
@@ -77,12 +77,12 @@ import Topic from './Topic.vue';
     </template>
 
     <template #second-column-content>
-      <div class="relative aspect-[4/5] lg:aspect-[4/3] lg:max-w-2xl">
+      <div class=" relative aspect-[4/5] lg:aspect-[4/3] lg:max-w-2xl">
         <div class="grid place-items-center w-full h-full rounded-4xl shadow-lg overflow-hidden mx-auto transition-all">
           <img src="@/assets/images/about_us.jpg" alt="About us image"
-            class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            class="z-1 w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           <div
-            class="absolute left-6 right-6 bottom-6 rounded-2xl flex items-center gap-5 p-5 z-10 bg-bg-secondary border-l-4 border-l-primary shadow-md">
+            class="absolute left-6 right-6 bottom-6 rounded-2xl flex items-center gap-5 p-5 z-1 bg-bg-secondary border-l-4 border-l-primary shadow-md">
             <div class="size-14 grid place-items-center bg-primary-200 rounded-full">
               <Icon icon="fa-regular fa-circle-check" class="text-2xl text-primary-600" />
             </div>
@@ -93,8 +93,8 @@ import Topic from './Topic.vue';
             </div>
           </div>
         </div>
-        <div class="absolute -z-10 -top-10 -right-10 size-32 bg-primary-400 rounded-full blur-xl opacity-30"></div>
-        <div class="absolute -z-10 -bottom-10 -left-10 size-32 bg-primary rounded-full blur-xl opacity-30"></div>
+        <div class="absolute -bottom-6 -right-6 w-full h-full bg-primary-300 rounded-[54px]">
+        </div>
       </div>
     </template>
   </Section>
