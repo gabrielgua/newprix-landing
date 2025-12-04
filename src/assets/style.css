@@ -45,7 +45,7 @@
 
   /* === Backgrounds === */
   --color-bg-base: var(--color-white);
-  --color-bg-muted: var(--color-slate-100);
+  --color-bg-muted: var(--color-slate-50);
   --color-bg-primary: var(--color-primary);
   --color-bg-secondary: var(--color-bg-muted);
 

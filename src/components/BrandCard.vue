@@ -28,10 +28,10 @@ defineProps<{
         </p>
       </div>
       <Divider class="mt-auto" />
-      <p class="text-sm text-text-primary font-medium" :class="hoverColor">
-        Ver Produtos
+      <div class="flex items-center gap-2 text-sm text-text-primary font-medium" :class="hoverColor">
+        <p>Ver Produtos</p>
         <Icon icon="arrow-right" class="text-xs group-hover:translate-x-2 transition-all" />
-      </p>
+      </div>
     </div>
   </div>
 </template>

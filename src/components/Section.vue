@@ -7,8 +7,8 @@ defineProps<{ icon?: string, flexRow?: boolean, centered?: boolean }>()
 </script>
 
 <template>
-  <section class="py-10 lg:py-24">
-    <Container class="gap-8 flex flex-col [--padding:1.5rem] md:[--padding:2rem] lg:[--padding:3rem]"
+  <section class="py-10 lg:py-38 transition-all">
+    <Container class="gap-8 flex flex-col [--padding:1.5rem] md:[--padding:2rem] lg:[--padding:3rem] transition-all"
       :class="[{ 'lg:flex-row lg:space-x-24': flexRow }]" margin="var(--padding)">
       <div class="flex flex-col space-y-12" :class="{ 'items-center': centered }">
         <div class="flex flex-col space-y-2" :class="{ 'items-center': centered }">
