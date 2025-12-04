@@ -3,6 +3,7 @@ import { ref } from 'vue';
 import Button from './Button.vue';
 import Container from './Container.vue';
 import Icon from './Icon.vue';
+import FadeFromTopTransition from '@/transitions/FadeFromTopTransition.vue';
 
 const show = ref(true);
 
@@ -12,7 +13,7 @@ const closeBar = () => {
 </script>
 
 <template>
-  <Transition name="slide-fade" mode="out-in">
+  <FadeFromTopTransition>
     <div class="bg-bg-secondary transition-all" v-if="show">
       <Container margin="var(--padding)"
         class="flex items-center gap-6 text-sm [--padding:1.5rem] md:[--padding:2rem] lg:[--padding:3rem] transition-all">
@@ -31,20 +32,5 @@ const closeBar = () => {
         </Button>
       </Container>
     </div>
-  </Transition>
+  </FadeFromTopTransition>
 </template>
-<style scoped>
-.slide-fade-enter-active {
-  transition: all 150ms ease;
-}
-
-.slide-fade-leave-active {
-  transition: all 150ms ease;
-}
-
-.slide-fade-enter-from,
-.slide-fade-leave-to {
-  transform: translateY(-100%);
-  opacity: 0;
-}
-</style>

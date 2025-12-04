@@ -1,5 +1,7 @@
 <script setup lang="ts">
+import Button from '@/components/Button.vue';
 import Container from '@/components/Container.vue';
+import Divider from '@/components/Divider.vue';
 import Hero from '@/components/Hero.vue'
 import Icon from '@/components/Icon.vue';
 </script>
@@ -27,13 +29,80 @@ import Icon from '@/components/Icon.vue';
           inovação.
         </p>
       </div>
-      <div class="grid grid-cols-4 gap-12">
-        <div v-for="_ of [1, 2, 3, 4]" class="shadow rounded-2xl space-y-4 p-4 bg-bg-base">
-          <img src="https://placehold.co/400x400" alt="Marca 1" class="object-cover rounded-xl" />
-          <h4>Marca 1</h4>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore ut velit, rem a modi similique officia?
-            Quaerat amet obcaecati velit dolorem dolores.
-          </p>
+      <div class="grid grid-cols-5 gap-4">
+        <div class="shadow-lg shadow-slate-200 rounded-3xl space-y-4 p-4 bg-bg-base">
+          <img src="/images/brands/wap_300x300.png" alt="Marca 1" class="object-cover rounded-xl" />
+          <div class="space-y-1">
+            <h4 class="font-semibold">WAP Limpeza</h4>
+            <p class="text-sm text-text-secondary">
+              Tecnologia e praticidade em soluções para limpeza doméstica e profissional.
+            </p>
+          </div>
+          <Divider />
+          <Button variant="neutral" size="sm" class="w-full justify-center text-text-secondary">
+            Ver Produtos
+            <Icon icon="arrow-right" class="text-xs " />
+          </Button>
+        </div>
+        <div class="shadow-lg shadow-slate-200 rounded-3xl space-y-4 p-4 bg-bg-base">
+          <img src="/images/brands/nwx_300x300.png" alt="Marca 1" class="object-cover rounded-xl" />
+          <div class="space-y-1">
+            <h4 class="font-semibold">NWX</h4>
+            <p class="text-sm text-text-secondary">
+              Proteção auditiva e conforto em qualquer ambiente, com design moderno e eficiente.
+            </p>
+          </div>
+          <Divider />
+
+          <Button variant="neutral" size="sm" class="w-full justify-center text-text-secondary">
+            Ver Produtos
+            <Icon icon="arrow-right" class="text-xs " />
+          </Button>
+        </div>
+        <div class="shadow-lg shadow-slate-200 rounded-3xl space-y-4 p-4 bg-bg-base">
+          <img src="/images/brands/alhe_300x300.png" alt="Marca 1" class="object-cover rounded-xl" />
+          <div class="space-y-1">
+            <h4 class="font-semibold">ALHE Cosméticos</h4>
+            <p class="text-sm text-text-secondary">
+              Cuidados capilares profissionais com tecnologia e performance para resultados de salão.
+            </p>
+          </div>
+          <Divider />
+
+          <Button variant="neutral" size="sm" class="w-full justify-center text-text-secondary">
+            Ver Produtos
+            <Icon icon="arrow-right" class="text-xs " />
+          </Button>
+        </div>
+        <div class="shadow-lg shadow-slate-200 rounded-3xl space-y-4 p-4 bg-bg-base">
+          <img src="/images/brands/selene_300x300.png" alt="Marca 1" class="object-cover rounded-xl" />
+          <div class="space-y-1">
+            <h4 class="font-semibold">Selene</h4>
+            <p class="text-sm text-text-secondary">
+              Moda feminina com conforto, estilo e qualidade para o dia a dia.
+            </p>
+          </div>
+          <Divider />
+
+          <Button variant="neutral" size="sm" class="w-full justify-center text-text-secondary">
+            Ver Produtos
+            <Icon icon="arrow-right" class="text-xs " />
+          </Button>
+        </div>
+        <div class="shadow-lg shadow-slate-200 rounded-3xl space-y-4 p-4 bg-bg-base">
+          <img src="/images/brands/vonder_300x300.png" alt="Marca 1" class="object-cover rounded-xl" />
+          <div class="space-y-1">
+            <h4 class="font-semibold">Vonder</h4>
+            <p class="text-sm text-text-secondary">
+              Máquinas, ferramentas e equipamentos com desempenho e durabilidade para uso profissional e doméstico.
+            </p>
+          </div>
+          <Divider />
+
+          <Button variant="neutral" size="sm" class="w-full justify-center text-text-secondary">
+            Ver Produtos
+            <Icon icon="arrow-right" class="text-xs " />
+          </Button>
         </div>
 
       </div>
