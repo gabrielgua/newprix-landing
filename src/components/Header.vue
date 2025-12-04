@@ -24,7 +24,7 @@ onUnmounted(() => {
 <template>
   <header
     class="bg-bg-base [--padding:1.5rem] md:[--padding:2rem] lg:[--padding:3rem] transition-all shadow-lg shadow-slate-100"
-    style="padding-block: var(--padding)" :class="{ 'py-6! md:py-8!': scrolled }">
+    style="padding-block: var(--padding)" :class="{ 'py-6! shadow-md': scrolled }">
     <Container margin="var(--padding)" class="flex items-center justify-between">
       <Logo />
 

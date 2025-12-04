@@ -2,7 +2,7 @@
 defineProps<{ margin?: string }>();
 </script>
 <template>
-  <div class="container-custom mx-auto" :style="{ '--margin': margin }">
+  <div class="container-custom mx-auto transition-all" :style="{ '--margin': margin }">
     <slot />
   </div>
 </template>
