@@ -1,9 +1,46 @@
 <script setup lang="ts">
+import BrandCard from '@/components/BrandCard.vue';
 import Button from '@/components/Button.vue';
 import Container from '@/components/Container.vue';
 import Divider from '@/components/Divider.vue';
 import Hero from '@/components/Hero.vue'
 import Icon from '@/components/Icon.vue';
+
+export type PartnerBrand = {
+  imgSrc: string;
+  title: string;
+  description: string;
+};
+
+const partnerBrands: PartnerBrand[] = [
+  {
+    imgSrc: '/images/brands/wap_300x300.png',
+    title: 'WAP Limpeza',
+    description: 'Tecnologia e praticidade em soluções para limpeza doméstica e profissional.'
+  },
+  {
+    imgSrc: '/images/brands/nwx_300x300.png',
+    title: 'NWX',
+    description: 'Proteção auditiva e conforto em qualquer ambiente, com design moderno e eficiente.'
+  },
+  {
+    imgSrc: '/images/brands/alhe_300x300.png',
+    title: 'ALHE Cosméticos',
+    description: 'Cuidados capilares profissionais com tecnologia e performance para resultados de salão.'
+  },
+  {
+    imgSrc: '/images/brands/selene_300x300.png',
+    title: 'Selene',
+    description: 'Moda feminina com conforto, estilo e qualidade para o dia a dia.'
+  },
+  {
+    imgSrc: '/images/brands/vonder_300x300.png',
+    title: 'Vonder',
+    description: 'Máquinas, ferramentas e equipamentos com desempenho e durabilidade para uso profissional e doméstico.'
+  }
+];
+
+
 </script>
 
 <template>
@@ -30,81 +67,10 @@ import Icon from '@/components/Icon.vue';
         </p>
       </div>
       <div class="grid grid-cols-5 gap-4">
-        <div class="shadow-lg shadow-slate-200 rounded-3xl space-y-4 p-4 bg-bg-base">
-          <img src="/images/brands/wap_300x300.png" alt="Marca 1" class="object-cover rounded-xl" />
-          <div class="space-y-1">
-            <h4 class="font-semibold">WAP Limpeza</h4>
-            <p class="text-sm text-text-secondary">
-              Tecnologia e praticidade em soluções para limpeza doméstica e profissional.
-            </p>
-          </div>
-          <Divider />
-          <Button variant="neutral" size="sm" class="w-full justify-center text-text-secondary">
-            Ver Produtos
-            <Icon icon="arrow-right" class="text-xs " />
-          </Button>
-        </div>
-        <div class="shadow-lg shadow-slate-200 rounded-3xl space-y-4 p-4 bg-bg-base">
-          <img src="/images/brands/nwx_300x300.png" alt="Marca 1" class="object-cover rounded-xl" />
-          <div class="space-y-1">
-            <h4 class="font-semibold">NWX</h4>
-            <p class="text-sm text-text-secondary">
-              Proteção auditiva e conforto em qualquer ambiente, com design moderno e eficiente.
-            </p>
-          </div>
-          <Divider />
-
-          <Button variant="neutral" size="sm" class="w-full justify-center text-text-secondary">
-            Ver Produtos
-            <Icon icon="arrow-right" class="text-xs " />
-          </Button>
-        </div>
-        <div class="shadow-lg shadow-slate-200 rounded-3xl space-y-4 p-4 bg-bg-base">
-          <img src="/images/brands/alhe_300x300.png" alt="Marca 1" class="object-cover rounded-xl" />
-          <div class="space-y-1">
-            <h4 class="font-semibold">ALHE Cosméticos</h4>
-            <p class="text-sm text-text-secondary">
-              Cuidados capilares profissionais com tecnologia e performance para resultados de salão.
-            </p>
-          </div>
-          <Divider />
-
-          <Button variant="neutral" size="sm" class="w-full justify-center text-text-secondary">
-            Ver Produtos
-            <Icon icon="arrow-right" class="text-xs " />
-          </Button>
-        </div>
-        <div class="shadow-lg shadow-slate-200 rounded-3xl space-y-4 p-4 bg-bg-base">
-          <img src="/images/brands/selene_300x300.png" alt="Marca 1" class="object-cover rounded-xl" />
-          <div class="space-y-1">
-            <h4 class="font-semibold">Selene</h4>
-            <p class="text-sm text-text-secondary">
-              Moda feminina com conforto, estilo e qualidade para o dia a dia.
-            </p>
-          </div>
-          <Divider />
-
-          <Button variant="neutral" size="sm" class="w-full justify-center text-text-secondary">
-            Ver Produtos
-            <Icon icon="arrow-right" class="text-xs " />
-          </Button>
-        </div>
-        <div class="shadow-lg shadow-slate-200 rounded-3xl space-y-4 p-4 bg-bg-base">
-          <img src="/images/brands/vonder_300x300.png" alt="Marca 1" class="object-cover rounded-xl" />
-          <div class="space-y-1">
-            <h4 class="font-semibold">Vonder</h4>
-            <p class="text-sm text-text-secondary">
-              Máquinas, ferramentas e equipamentos com desempenho e durabilidade para uso profissional e doméstico.
-            </p>
-          </div>
-          <Divider />
-
-          <Button variant="neutral" size="sm" class="w-full justify-center text-text-secondary">
-            Ver Produtos
-            <Icon icon="arrow-right" class="text-xs " />
-          </Button>
-        </div>
-
+        <BrandCard v-for="(brand, index) in partnerBrands" :key="index" :imgSrc="brand.imgSrc">
+          <template #title>{{ brand.title }}</template>
+          <template #description>{{ brand.description }}</template>
+        </BrandCard>
       </div>
     </Container>
   </section>
