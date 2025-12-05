@@ -16,7 +16,7 @@ withDefaults(defineProps<ButtonProps>(), {
 const buttonStyles = new Map<ButtonVariant, string>([
   ['primary', 'bg-primary text-white'],
   ['secondary', 'bg-secondary text-white'],
-  ['neutral', 'bg-bg-base text-text-primary'],
+  ['neutral', 'bg-bg-base text-text-primary outline-1 outline-slate-200'],
   ['outlined-primary', 'outline-2 outline-primary text-primary bg-transparent'],
   ['outlined-neutral', 'outline-2 outline-bg-text-secondary text-text-primary bg-transparent']
 ])
@@ -32,7 +32,8 @@ const buttonSizes = new Map<ButtonSize, string>([
 </script>
 
 <template>
-  <button class="flex items-center rounded-full active:scale-[98%] cursor-pointer transition-all shadow-xs"
+  <button
+    class="flex items-center rounded-full active:scale-[98%] cursor-pointer transition-all shadow-xs hover:scale-101"
     :class="[buttonStyles.get(variant), buttonSizes.get(size)]">
     <slot />
   </button>

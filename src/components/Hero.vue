@@ -7,8 +7,9 @@ import Icon from './Icon.vue'
 <template>
   <Container margin="var(--padding)"
     class="py-24 [--padding:1.5rem] md:[--padding:2rem] lg:[--padding:3rem] transition-all">
-    <div class="flex items-center justify-between">
-      <img src="../assets/images/newprix_landing_hero_blob.png" alt="Hero Green Blob" class="w-[60%] max-w-[600px]" />
+    <div class="flex items-center justify-between transition-all gap-12">
+      <img src="../assets/images/newprix_landing_hero_blob.png" alt="Hero Green Blob"
+        class="w-[60%] max-w-[600px] hidden xl:block" />
       <div class="space-y-6">
         <h2 class="font-semibold text-6xl text-text-primary">
           Conectando <span class="text-primary">você</span>. <br />
@@ -18,12 +19,12 @@ import Icon from './Icon.vue'
           A <span class="font-semibold text-primary">newprix</span> é o elo entre grandes marcas e
           revendedores que buscam qualidade, agilidade e oportunidades.
         </p>
-        <div class="flex items-center gap-6">
-          <Button size="xl" class="font-semibold">
+        <div class="flex flex-col lg:flex-row items-center gap-6">
+          <Button size="xl" class="font-semibold w-full justify-between">
             Conheça nosso catálogo
             <Icon icon="bag-shopping" />
           </Button>
-          <Button variant="neutral" size="xl">
+          <Button variant="neutral" size="xl" class="font-semibold w-full justify-center">
             Fale Conosco
           </Button>
         </div>

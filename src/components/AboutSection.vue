@@ -56,13 +56,13 @@ import Topic from './Topic.vue';
         <div class="flex flex-items-center justify-between gap-8">
           <div>
             <MadimiOneFont>
-              <h4 class="text-3xl font-bold text-text-primary">+ 1</h4>
+              <h4 class="text-3xl font-bold text-text-primary">3 +</h4>
             </MadimiOneFont>
-            <p class="text-text-secondary font-light">Ano de História</p>
+            <p class="text-text-secondary font-light">Anos de Experiência</p>
           </div>
           <div>
             <MadimiOneFont>
-              <h4 class="text-3xl font-bold text-text-primary">+ 5k</h4>
+              <h4 class="text-3xl font-bold text-text-primary">5k +</h4>
             </MadimiOneFont>
             <p class="text-text-secondary font-light">Pedidos Concluídos</p>
           </div>
