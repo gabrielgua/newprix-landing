@@ -26,9 +26,9 @@ const closeBar = () => {
         Confira já!
         <Icon icon="arrow-right" />
       </Button>
-      <Button @click="closeBar()" variant="neutral" size="xs" class="size-8 p-0! grid place-items-center ml-auto">
+      <!-- <Button @click="closeBar()" variant="neutral" size="xs" class="size-8 p-0! grid place-items-center ml-auto">
         <Icon icon="xmark" />
-      </Button>
+      </Button> -->
     </Container>
   </div>
 </template>

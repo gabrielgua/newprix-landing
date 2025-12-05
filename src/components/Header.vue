@@ -1,13 +1,20 @@
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from 'vue';
-import Container from './Container.vue'
-import HeaderLink from './HeaderLink.vue'
-import Logo from './Logo.vue'
-import AnnouncementBar from './AnnouncementBar.vue';
 import FadeFromTopTransition from '@/transitions/FadeFromTopTransition.vue';
+import FadeinTransition from '@/transitions/FadeinTransition.vue';
+import FadeTransition from '@/transitions/FadeTransition.vue';
+import { onMounted, onUnmounted, ref } from 'vue';
+import Button from './Button.vue';
+import Container from './Container.vue';
+import HeaderLinks from './HeaderLinks.vue';
+import Icon from './Icon.vue';
+import Logo from './Logo.vue';
+import { useScrollLock } from '@/composables/useScrollLock';
 
 const scrolled = ref(false);
-const showAnnouncementBar = ref(true);
+const showMobileHeader = ref(true);
+const toggleMobileHeader = () => {
+  showMobileHeader.value = !showMobileHeader.value;
+};
 
 const handleScroll = () => {
   scrolled.value = window.scrollY > 250;
@@ -21,31 +28,42 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
 
+const showHeaderMobile = ref(false);
+useScrollLock(showHeaderMobile);
+const toggleHeaderMobile = () => showHeaderMobile.value = !showHeaderMobile.value;
+
 
 </script>
 
 <template>
-  <header
-    class="sticky top-0 z-50 backdrop-blur-2xl [--padding:1.5rem] md:[--padding:2rem] lg:[--padding:3rem] transition-all"
-    :class="{ 'shadow-xl shadow-slate-400/10 bg-white/70': scrolled }">
+  <header class="backdrop-blur-3xl sticky top-0 z-50 py-6 lg:py-8 space-y-6 md:space-y-0"
+    :class="{ 'shadow-2xl shadow-slate-800/40': scrolled }">
+    <Container class="flex items-center justify-between transition-all">
+      <RouterLink to="/">
+        <Logo />
+      </RouterLink>
+      <HeaderLinks class="hidden md:flex" />
+      <div class="hidden md:block">
 
-    <FadeFromTopTransition>
-      <AnnouncementBar v-if="showAnnouncementBar" @close="showAnnouncementBar = false" />
-    </FadeFromTopTransition>
-    <Container margin="var(--padding)" class="z-50 flex items-center justify-between"
-      style="padding-block: var(--padding)" :class="{ 'py-6!': scrolled }">
-      <Logo />
-
-      <ul class="flex items-center gap-6">
-        <HeaderLink to="/home">Home</HeaderLink>
-        <HeaderLink to="/about">Sobre nós</HeaderLink>
-        <HeaderLink to="/catalog">Catálogo</HeaderLink>
-        <HeaderLink to="/contact">Contato</HeaderLink>
-      </ul>
+        <Icon icon="magnifying-glass" size="sm" class="text-primary-950" />
+      </div>
+      <Button @click="toggleHeaderMobile" variant="neutral-icon" class="md:hidden">
+        <FadeinTransition>
+          <Icon v-if="showHeaderMobile" icon="xmark" size="lg" class="text-primary-500" />
+          <Icon v-else icon="bars" size="lg" class="text-primary-500" />
+        </FadeinTransition>
+      </Button>
     </Container>
-
-
-
+    <FadeFromTopTransition>
+      <Container class="md:hidden mb-0" v-if="showHeaderMobile">
+        <HeaderLinks @click="toggleHeaderMobile" class="flex-col items-start gap-4!" />
+      </Container>
+    </FadeFromTopTransition>
+    <FadeTransition>
+      <div v-if="showHeaderMobile" class="md:hidden absolute mt-6 bg-black/50 w-full min-h-dvh"
+        @click="toggleHeaderMobile">
+      </div>
+    </FadeTransition>
   </header>
 
 </template>
