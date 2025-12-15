@@ -20,7 +20,7 @@ const getInitials = (name: string) => {
 
 <template>
   <div
-    class="flex flex-col p-6 gap-6 shadow-lg shadow-primary-300/20 rounded-3xl bg-bg-muted border border-primary-100 overflow-hidden hover:-translate-y-2 hover:scale-102 transition-all even:scale-102 even:-translate-y-2">
+    class="flex flex-col p-6 gap-6 shadow-lg shadow-primary-300/20 rounded-3xl bg-bg-base overflow-hidden hover:-translate-y-2 hover:scale-102 transition-all lg:even:scale-102 lg:even:-translate-y-2">
     <div class="flex items-center gap-1">
       <Icon icon="star" v-for="_ in 5" class="text-base text-primary" />
       <p class="text-xs text-text-secondary/70 ml-auto">{{ date }}</p>
