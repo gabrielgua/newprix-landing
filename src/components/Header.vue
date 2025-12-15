@@ -11,10 +11,6 @@ import Logo from './Logo.vue';
 import { useScrollLock } from '@/composables/useScrollLock';
 
 const scrolled = ref(false);
-const showMobileHeader = ref(true);
-const toggleMobileHeader = () => {
-  showMobileHeader.value = !showMobileHeader.value;
-};
 
 const handleScroll = () => {
   scrolled.value = window.scrollY > 250;
@@ -28,16 +24,17 @@ onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll);
 });
 
+
 const showHeaderMobile = ref(false);
-useScrollLock(showHeaderMobile);
+useScrollLock(showHeaderMobile); //TODO when resizing to bigger screen sizes the scroll lock remains active
 const toggleHeaderMobile = () => showHeaderMobile.value = !showHeaderMobile.value;
 
 
 </script>
 
 <template>
-  <header class="backdrop-blur-3xl sticky top-0 z-50 py-6 lg:py-8 space-y-6 md:space-y-0"
-    :class="{ 'shadow-2xl shadow-slate-800/40': scrolled }">
+  <header class="backdrop-blur-3xl bg-bg-secondary/60 sticky top-0 z-50 py-6 lg:py-8 space-y-6 md:space-y-0"
+    :class="{ 'shadow-xl shadow-primary/10': scrolled }">
     <Container class="flex items-center justify-between transition-all">
       <RouterLink to="/">
         <Logo />

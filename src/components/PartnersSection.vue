@@ -51,7 +51,7 @@ const partnerBrands: PartnerBrand[] = [
 </script>
 
 <template>
-  <Section icon="handshake" centered>
+  <Section icon="handshake" centered class="bg-white pb-20">
     <template #title>Nossos Parceiros</template>
     <template #title-hero>Quem Representamos?</template>
     <template #subtitle>

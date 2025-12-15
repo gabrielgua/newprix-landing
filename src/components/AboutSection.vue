@@ -9,7 +9,7 @@ import Topic from './Topic.vue';
 </script>
 
 <template>
-  <Section icon="feather-pointed" class="bg-white pb-20" flex-row>
+  <Section icon="feather-pointed" flex-row>
     <template #title>Nossa Hístoria</template>
     <template #title-hero>
       Conectando você às <span class="text-primary">melhores marcas</span> com total segurança.
