@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useScrollLock } from '@/composables/useScrollLock';
 import FadeFromTopTransition from '@/transitions/FadeFromTopTransition.vue';
 import FadeinTransition from '@/transitions/FadeinTransition.vue';
 import FadeTransition from '@/transitions/FadeTransition.vue';
@@ -8,7 +9,6 @@ import Container from './Container.vue';
 import HeaderLinks from './HeaderLinks.vue';
 import Icon from './Icon.vue';
 import Logo from './Logo.vue';
-import { useScrollLock } from '@/composables/useScrollLock';
 
 const scrolled = ref(false);
 
@@ -40,10 +40,6 @@ const toggleHeaderMobile = () => showHeaderMobile.value = !showHeaderMobile.valu
         <Logo />
       </RouterLink>
       <HeaderLinks class="hidden md:flex" />
-      <div class="hidden md:block">
-
-        <Icon icon="magnifying-glass" size="sm" class="text-primary-950" />
-      </div>
       <Button @click="toggleHeaderMobile" variant="neutral-icon" class="md:hidden">
         <FadeinTransition>
           <Icon v-if="showHeaderMobile" icon="xmark" size="lg" class="text-primary-500" />
