@@ -26,4 +26,7 @@ import Section from '@/components/Section.vue';
       <CatalogFilter />
     </template>
   </Section>
+  <Section centered class="py-18!">
+    <template #title-hero>Produtos em destaque</template>
+  </Section>
 </template>
