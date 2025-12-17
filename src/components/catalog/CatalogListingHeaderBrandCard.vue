@@ -13,9 +13,9 @@ defineProps<{
       <img :src="imgSrc" :alt="`${brandName} Logo`"
         class="object-cover object-center size-full rounded-4xl shadow group-hover:scale-105 transition-all" />
     </div>
-    <p class="text-text-primary text-left text-4xl font-semibold">
+    <p class="text-text-primary text-left text-3xl font-semibold">
       Produtos <br>
-      <span :class="color ? color : 'text-primary'">
+      <span class="text-5xl" :class="color ? color : 'text-primary'">
         <slot />
       </span>
     </p>

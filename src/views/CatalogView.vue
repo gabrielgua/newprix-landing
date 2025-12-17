@@ -35,6 +35,14 @@ import Section from '@/components/Section.vue';
       <div class="flex flex-col space-y-12 transition-all">
         <CatalogListingHeader />
         <Divider />
+        <div class="flex items-end justify-between gap-3">
+          <div
+            class="flex items-center gap-4 bg-bg-base ps-4 rounded-2xl border border-border shadow-lg focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all w-120">
+            <Icon icon="magnifying-glass" class="text-sm text-text-secondary" />
+            <input type="text" class="outline-none pe-4 py-2.5 w-full" placeholder="Buscar por produtos..." />
+          </div>
+          <p class="text-text-secondary/80">Mostrando todos os 15 produtos disponíveis</p>
+        </div>
         <CatalogListing />
       </div>
     </template>

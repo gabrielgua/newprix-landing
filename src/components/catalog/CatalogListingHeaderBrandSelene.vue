@@ -1,13 +1,10 @@
 <script setup lang="ts">
-import { useBrandStore, type BrandValue } from '@/stores/brand-store';
+import { useBrandStore } from '@/stores/brand-store';
 import CatalogListingHeaderBrandCard from './CatalogListingHeaderBrandCard.vue';
 
 const selectedFilter = 'selene';
-const brandStore = useBrandStore();
+const { getBrand } = useBrandStore();
 
-const getBrand = (value: BrandValue) => {
-  return brandStore.getBrand(value);
-}
 
 </script>
 

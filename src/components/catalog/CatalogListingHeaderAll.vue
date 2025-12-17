@@ -5,8 +5,9 @@ import Icon from '../Icon.vue';
 
 <template>
   <div class="flex items-center gap-6 transition-all">
-    <div class="size-30 transition-all bg-bg-base rounded-4xl grid place-items-center shadow-xl shadow-slate-800/5">
-      <Icon icon="layer-group" class="text-text-primary text-3xl" />
+    <div
+      class="size-30 transition-all bg-bg-base rounded-4xl grid place-items-center shadow-xl shadow-slate-800/5 border border-border">
+      <Icon icon="layer-group" class="text-primary text-4xl" />
     </div>
     <p class="text-text-primary text-left text-4xl font-semibold">
       Catálogo Completo

@@ -1,22 +1,24 @@
 <script setup lang="ts">
-import { useCataLogFilterStore, type FilterValue } from '@/stores/catalog-filter-store';
+import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
 import { computed, type Component } from 'vue';
 import Icon from '../Icon.vue';
 
 import FadeFromBottomTransition from '@/transitions/FadeFromBottomTransition.vue';
 import { ref } from 'vue';
 import CatalogListingHeaderAll from './CatalogListingHeaderAll.vue';
-import CatalogListingHeaderBrandWAP from './CatalogListingHeaderBrandWAP.vue';
 import CatalogListingHeaderBrandAlhe from './CatalogListingHeaderBrandAlhe.vue';
 import CatalogListingHeaderBrandNWX from './CatalogListingHeaderBrandNWX.vue';
-import CatalogListingHeaderBrandVonder from './CatalogListingHeaderBrandVonder.vue';
 import CatalogListingHeaderBrandSelene from './CatalogListingHeaderBrandSelene.vue';
+import CatalogListingHeaderBrandVonder from './CatalogListingHeaderBrandVonder.vue';
+import CatalogListingHeaderBrandWAP from './CatalogListingHeaderBrandWAP.vue';
+import { useBrandStore } from '@/stores/brand-store';
 
 const catalogFilterStore = useCataLogFilterStore();
+const { getBrand } = useBrandStore();
 const selectedFilter = computed(() => catalogFilterStore.selectedFilter);
 
 const brandHeaders = ref<{
-  value: FilterValue;
+  value: string;
   component: Component
 }[]>([
   { value: 'all', component: CatalogListingHeaderAll },
@@ -30,17 +32,10 @@ const brandHeaders = ref<{
 </script>
 
 <template>
-  <FadeFromBottomTransition name="fade-from-bottom" tag="div">
-    <component :is="brandHeaders.find(header => header.value === selectedFilter)?.component" />
-  </FadeFromBottomTransition>
-
-
-  <div class="flex items-end justify-between gap-3">
-    <div
-      class="flex items-center gap-4 bg-bg-base ps-4 rounded-2xl border border-border shadow-lg focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all w-120">
-      <Icon icon="magnifying-glass" class="text-sm text-text-secondary" />
-      <input type="text" class="outline-none pe-4 py-2.5 w-full" placeholder="Buscar por produtos..." />
-    </div>
-    <p class="text-text-secondary/80">Mostrando todos os 15 produtos disponíveis</p>
+  <div class="bg-gradient-to-l rounded to-80% to-bg-muted py-6 transition-colors"
+    :class="getBrand(selectedFilter)?.gradientColor ? getBrand(selectedFilter)?.gradientColor : 'from-slate-200'">
+    <FadeFromBottomTransition>
+      <component :is="brandHeaders.find(header => header.value === selectedFilter)?.component" />
+    </FadeFromBottomTransition>
   </div>
 </template>
