@@ -10,20 +10,17 @@ import { Transition } from 'vue';
 </template>
 
 <style scoped>
-.fade-from-top-enter-active,
+.fade-from-top-enter-active {
+  transition: all 0.4s ease-out;
+}
+
 .fade-from-top-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .fade-from-top-enter-from,
 .fade-from-top-leave-to {
   opacity: 0;
-  transform: translateY(-10px);
-}
-
-.fade-from-top-enter-to,
-.fade-from-top-leave-from {
-  opacity: 1;
-  transform: translateY(0);
+  transform: translateY(-20px);
 }
 </style>

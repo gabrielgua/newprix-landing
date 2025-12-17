@@ -1,34 +1,37 @@
 import { defineStore } from 'pinia'
 import { ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { useBrandStore, type Brand, type BrandValue } from './brand-store'
 
-const FILTERS = [
-  { label: 'Todos', value: 'all' },
-  { label: 'WAP', value: 'wap' },
-  { label: 'Vonder', value: 'vonder' },
-  { label: 'NWX', value: 'nwx' },
-  { label: 'Selene', value: 'selene' },
-  { label: 'Alhe', value: 'alhe' },
-] as const
+export type FilterValue = BrandValue | 'all'
 
-export type Filter = (typeof FILTERS)[number]['value']
-
-export type CatalogFilter = {
+type BrandFilter = {
   label: string
-  value: Filter
+  value: FilterValue
 }
 
 export const useCataLogFilterStore = defineStore('catalog-filter', () => {
   const route = useRoute()
   const router = useRouter()
+  const brandStore = useBrandStore()
 
-  const isValidFilter = (value: unknown): value is Filter => {
-    return FILTERS.some((filter) => filter.value === value)
+  const filters = ref<BrandFilter[]>([
+    { label: 'Todos', value: 'all' },
+    ...brandStore.brands.map((brand) => ({
+      label: brand.label,
+      value: brand.value,
+    })),
+  ])
+
+  const isValidFilter = (value: unknown): value is BrandValue => {
+    return filters.value.some((filter) => filter.value === value)
   }
 
-  const selectedFilter = ref<Filter>(isValidFilter(route.query.brand) ? route.query.brand : 'all')
+  const selectedFilter = ref<FilterValue>(
+    isValidFilter(route.query.brand) ? route.query.brand : 'all',
+  )
 
-  const selectFilter = (filter: Filter) => {
+  const selectFilter = (filter: FilterValue) => {
     selectedFilter.value = filter
 
     router.replace({
@@ -53,5 +56,5 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
     { immediate: true },
   )
 
-  return { selectedFilter, selectFilter, FILTERS }
+  return { selectedFilter, selectFilter, filters }
 })

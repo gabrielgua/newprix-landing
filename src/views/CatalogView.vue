@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import CatalogFilter from '@/components/CatalogFilter.vue';
+import CatalogFilter from '@/components/catalog/CatalogFilter.vue';
+import CatalogListing from '@/components/catalog/CatalogListing.vue';
+import CatalogListingHeader from '@/components/catalog/CatalogListingHeader.vue';
+import Divider from '@/components/Divider.vue';
 import Section from '@/components/Section.vue';
 
 
@@ -26,7 +29,14 @@ import Section from '@/components/Section.vue';
       <CatalogFilter />
     </template>
   </Section>
-  <Section centered class="py-18!">
-    <template #title-hero>Produtos em destaque</template>
+
+  <Section class="pt-0! pb-18!">
+    <template #first-column-content>
+      <div class="flex flex-col space-y-12 transition-all">
+        <CatalogListingHeader />
+        <Divider />
+        <CatalogListing />
+      </div>
+    </template>
   </Section>
 </template>
