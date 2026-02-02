@@ -7,4 +7,5 @@ export type Product = {
   brand: string
   img: string
   link: string
+  new: boolean
 }

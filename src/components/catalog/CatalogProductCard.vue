@@ -18,6 +18,10 @@ import Icon from '../Icon.vue';
         class="uppercase absolute top-2 left-2 bg-white text-primary text-xs font-semibold px-2 py-1 rounded-lg border border-border">
         {{ props.brand }}
       </span>
+      <span class="uppercase absolute top-2 right-2 bg-pink-400 text-white text-xs font-semibold px-2 py-1 rounded-lg">
+        <Icon icon="star" class="me-1" />
+        novo
+      </span>
     </div>
     <div class="flex flex-col flex-grow mt-4">
       <h2 class="text-primary-400 text-xs font-semibold">{{ props.category }}</h2>
