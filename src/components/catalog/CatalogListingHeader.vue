@@ -32,7 +32,7 @@ const brandHeaders = ref<{
 </script>
 
 <template>
-  <div class="bg-gradient-to-l rounded to-80% to-bg-muted py-6 transition-colors"
+  <div class="bg-gradient-to-l rounded to-80% to-bg-base py-6 transition-colors"
     :class="getBrand(selectedFilter)?.gradientColor ? getBrand(selectedFilter)?.gradientColor : 'from-slate-200'">
     <FadeFromBottomTransition>
       <component :is="brandHeaders.find(header => header.value === selectedFilter)?.component" />
