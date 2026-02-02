@@ -6,6 +6,7 @@ import { useBrandStore } from '@/stores/brand-store';
 const catalogFilterStore = useCataLogFilterStore();
 const { getBrand } = useBrandStore();
 
+
 </script>
 
 <template>

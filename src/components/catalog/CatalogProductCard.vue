@@ -2,7 +2,6 @@
 import Button from '../Button.vue';
 import Divider from '../Divider.vue';
 import Icon from '../Icon.vue';
-
 </script>
 
 <template>

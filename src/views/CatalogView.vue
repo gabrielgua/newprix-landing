@@ -5,6 +5,13 @@ import CatalogListingHeader from '@/components/catalog/CatalogListingHeader.vue'
 import Divider from '@/components/Divider.vue';
 import Icon from '@/components/Icon.vue';
 import Section from '@/components/Section.vue';
+import { onBeforeMount } from 'vue';
+
+
+
+onBeforeMount(() => {
+  document.title = 'Catálogo de Produtos - NewPrix';
+});
 
 
 </script>
