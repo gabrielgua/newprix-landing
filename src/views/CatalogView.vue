@@ -31,7 +31,7 @@ import Section from '@/components/Section.vue';
     </template>
   </Section>
 
-  <Section class="py-0! bg-bg-base">
+  <Section class="pt-0! bg-bg-base">
     <template #first-column-content>
       <div class="flex flex-col space-y-6 transition-all">
         <CatalogListingHeader />
