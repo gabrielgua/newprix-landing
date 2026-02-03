@@ -5,14 +5,15 @@ import Icon from './Icon.vue';
 defineProps<{
   imgSrc: string;
   shadowColor?: string
-  hoverColor?: string
+  hoverColor?: string,
+  value: string
 }>();
 
 </script>
 
 
 <template>
-  <div
+  <RouterLink :to="`/catalog?brand=${value}`"
     class="flex flex-col shadow-xl rounded-3xl bg-bg-base overflow-hidden hover:-translate-y-2 hover:scale-102 hover:cursor-pointer transition-all group"
     :class="shadowColor">
     <div class="h-46">
@@ -33,5 +34,5 @@ defineProps<{
         <Icon icon="arrow-right" class="text-xs group-hover:translate-x-2 transition-all" />
       </div>
     </div>
-  </div>
+  </RouterLink>
 </template>

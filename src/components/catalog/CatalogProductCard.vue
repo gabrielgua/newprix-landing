@@ -2,10 +2,14 @@
 
 const props = defineProps<Product>();
 
+
 import type { Product } from '@/types/product';
 import Button from '../Button.vue';
 import Divider from '../Divider.vue';
 import Icon from '../Icon.vue';
+
+
+
 </script>
 
 <template>
@@ -33,7 +37,7 @@ import Icon from '../Icon.vue';
       <div class="space-y-2">
         <a :href="props.link" target="_blank">
           <Button v-if="props.store === 'AMAZON'" variant="neutral"
-            class="w-full justify-center bg-zinc-800 text-white">
+            class="w-full justify-center text-white bg-zinc-800">
             <Icon icon="shopping-cart" />
             Ver na Amazon
             <Icon icon="arrow-up-right-from-square" class="ms-auto" />

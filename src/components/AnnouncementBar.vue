@@ -22,13 +22,13 @@ const closeBar = () => {
         <span class="font-semibold">Lançamento! </span>
         <span class="font-bold">NWX</span> Protetores Auriculares Antirruído.
       </p>
-      <Button variant="neutral" size="xs">
-        Confira já!
-        <Icon icon="arrow-right" />
-      </Button>
-      <!-- <Button @click="closeBar()" variant="neutral" size="xs" class="size-8 p-0! grid place-items-center ml-auto">
-        <Icon icon="xmark" />
-      </Button> -->
+      <RouterLink to="/catalog?brand=nwx">
+        <Button variant="neutral" size="xs">
+          Confira já!
+          <Icon icon="arrow-right" />
+        </Button>
+      </RouterLink>
+
     </Container>
   </div>
 </template>

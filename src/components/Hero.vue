@@ -21,10 +21,12 @@ import Icon from './Icon.vue'
             revendedores que buscam qualidade, agilidade e oportunidades.
           </p>
           <div class="flex flex-col lg:flex-row items-center gap-6">
-            <Button size="xl" class="font-semibold w-full justify-between">
-              Conheça nosso catálogo
-              <Icon icon="bag-shopping" />
-            </Button>
+            <RouterLink to="/catalog" class="w-full">
+              <Button size="xl" class="font-semibold w-full justify-between">
+                Conheça nosso catálogo
+                <Icon icon="bag-shopping" />
+              </Button>
+            </RouterLink>
             <Button variant="neutral" size="xl" class="font-semibold w-full justify-center">
               Fale Conosco
             </Button>
