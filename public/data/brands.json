@@ -6,6 +6,7 @@
       "gradientColor": "from-primary-300",
       "textColor": "text-primary",
       "bgColor": "bg-black",
+      "borderColor": "border-black",
       "logoSrc": "/images/brands/wap_300x300.png"
     },
     {
@@ -15,6 +16,7 @@
       "gradientColor": "from-yellow-100",
       "textColor": "text-yellow-500",
       "bgColor": "bg-yellow-500",
+      "borderColor": "border-yellow-500",
       "logoSrc": "/images/brands/vonder_300x300.png"
     },
     {
@@ -24,6 +26,7 @@
       "gradientColor": "from-blue-300",
       "textColor": "text-blue-500",
       "bgColor": "bg-blue-500",
+      "borderColor": "border-blue-500",
       "logoSrc": "/images/brands/nwx_300x300.png"
     },
     {
@@ -33,6 +36,7 @@
       "gradientColor": "from-rose-300",
       "textColor": "text-rose-400",
       "bgColor": "bg-rose-400",
+      "borderColor": "border-rose-400",
       "logoSrc": "/images/brands/selene_300x300.png"
     },
     {
@@ -42,6 +46,7 @@
       "gradientColor": "from-stone-300",
       "textColor": "text-stone-400",
       "bgColor": "bg-stone-400",
+      "borderColor": "border-stone-400",
       "logoSrc": "/images/brands/alhe_300x300.png"
     }
 ]

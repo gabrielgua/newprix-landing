@@ -13,7 +13,8 @@ const { getBrand } = useBrandStore();
   <div class="flex items-center justify-center gap-4 flex-wrap">
     <FilterButton v-for="filter in catalogFilterStore.filters" :key="filter.value"
       :selected="catalogFilterStore.selectedFilter === filter.value"
-      :selected-bg-color="getBrand(filter.value)?.bgColor!" @click="catalogFilterStore.selectFilter(filter.value)">
+      :selected-bg-color="getBrand(filter.value)?.bgColor!" @click="catalogFilterStore.selectFilter(filter.value)"
+      :border-color="getBrand(filter.value)?.borderColor" :text-color="getBrand(filter.value)?.textColor">
       {{ filter.label }}
     </FilterButton>
   </div>

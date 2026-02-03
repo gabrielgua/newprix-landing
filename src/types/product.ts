@@ -4,7 +4,7 @@ export type Product = {
   category: string
   description: string
   store: string
-  brand: string
+  brand: 'AMAZON' | 'MERCADO_LIVRE'
   img: string
   link: string
   new: boolean

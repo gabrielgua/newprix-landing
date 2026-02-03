@@ -4,6 +4,8 @@ import CatalogProductCard from './CatalogProductCard.vue';
 
 const productStore = useProductStore();
 
+
+
 </script>
 
 <template>
