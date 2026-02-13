@@ -15,7 +15,7 @@ defineProps<{
 
   <div class="px-6 py-3 rounded-full shadow-lg shadow-slate-800/5 font-medium border-2 transition-all border-border"
     :class="selected ? `${selectedBgColor ?? 'bg-primary'} ${selectedTextColor ?? 'text-white'}` : 'bg-bg-base text-text-secondary cursor-pointer active:scale-95 '">
-    <p>
+    <p class="text-sm">
       <slot />
     </p>
   </div>

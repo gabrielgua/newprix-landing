@@ -33,9 +33,9 @@ const toggleHeaderMobile = () => showHeaderMobile.value = !showHeaderMobile.valu
 </script>
 
 <template>
-  <header class="backdrop-blur-3xl bg-bg-secondary/60 sticky top-0 z-50 py-6 lg:py-8 space-y-6 md:space-y-0"
-    :class="{ 'shadow-xl shadow-primary/10': scrolled }">
-    <Container class="flex items-center justify-between transition-all">
+  <header class="backdrop-blur-3xl bg-bg-secondary/60 sticky top-0 z-50 transition-all"
+    :class="scrolled ? 'py-4! lg:py-6! space-y-3 md:space-y-0 shadow-xl shadow-primary/20' : 'py-6! lg:py-8! space-y-6 md:space-y-0 text-normal'">
+    <Container class="flex items-center justify-between ">
       <RouterLink to="/">
         <Logo />
       </RouterLink>
