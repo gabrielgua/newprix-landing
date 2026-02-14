@@ -9,7 +9,7 @@ import Topic from './Topic.vue';
 </script>
 
 <template>
-  <Section icon="feather-pointed" flex-row>
+  <Section icon="feather-pointed" flex-row gap="lg:gap-24 gap-8">
     <template #title>Nossa Hístoria</template>
     <template #title-hero>
       Conectando você às <span class="text-primary">melhores marcas</span> com total segurança.
@@ -77,7 +77,7 @@ import Topic from './Topic.vue';
     </template>
 
     <template #second-column-content>
-      <div class=" relative aspect-[4/5] lg:aspect-[4/3] lg:max-w-2xl">
+      <div class="relative aspect-[4/5] lg:aspect-[4/3] lg:max-w-2xl">
         <div class="grid place-items-center w-full h-full rounded-4xl shadow-lg overflow-hidden mx-auto transition-all">
           <img src="@/assets/images/about_us.jpg" alt="About us image"
             class="z-1 w-full h-full object-cover hover:scale-105 transition-transform duration-700" />

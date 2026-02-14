@@ -1,26 +1,21 @@
 <script setup lang="ts">
-import CatalogFilter from '@/components/catalog/CatalogFilter.vue';
 import CatalogListing from '@/components/catalog/CatalogListing.vue';
+import CatalogListingHeader from '@/components/catalog/CatalogListingHeader.vue';
 import Divider from '@/components/Divider.vue';
+import FilterButton from '@/components/FilterButton.vue';
 import Icon from '@/components/Icon.vue';
 import Section from '@/components/Section.vue';
 import { useBrandStore } from '@/stores/brand-store';
 import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
-import { useElementBounding } from '@vueuse/core';
-import { computed, ref } from 'vue';
 
 const catalogFilterStore = useCataLogFilterStore();
-const { getBrand } = useBrandStore();
-
-const headerHeight = 100;
-const brandFiltersRef = ref<HTMLElement | null>(null);
+const { getBrand, brands } = useBrandStore();
 
 
-const { top: brandFiltersTop } = useElementBounding(brandFiltersRef);
 
-const isBrandFiltersPinned = computed(() => {
-  return brandFiltersTop.value <= headerHeight;
-})
+
+
+
 
 const getColor = () => {
   const brand = getBrand(catalogFilterStore.selectedFilter);
@@ -30,7 +25,7 @@ const getColor = () => {
 </script>
 
 <template>
-  <Section ref="heroRef" centered class="bg-bg-muted py-24!">
+  <Section ref="heroRef" centered class="bg-bg-base py-24!">
     <template #title>Nossa seleção</template>
     <template #title-hero>
       <p class="mb-4 text-6xl max-w-[700px]">
@@ -46,53 +41,102 @@ const getColor = () => {
     </template>
   </Section>
 
-  <Section ref="brandFiltersRef" class="sticky top-16 lg:top-20 bg-bg-muted z-10"
-    :class="[isBrandFiltersPinned ? 'py-2!' : 'py-2! md:py-8! lg:py-8! ']">
+
+
+
+
+  <Section class="bg-bg-muted py-8!" flex-row gap="gap-4">
     <template #first-column-content>
-      <div class="flex items-center w-full"
-        :class="isBrandFiltersPinned ? 'space-y-0 justify-between' : 'space-y-12 flex-col'">
-        <CatalogFilter />
-        <div class="flex items-center justify-between gap-3 flex-wrap transition-all"
-          :class="isBrandFiltersPinned ? 'text-sm' : 'text-normal w-full'">
+      <div class="bg-bg-base rounded-2xl border border-border/50 p-4 flex flex-col gap-4 text-sm w-full lg:w-[280px]">
+        <p class="text-text-primary text-base">Filtrar</p>
+        <Divider />
+
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-text-primary ">
+            <Icon icon="magnifying-glass" />
+            <p class="text-base">Pesquisar</p>
+          </div>
+          <div
+            class="flex items-center gap-4 bg-bg-base border border-border rounded-lg p-2 ps-4 outline-none focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all">
+            <input type="text" class="w-full outline-none" placeholder="Buscar por produtos..." />
+          </div>
+        </div>
+
+
+        <div class="space-y-2">
           <div class="flex items-center gap-2 text-text-primary">
-            <p class="font-semibold">
-              Produtos
-            </p>
-            <p class="font-light">
-              (15)
-            </p>
+            <Icon icon="tags" />
+            <p class="text-base">Marcas </p>
           </div>
-          <span class="text-text-secondary/50">|</span>
-          <div class="flex items-center gap-4 ml-auto" :class="isBrandFiltersPinned ? 'text-sm' : 'text-normal'">
-            <p class="text-text-secondary">Ordernar por: </p>
-            <select
-              class="bg-bg-base border border-border rounded-lg p-2 pe-4 ps-2 outline-none focus:border-primary focus:ring-2 focus:ring-primary transition-all">
-              <option value="name-a-z">Nome: A-Z</option>
-              <option value="name-z-a">Nome: Z-A</option>
-              <option value="price-low-high">Preço: menor para o maior</option>
-              <option value="price-high-low">Preço: maior para o menor</option>
-              <option value="newest">Novidades</option>
-            </select>
+          <div class="flex items-center gap-2 flex-wrap">
+            <FilterButton :selected="catalogFilterStore.selectedFilter === 'all'"
+              @click="catalogFilterStore.selectFilter('all')">
+              Todas
+            </FilterButton>
+            <FilterButton v-for="brand in brands" :key="brand.value"
+              :selected="catalogFilterStore.selectedFilter === brand.value" :selected-bg-color="brand.bgColor"
+              @click="catalogFilterStore.selectFilter(brand.value)">
+              {{ brand.fullName }}
+            </FilterButton>
           </div>
-          <div class="flex items-center gap-4" :class="isBrandFiltersPinned ? 'text-sm' : 'text-normal'">
-            <p class="text-text-secondary">Pesquisar: </p>
-            <div
-              class="flex items-center gap-4 bg-bg-base border border-border rounded-lg p-2 ps-4 outline-none focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all">
-              <Icon icon="magnifying-glass" class="text-text-secondary text-xs" />
-              <input type="text" class="w-full outline-none" placeholder="Buscar por produtos..." />
+        </div>
+
+        <div class="space-y-2">
+          <div class="flex items-center gap-2 text-text-primary">
+            <Icon icon="folder-open" />
+            <p class="text-base">Categorias </p>
+          </div>
+          <div class="space-y-0.5">
+            <div class="flex items-center gap-2">
+              <input type="checkbox" id="limpeza"
+                class="w-4 h-4 text-primary bg-bg-base border-border rounded focus:ring-primary">
+              <label for="limpeza" class="text-text-secondary">Limpeza</label>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="checkbox" id="moda"
+                class="w-4 h-4 text-primary bg-bg-base border-border rounded focus:ring-primary">
+              <label for="moda" class="text-text-secondary">Moda</label>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="checkbox" id="protecao"
+                class="w-4 h-4 text-primary bg-bg-base border-border rounded focus:ring-primary">
+              <label for="protecao" class="text-text-secondary">Proteção</label>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="checkbox" id="lazer"
+                class="w-4 h-4 text-primary bg-bg-base border-border rounded focus:ring-primary">
+              <label for="lazer" class="text-text-secondary">Lazer</label>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="checkbox" id="cosmeticos"
+                class="w-4 h-4 text-primary bg-bg-base border-border rounded focus:ring-primary">
+              <label for="cosmeticos" class="text-text-secondary">Cosméticos</label>
             </div>
           </div>
         </div>
+
+
       </div>
     </template>
-  </Section>
-
-
-  <Section class="bg-bg-base py-8!" :class="{ 'py-24!': isBrandFiltersPinned }">
-    <template #first-column-content>
-      <div class="space-y-12">
+    <template #second-column-content>
+      <div class="space-y-4">
+        <CatalogListingHeader />
+        <Divider />
+        <div class="text-sm">
+          <div class="flex items-center gap-2 text-text-primary">
+            <p class="font-light">
+              (15)
+            </p>
+            <p class="font-semibold">
+              Produtos
+            </p>
+          </div>
+        </div>
+        <Divider />
         <CatalogListing />
       </div>
+
+
     </template>
   </Section>
 </template>

@@ -48,17 +48,17 @@ watch(() => catalogFilterStore.selectedFilter, () => {
 </script>
 
 <template>
-  <div class="bg-gradient-to-l rounded to-80% py-6 transition-colors" :class="getColors(selectedFilter).gradientColor">
+  <div>
     <ul>
       <FadeFromBottomTransition>
         <CatalogListingHeaderBrandCard v-for="brandHeader in brandHeaders" :key="brandHeader.value"
           :brand-name="brandHeader.label" :color="brandHeader.textColor">
           <template #img>
-            <div class="group size-30">
+            <div class="group size-30 rounded-2xl overflow-hidden border border-border/50">
               <img v-if="brandHeader.logoSrc" :src="brandHeader.logoSrc" :alt="`${brandHeader.label} Logo`"
-                class="object-cover object-center size-full rounded-4xl shadow group-hover:scale-105 transition-all" />
+                class="object-cover object-center size-full shadow group-hover:scale-105 transition-all" />
               <div v-else
-                class="grid place-items-center size-full bg-bg-base rounded-4xl shadow group-hover:scale-105 transition-all">
+                class="grid place-items-center size-full bg-bg-base shadow group-hover:scale-105 transition-all">
                 <Icon icon="layer-group" class="text-primary text-3xl" />
               </div>
             </div>

@@ -2,14 +2,14 @@
 import Container from './Container.vue';
 import Icon from './Icon.vue';
 
-defineProps<{ icon?: string, flexRow?: boolean, centered?: boolean }>()
+defineProps<{ icon?: string, flexRow?: boolean, centered?: boolean, gap?: string }>()
 
 </script>
 
 <template>
-  <section class="py-10 lg:py-38 transition-all">
-    <Container class="gap-8 flex flex-col [--padding:1.5rem] md:[--padding:2rem] lg:[--padding:3rem] transition-all"
-      :class="[{ 'lg:flex-row lg:space-x-24': flexRow }]" margin="var(--padding)">
+  <section class="py-10 lg:py-38">
+    <Container class="flex flex-col [--padding:1.5rem] md:[--padding:2rem] lg:[--padding:3rem] transition-all"
+      :class="[{ 'lg:flex-row': flexRow }, gap ? gap : 'gap-8']" margin="var(--padding)">
       <div class="flex flex-col space-y-12" :class="{ 'items-center': centered }">
         <div class="flex flex-col space-y-2" :class="{ 'items-center text-center': centered }"
           v-if="$slots['title'] || $slots['title-hero'] || $slots['header'] || $slots['subtitle']">
@@ -27,7 +27,7 @@ defineProps<{ icon?: string, flexRow?: boolean, centered?: boolean }>()
             <slot name="subtitle"></slot>
           </p>
         </div>
-        <div class="mt-auto" v-if="$slots['first-column-content']">
+        <div v-if="$slots['first-column-content']">
           <slot name="first-column-content" />
         </div>
       </div>
