@@ -3,8 +3,8 @@ export type Product = {
   name: string
   category: string
   description: string
-  store: string
-  brand: 'AMAZON' | 'MERCADO_LIVRE'
+  store: 'AMAZON' | 'MERCADO_LIVRE'
+  brand: string
   img: string
   link: string
   new: boolean
