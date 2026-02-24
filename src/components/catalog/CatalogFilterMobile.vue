@@ -15,11 +15,10 @@ defineEmits(['on-close']);
 
 <template>
   <div class="space-y-4">
-
-    <div class="space-y-2">
-      <div class="flex items-center gap-2 text-text-primary ">
+    <div class="space-y-2 text-sm">
+      <div class="flex items-center gap-2 text-text-primary">
         <Icon icon="magnifying-glass" />
-        <p class="text-base">Pesquisar</p>
+        <p>Pesquisar</p>
       </div>
       <div
         class="flex items-center gap-4 bg-bg-base border border-border rounded-lg p-2 ps-4 outline-none focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all">
@@ -27,10 +26,10 @@ defineEmits(['on-close']);
       </div>
     </div>
 
-    <div class="space-y-2">
+    <div class="space-y-2 text-sm">
       <div class="flex items-center gap-2 text-text-primary">
         <Icon icon="tags" />
-        <p class="text-base">Marcas </p>
+        <p>Marcas </p>
       </div>
       <div class="flex items-center gap-2 flex-wrap">
         <CatalogFilterBrandButton :selected="catalogFilterStore.selectedFilter === 'all'"
@@ -45,10 +44,10 @@ defineEmits(['on-close']);
       </div>
     </div>
 
-    <div class="space-y-4">
+    <div class="space-y-2 text-sm">
       <div class="flex items-center gap-2 text-text-primary">
         <Icon icon="folder-open" />
-        <p class="text-base">Categorias </p>
+        <p>Categorias </p>
       </div>
       <div class="space-y-0.5">
         <div class="flex items-center gap-2">
@@ -78,18 +77,20 @@ defineEmits(['on-close']);
         </div>
       </div>
 
-      <Divider />
 
-      <div class="flex items-center gap-2 justify-between *:grow">
-        <Button variant="neutral">
-          <Icon icon="rotate-left" />
-          Resetar filtros
-        </Button>
-        <Button @click="$emit('on-close')" variant="primary">
-          <Icon icon="check" />
-          Concluído
-        </Button>
-      </div>
+
+    </div>
+
+    <Divider />
+    <div class="flex items-center gap-2 justify-between *:grow">
+      <Button variant="neutral">
+        <Icon icon="rotate-left" />
+        Resetar filtros
+      </Button>
+      <Button @click="$emit('on-close')" variant="primary">
+        <Icon icon="check" />
+        Concluído
+      </Button>
     </div>
   </div>
 </template>
