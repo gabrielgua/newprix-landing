@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { useScrollLock } from '@/composables/useScrollLock';
-import FadeFromTopTransition from '@/transitions/FadeFromTopTransition.vue';
 import FadeinTransition from '@/transitions/FadeinTransition.vue';
-import FadeTransition from '@/transitions/FadeTransition.vue';
 import { onMounted, onUnmounted, ref } from 'vue';
 import Button from './Button.vue';
 import Container from './Container.vue';
+import HeaderLink from './HeaderLink.vue';
 import HeaderLinks from './HeaderLinks.vue';
 import Icon from './Icon.vue';
 import Logo from './Logo.vue';
+import MobileBottomModal from './MobileBottomModal.vue';
+import MadimiOneFont from './MadimiOneFont.vue';
 
 const scrolled = ref(false);
 
@@ -25,9 +26,9 @@ onUnmounted(() => {
 });
 
 
-const showHeaderMobile = ref(false);
-useScrollLock(showHeaderMobile); //TODO when resizing to bigger screen sizes the scroll lock remains active
-const toggleHeaderMobile = () => showHeaderMobile.value = !showHeaderMobile.value;
+const showMobileHeader = ref(false);
+useScrollLock(showMobileHeader); //TODO when resizing to bigger screen sizes the scroll lock remains active
+const toggleHeaderMobile = () => showMobileHeader.value = !showMobileHeader.value;
 
 
 </script>
@@ -42,21 +43,34 @@ const toggleHeaderMobile = () => showHeaderMobile.value = !showHeaderMobile.valu
       <HeaderLinks class="hidden md:flex" />
       <Button @click="toggleHeaderMobile" variant="neutral-icon" class="md:hidden">
         <FadeinTransition>
-          <Icon v-if="showHeaderMobile" icon="xmark" size="lg" class="text-primary-500" />
+          <Icon v-if="showMobileHeader" icon="xmark" size="lg" class="text-primary-500" />
           <Icon v-else icon="bars" size="lg" class="text-primary-500" />
         </FadeinTransition>
       </Button>
     </Container>
-    <FadeFromTopTransition>
-      <Container class="md:hidden mb-0" v-if="showHeaderMobile">
-        <HeaderLinks @click="toggleHeaderMobile" class="flex-col items-start gap-4!" />
-      </Container>
-    </FadeFromTopTransition>
-    <FadeTransition>
-      <div v-if="showHeaderMobile" class="md:hidden absolute mt-6 bg-black/50 w-full min-h-dvh"
-        @click="toggleHeaderMobile">
+
+    <MobileBottomModal title="Menu" :show="showMobileHeader" @on-close="toggleHeaderMobile">
+      <ul class="divide-y divide-border">
+        <li class="pb-4 flex items-center gap-2">
+          <HeaderLink to="/home" icon="house" class="w-full text-sm" @clicked="toggleHeaderMobile">Home</HeaderLink>
+        </li>
+        <li class="py-4 flex items-center gap-2">
+          <HeaderLink to="/catalog" icon="tags" class="w-full text-sm" @clicked="toggleHeaderMobile">Catálogo
+          </HeaderLink>
+        </li>
+        <li class="py-4 flex items-center gap-2">
+          <HeaderLink to="/contact" icon="paper-plane" class="w-full text-sm" @clicked="toggleHeaderMobile">Contato
+          </HeaderLink>
+        </li>
+      </ul>
+      <div class="border-t border-border bottom-0 left-0 fixed w-full bg-bg-secondary p-4">
+        <p class="text-center text-sm text-text-secondary">&copy; 2025 <MadimiOneFont>newprix</MadimiOneFont>. Todos os
+          direitos reservados. </p>
       </div>
-    </FadeTransition>
+    </MobileBottomModal>
+
   </header>
+
+
 
 </template>
