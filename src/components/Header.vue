@@ -34,8 +34,8 @@ const toggleHeaderMobile = () => showMobileHeader.value = !showMobileHeader.valu
 </script>
 
 <template>
-  <header class="backdrop-blur-3xl bg-bg-secondary/60 sticky top-0 z-50 transition-all"
-    :class="scrolled ? 'py-4! lg:py-6! space-y-3 md:space-y-0 shadow-xl shadow-primary/10' : 'py-6! lg:py-8! space-y-6 md:space-y-0 text-normal'">
+  <header class="sticky top-0 z-50 transition-all"
+    :class="scrolled ? 'py-4! lg:py-6! space-y-3 md:space-y-0 bg-bg-base' : 'bg-bg-secondary  py-6! lg:py-8! space-y-6 md:space-y-0 text-normal'">
     <Container class="flex items-center justify-between ">
       <RouterLink to="/">
         <Logo />
@@ -51,20 +51,22 @@ const toggleHeaderMobile = () => showMobileHeader.value = !showMobileHeader.valu
 
     <MobileBottomModal title="Menu" :show="showMobileHeader" @on-close="toggleHeaderMobile">
       <ul class="divide-y divide-border">
-        <li class="pb-4 flex items-center gap-2">
+        <li class="pb-4">
           <HeaderLink to="/home" icon="house" class="w-full text-sm" @clicked="toggleHeaderMobile">Home</HeaderLink>
         </li>
-        <li class="py-4 flex items-center gap-2">
-          <HeaderLink to="/catalog" icon="tags" class="w-full text-sm" @clicked="toggleHeaderMobile">Catálogo
+        <li class="py-4">
+          <HeaderLink to="/catalog" icon="tags" class="w-full text-sm" @clicked="toggleHeaderMobile">
+            Catálogo
           </HeaderLink>
         </li>
-        <li class="py-4 flex items-center gap-2">
-          <HeaderLink to="/contact" icon="paper-plane" class="w-full text-sm" @clicked="toggleHeaderMobile">Contato
+        <li class="py-4">
+          <HeaderLink to="/contact" icon="paper-plane" class="w-full text-sm" @clicked="toggleHeaderMobile">
+            Contato
           </HeaderLink>
         </li>
       </ul>
       <div class="border-t border-border bottom-0 left-0 fixed w-full bg-bg-secondary p-4">
-        <p class="text-center text-sm text-text-secondary">&copy; 2025 <MadimiOneFont>newprix</MadimiOneFont>. Todos os
+        <p class="text-center text-sm text-text-secondary">&copy; 2026 <MadimiOneFont>newprix</MadimiOneFont>. Todos os
           direitos reservados. </p>
       </div>
     </MobileBottomModal>

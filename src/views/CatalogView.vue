@@ -37,7 +37,7 @@ const toggleFilterModal = () => {
   </Section>
 
 
-  <Section class="md:hidden bg-bg-base border py-4! border-border sticky top-16 z-10">
+  <Section class="md:hidden bg-bg-base border py-2! border-border sticky top-16 z-10">
     <template #first-column-content>
       <div class="flex items-center  gap-2 text-text-primary text-sm">
         <div
