@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
-import { computed, onMounted, watch } from 'vue';
+import { computed, watch } from 'vue';
 
 import { useBrandStore } from '@/stores/brand-store';
+import FadeFromBottomTransition from '@/transitions/FadeFromRightTransition.vue';
 import type { Brand } from '@/types/brand';
 import { ref } from 'vue';
-import CatalogListingHeaderBrandCard from './CatalogListingHeaderBrandCard.vue';
 import Icon from '../Icon.vue';
-import FadeFromBottomTransition from '@/transitions/FadeFromRightTransition.vue';
+import CatalogListingHeaderBrandCard from './CatalogListingHeaderBrandCard.vue';
 
 const catalogFilterStore = useCataLogFilterStore();
 const brandStore = useBrandStore();
-const selectedFilter = computed(() => catalogFilterStore.selectedFilter);
+const selectedFilter = computed(() => catalogFilterStore.filter.brand?.value);
 
 type BrandHeader = Brand & {
   logoSrc?: string;
@@ -40,7 +40,7 @@ const getColors = (brandValue: string) => {
   };
 };
 
-watch(() => catalogFilterStore.selectedFilter, () => {
+watch(() => catalogFilterStore.filter.brand?.value, () => {
   brandHeaders.value.pop();
   brandHeaders.value.push(getBrand());
 }, { immediate: true });

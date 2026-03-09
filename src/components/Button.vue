@@ -4,7 +4,7 @@ export type ButtonProps = {
   size?: ButtonSize
 }
 
-export type ButtonVariant = 'neutral' | 'primary' | 'secondary' | 'primary-outlined' | 'neutral-outlined' | 'primary-icon' | 'neutral-icon';
+export type ButtonVariant = 'neutral' | 'primary' | 'secondary' | 'dark' | 'primary-outlined' | 'neutral-outlined' | 'primary-icon' | 'neutral-icon' | 'dark-icon';
 export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
 
@@ -17,10 +17,12 @@ const buttonStyles = new Map<ButtonVariant, string>([
   ['primary', 'bg-primary text-white'],
   ['secondary', 'bg-secondary text-white'],
   ['neutral', 'bg-bg-base text-text-primary outline-1 outline-slate-200'],
+  ['dark', 'bg-zinc-800 text-white'],
   ['primary-outlined', 'outline-2 outline-primary text-primary bg-transparent'],
   ['neutral-outlined', 'outline-2 outline-bg-text-secondary text-text-primary bg-transparent'],
   ['primary-icon', 'text-primary-800 justify-center p-0! shadow-none!'],
-  ['neutral-icon', 'text-text-secondary justify-center p-0! shadow-none!']
+  ['neutral-icon', 'text-text-secondary justify-center p-0! shadow-none!'],
+  ['dark-icon', 'text-zinc-800 justify-center p-0! shadow-none!']
 ])
 
 const buttonSizes = new Map<ButtonSize, string>([

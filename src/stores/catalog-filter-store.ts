@@ -8,12 +8,27 @@ type BrandFilter = {
   value: string
 }
 
+type CatalogFilter = {
+  term?: string
+  brand?: BrandFilter
+  categories?: string[]
+}
+
 export const useCataLogFilterStore = defineStore('catalog-filter', () => {
   const route = useRoute()
   const router = useRouter()
   const brandStore = useBrandStore()
 
-  const filters = ref<BrandFilter[]>([
+  const filter = ref<CatalogFilter>({
+    term: '',
+    brand: {
+      label: 'Todos',
+      value: 'all',
+    },
+    categories: [],
+  })
+
+  const brands = ref<BrandFilter[]>([
     { label: 'Todos', value: 'all' },
     ...brandStore.brands.map((brand) => ({
       label: brand.label,
@@ -21,29 +36,29 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
     })),
   ])
 
-  const isValidFilter = (value: unknown): value is string => {
-    return filters.value.some((filter) => filter.value === value)
+  const isValidBrand = (value: unknown): value is string => {
+    return brands.value.some((filter) => filter.value === value)
   }
 
-  const selectedFilter = ref<string>(isValidFilter(route.query.brand) ? route.query.brand : 'all')
+  const selectedBrand = ref<string>(isValidBrand(route.query.brand) ? route.query.brand : 'all')
 
-  const selectFilter = (filter: string) => {
-    selectedFilter.value = filter
+  const selectBrand = (brand: string) => {
+    selectedBrand.value = brand
 
     router.replace({
-      query: filter === 'all' ? {} : { brand: filter },
+      query: brand === 'all' ? {} : { brand: brand },
     })
   }
 
   watch(
     () => route.query.brand,
     (brand) => {
-      if (isValidFilter(brand)) {
-        selectedFilter.value = brand
+      if (isValidBrand(brand)) {
+        filter.value.brand!.value = brand
         return
       }
 
-      selectedFilter.value = 'all'
+      filter.value.brand = { label: 'Todos', value: 'all' }
 
       if (brand !== undefined) {
         router.replace({ query: {} })
@@ -52,5 +67,5 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
     { immediate: true },
   )
 
-  return { selectedFilter, selectFilter, filters }
+  return { selectBrand, brands, filter }
 })

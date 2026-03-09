@@ -2,6 +2,7 @@
 import Button from '@/components/Button.vue';
 import CatalogFilter from '@/components/catalog/CatalogFilter.vue';
 import CatalogFilterMobile from '@/components/catalog/CatalogFilterMobile.vue';
+import CatalogFiltersDisplay from '@/components/catalog/CatalogFiltersDisplay.vue';
 import CatalogListing from '@/components/catalog/CatalogListing.vue';
 import CatalogListingHeader from '@/components/catalog/CatalogListingHeader.vue';
 import Divider from '@/components/Divider.vue';
@@ -65,22 +66,9 @@ const toggleFilterModal = () => {
     <template #second-column-content>
       <div class="space-y-4">
         <CatalogListingHeader />
-        <Divider />
-        <div class="text-sm">
-          <div class="flex items-center gap-2 text-text-primary">
-            <p class="font-light">
-              (15)
-            </p>
-            <p class="font-semibold">
-              Produtos
-            </p>
-          </div>
-        </div>
-        <Divider />
+        <CatalogFiltersDisplay />
         <CatalogListing />
       </div>
-
-
     </template>
   </Section>
 </template>

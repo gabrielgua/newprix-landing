@@ -36,8 +36,7 @@ import Icon from '../Icon.vue';
       <Divider class="my-6 md:my-5 lg:my-4" />
       <div class="space-y-2">
         <a :href="props.link" target="_blank">
-          <Button v-if="props.store === 'AMAZON'" variant="neutral" size="md"
-            class="w-full justify-between text-white bg-zinc-800">
+          <Button v-if="props.store === 'AMAZON'" variant="dark" size="md" class="w-full justify-between">
             Ver na Amazon
             <Icon icon="arrow-up-right-from-square" />
           </Button>

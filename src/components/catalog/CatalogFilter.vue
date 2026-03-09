@@ -35,13 +35,13 @@ const { brands } = useBrandStore();
         <p class="text-base">Marcas </p>
       </div>
       <div class="flex items-center gap-2 flex-wrap">
-        <CatalogFilterBrandButton :selected="catalogFilterStore.selectedFilter === 'all'"
-          @click="catalogFilterStore.selectFilter('all')">
+        <CatalogFilterBrandButton :selected="catalogFilterStore.filter.brand?.value === 'all'"
+          @click="catalogFilterStore.selectBrand('all')">
           Todas
         </CatalogFilterBrandButton>
         <CatalogFilterBrandButton v-for="brand in brands" :key="brand.value"
-          :selected="catalogFilterStore.selectedFilter === brand.value" :selected-bg-color="brand.bgColor"
-          @click="catalogFilterStore.selectFilter(brand.value)">
+          :selected="catalogFilterStore.filter.brand?.value === brand.value" :selected-bg-color="brand.bgColor"
+          @click="catalogFilterStore.selectBrand(brand.value)">
           {{ brand.fullName }}
         </CatalogFilterBrandButton>
       </div>
