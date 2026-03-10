@@ -15,16 +15,16 @@ import Icon from '../Icon.vue';
 <template>
   <div
     class="bg-bg-base rounded-3xl p-4 md:p-5 lg:p-4 group border border-border/50 shadow-slate-800/5 overflow-hidden hover:shadow-xl hover:border-primary-300 transition-all flex flex-col">
-    <div class="w-full aspect-square relative grid place-items-center">
+    <div class="w-full aspect-square relative max-h-[300px] flex items-center justify-center ">
       <img :src="props.img" :alt="`Imagem do produto ${props.name}`"
-        class="group-hover:scale-105 rounded-xl max-h-[200px] md:max-h-[300px] lg:max-h-[250px] xl:max-h-[300px] transition-all" />
+        class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300 rounded-2xl" />
       <span
         class="uppercase absolute top-0 left-0 bg-white text-primary text-xs font-semibold px-2 py-1 rounded-lg border border-border">
         {{ props.brand.label }}
       </span>
       <span v-if="props.new"
-        class="uppercase absolute top-0 right-0 bg-pink-400 text-white text-xs font-semibold px-2 py-1 rounded-lg">
-        <Icon icon="star" class="me-1" />
+        class="uppercase absolute top-0 right-0 bg-pink-400 text-white text-xs font-semibold px-2 py-1 rounded-lg flex items-center gap-1">
+        <Icon icon="star" />
         novo
       </span>
     </div>

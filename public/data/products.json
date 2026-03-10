@@ -12,7 +12,7 @@
       "label": "WAP",
       "value": "wap"
     },
-    "new": true,
+    "new": false,
     "img": "https://m.media-amazon.com/images/I/61Yni3o3Q6L._AC_SX679_.jpg",
     "link": "https://www.amazon.com.br/Eliminador-Neutralizador-WAP-ELIMINA-CP3205/dp/B098FKK5QD/ref=sr_1_2?dib=eyJ2IjoiMSJ9.K_xL7HWu0qe-6j-6kcyQpcMNjehpTr5KOYhsrNDng0tnjA5-Hn2IMPb7qaAwyRK6V73Z1lh5Lkpp3iR9y_jS-VoUEQ9LcyxbhvSG_iic3D2elu1Y2sBOqKkX2Fy0fEKfH_qDSm_qvQflclYD5sBthX8lq-FFrPaCem-d6hvUJFyuKh0Hv-m2bhWyadC1HygpExakKL6NThrwY5fA6xcV6XyYi2Lm18VvV0ApjACsUE8.nNxhnbZZT0U2BcPBXGBFNZpVizrxDVxGGZHdGg45c44&dib_tag=se&m=A3GLKJ180I7O3M&marketplaceID=A2Q3Y263D00KWC&qid=1770062792&s=merchant-items&sr=1-2&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&th=1"
   },
@@ -29,7 +29,7 @@
       "label": "WAP",
       "value": "wap"
     },
-    "new": true,
+    "new": false,
     "img": "https://m.media-amazon.com/images/I/71gwmCfuffL._AC_SX679_.jpg",
     "link": "https://www.amazon.com.br/Eliminador-Neutralizador-WAP-ELIMINA-CP3205/dp/B09DRCBBDN/ref=sr_1_2?dib=eyJ2IjoiMSJ9.K_xL7HWu0qe-6j-6kcyQpcMNjehpTr5KOYhsrNDng0tnjA5-Hn2IMPb7qaAwyRK6V73Z1lh5Lkpp3iR9y_jS-VoUEQ9LcyxbhvSG_iic3D2elu1Y2sBOqKkX2Fy0fEKfH_qDSm_qvQflclYD5sBthX8lq-FFrPaCem-d6hvUJFyuKh0Hv-m2bhWyadC1HygpExakKL6NThrwY5fA6xcV6XyYi2Lm18VvV0ApjACsUE8.nNxhnbZZT0U2BcPBXGBFNZpVizrxDVxGGZHdGg45c44&dib_tag=se&m=A3GLKJ180I7O3M&marketplaceID=A2Q3Y263D00KWC&qid=1770062792&s=merchant-items&sr=1-2&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9&th=1"
   },
@@ -171,53 +171,207 @@
   },
   {
     "id": "11",
-    "name": "A Teste",
+    "name": "(Preto) - NWX Protetor Auricular Antirruído com 3 Camadas Antirruído",
     "category": {
-      "label": "LIMPEZA",
-      "value": "limpeza"
+      "label": "Proteção",
+      "value": "protecao"
     },
-    "description": "O WAP LIMPA TECIDOS é uma solução de limpeza elaborada para eliminar sujeiras de sofás, poltronas, cadeiras, tetos e bancos de carro, tapetes, colchões, carpetes e tecidos em geral. É ideal para a remoção de sujeiras orgânicas como poeira, poluição e gordura do corpo.",
+    "description": "Este protetor auricular com ponteira tripla antirruído foi desenvolvido para oferecer máxima proteção sonora aliada a conforto superior. Diferente dos modelos tradicionais, sua ponteira possui três camadas de silicone, que criam múltiplas zonas de vedação dentro do canal auditivo, bloqueando o som de forma mais eficiente e uniforme.",
     "store": "AMAZON",
     "brand": {
-      "label": "WAP",
-      "value": "wap"
+      "label": "NWX",
+      "value": "nwx"
     },
-    "new": false,
-    "img": "https://m.media-amazon.com/images/I/612fMAFNVbL._AC_SX679_.jpg",
-    "link": "https://www.amazon.com.br/Limpador-Tecidos-Secagem-WAP-CP3243/dp/B09DR5LVJX/ref=sr_1_13?dib=eyJ2IjoiMSJ9.K_xL7HWu0qe-6j-6kcyQpcMNjehpTr5KOYhsrNDng0tnjA5-Hn2IMPb7qaAwyRK6V73Z1lh5Lkpp3iR9y_jS-VoUEQ9LcyxbhvSG_iic3D2elu1Y2sBOqKkX2Fy0fEKfH_qDSm_qvQflclYD5sBthX8lq-FFrPaCem-d6hvUJFyuKh0Hv-m2bhWyadC1HygpExakKL6NThrwY5fA6xcV6XyYi2Lm18VvV0ApjACsUE8.nNxhnbZZT0U2BcPBXGBFNZpVizrxDVxGGZHdGg45c44&dib_tag=se&m=A3GLKJ180I7O3M&marketplaceID=A2Q3Y263D00KWC&qid=1770062792&s=merchant-items&sr=1-13&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9"
-  },{
+    "new": true,
+    "img": "https://m.media-amazon.com/images/I/51fdso6cKrL._AC_SL1500_.jpg",
+    "link": "https://www.amazon.com.br/dp/B0GFP58H4V?th=1"
+  },
+  {
     "id": "12",
-    "name": "B Teste",
+    "name": "(Branco) - NWX Protetor Auricular Antirruído com 3 Camadas Antirruído",
     "category": {
-      "label": "LIMPEZA",
-      "value": "limpeza"
+      "label": "Proteção",
+      "value": "protecao"
     },
-    "description": "O WAP LIMPA TECIDOS é uma solução de limpeza elaborada para eliminar sujeiras de sofás, poltronas, cadeiras, tetos e bancos de carro, tapetes, colchões, carpetes e tecidos em geral. É ideal para a remoção de sujeiras orgânicas como poeira, poluição e gordura do corpo.",
+    "description": "Este protetor auricular com ponteira tripla antirruído foi desenvolvido para oferecer máxima proteção sonora aliada a conforto superior. Diferente dos modelos tradicionais, sua ponteira possui três camadas de silicone, que criam múltiplas zonas de vedação dentro do canal auditivo, bloqueando o som de forma mais eficiente e uniforme.",
     "store": "AMAZON",
     "brand": {
-      "label": "WAP",
-      "value": "wap"
+      "label": "NWX",
+      "value": "nwx"
     },
-    "new": false,
-    "img": "https://m.media-amazon.com/images/I/612fMAFNVbL._AC_SX679_.jpg",
-    "link": "https://www.amazon.com.br/Limpador-Tecidos-Secagem-WAP-CP3243/dp/B09DR5LVJX/ref=sr_1_13?dib=eyJ2IjoiMSJ9.K_xL7HWu0qe-6j-6kcyQpcMNjehpTr5KOYhsrNDng0tnjA5-Hn2IMPb7qaAwyRK6V73Z1lh5Lkpp3iR9y_jS-VoUEQ9LcyxbhvSG_iic3D2elu1Y2sBOqKkX2Fy0fEKfH_qDSm_qvQflclYD5sBthX8lq-FFrPaCem-d6hvUJFyuKh0Hv-m2bhWyadC1HygpExakKL6NThrwY5fA6xcV6XyYi2Lm18VvV0ApjACsUE8.nNxhnbZZT0U2BcPBXGBFNZpVizrxDVxGGZHdGg45c44&dib_tag=se&m=A3GLKJ180I7O3M&marketplaceID=A2Q3Y263D00KWC&qid=1770062792&s=merchant-items&sr=1-13&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9"
+    "new": true,
+    "img": "https://m.media-amazon.com/images/I/41viFoncXvL._AC_SX679_.jpg",
+    "link": "https://www.amazon.com.br/dp/B0GFPMWLXC?th=1"
   },
   {
     "id": "13",
-    "name": "Z Teste",
+    "name": "(Preto) - NWX Protetor Auricular para Dormir",
     "category": {
-      "label": "LIMPEZA",
-      "value": "limpeza"
+      "label": "Proteção",
+      "value": "protecao"
     },
-    "description": "O WAP LIMPA TECIDOS é uma solução de limpeza elaborada para eliminar sujeiras de sofás, poltronas, cadeiras, tetos e bancos de carro, tapetes, colchões, carpetes e tecidos em geral. É ideal para a remoção de sujeiras orgânicas como poeira, poluição e gordura do corpo.",
+    "description": "Conheça o NWX Protetor Auricular Multiuso Antirruído, a escolha definitiva para quem busca conforto e silêncio inteligente em qualquer situação.",
     "store": "AMAZON",
     "brand": {
-      "label": "WAP",
-      "value": "wap"
+      "label": "NWX",
+      "value": "nwx"
+    },
+    "new": false,
+    "img": "https://www.nwxgroup.com.br/images/earplugs/nwx_black.jpeg",
+    "link": "https://www.amazon.com.br/dp/B0FKZJNPS1?th=1"
+  },
+  {
+    "id": "14",
+    "name": "(Branco) - NWX Protetor Auricular para Dormir",
+    "category": {
+      "label": "Proteção",
+      "value": "protecao"
+    },
+    "description": "Conheça o NWX Protetor Auricular Multiuso Antirruído, a escolha definitiva para quem busca conforto e silêncio inteligente em qualquer situação.",
+    "store": "AMAZON",
+    "brand": {
+      "label": "NWX",
+      "value": "nwx"
+    },
+    "new": false,
+    "img": "https://www.nwxgroup.com.br/images/earplugs/nwx_white.jpeg",
+    "link": "https://www.amazon.com.br/dp/B0FKZJPS2S?th=1"
+  },
+  {
+    "id": "15",
+    "name": "(Verde) - NWX Protetor Auricular para Dormir",
+    "category": {
+      "label": "Proteção",
+      "value": "protecao"
+    },
+    "description": "Conheça o NWX Protetor Auricular Multiuso Antirruído, a escolha definitiva para quem busca conforto e silêncio inteligente em qualquer situação.",
+    "store": "AMAZON",
+    "brand": {
+      "label": "NWX",
+      "value": "nwx"
+    },
+    "new": false,
+    "img": "https://www.nwxgroup.com.br/images/earplugs/nwx_green.png",
+    "link": "https://www.amazon.com.br/dp/B0FX5PDB2R?th=1"
+  },
+  {
+    "id": "16",
+    "name": "Kit Protetor Auricular Moldado + Clipe Nasal para Natação, NWX",
+    "category": {
+      "label": "Proteção",
+      "value": "protecao"
+    },
+    "description": "Eleve sua experiência na água com o Kit NWX Protetor Auricular Moldado + Clipe Nasal, desenvolvido para oferecer proteção completa, conforto extremo e praticidade durante a natação e atividades aquáticas.",
+    "store": "AMAZON",
+    "brand": {
+      "label": "NWX",
+      "value": "nwx"
     },
     "new": true,
-    "img": "https://m.media-amazon.com/images/I/612fMAFNVbL._AC_SX679_.jpg",
-    "link": "https://www.amazon.com.br/Limpador-Tecidos-Secagem-WAP-CP3243/dp/B09DR5LVJX/ref=sr_1_13?dib=eyJ2IjoiMSJ9.K_xL7HWu0qe-6j-6kcyQpcMNjehpTr5KOYhsrNDng0tnjA5-Hn2IMPb7qaAwyRK6V73Z1lh5Lkpp3iR9y_jS-VoUEQ9LcyxbhvSG_iic3D2elu1Y2sBOqKkX2Fy0fEKfH_qDSm_qvQflclYD5sBthX8lq-FFrPaCem-d6hvUJFyuKh0Hv-m2bhWyadC1HygpExakKL6NThrwY5fA6xcV6XyYi2Lm18VvV0ApjACsUE8.nNxhnbZZT0U2BcPBXGBFNZpVizrxDVxGGZHdGg45c44&dib_tag=se&m=A3GLKJ180I7O3M&marketplaceID=A2Q3Y263D00KWC&qid=1770062792&s=merchant-items&sr=1-13&ufe=app_do%3Aamzn1.fos.6d798eae-cadf-45de-946a-f477d47705b9"
+    "img": "https://m.media-amazon.com/images/I/41LIF-YgytL._AC_SX679_.jpg",
+    "link": "https://www.amazon.com.br/dp/B0G2MWLK3Q"
+  },
+  {
+    "id": "17",
+    "name": "KIT ALHE Beauty Blond – Shampoo e Máscara Matizadora com Óleo de Semente de Uva para Cabelos Loiros, Descoloridos ou Grisalhos: Hidratação, Brilho e Matização Inteligente",
+    "category": {
+      "label": "Cosméticos",
+      "value": "cosmeticos"
+    },
+    "description": "O KIT ALHE Beauty Blond foi criado especialmente para quem deseja manter o loiro sempre bonito, saudável e iluminado. Composto por shampoo matizador e máscara nutritiva, o kit entrega um cuidado completo que neutraliza o amarelado, hidrata profundamente e devolve vida aos fios que passaram por descoloração, luzes ou coloração clara.",
+    "store": "AMAZON",
+    "brand": {
+      "label": "ALHE",
+      "value": "alhe"
+    },
+    "new": true,
+    "img": "https://m.media-amazon.com/images/I/61LhUqzdoBL._AC_SX522_.jpg",
+    "link": "https://www.amazon.com.br/dp/B0G3DF1PVY"
+  },
+  {
+    "id": "18",
+    "name": "KIT ALHE Hialurônico – Shampoo, Condicionador e Máscara Capilar Veganos com Ácido Hialurônico para Hidratação Profunda, Maciez Imediata, Brilho Intenso e Recuperação dos Fios Ressecados",
+    "category": {
+      "label": "Cosméticos",
+      "value": "cosmeticos"
+    },
+    "description": "O KIT ALHE Hialurônico foi criado para quem busca uma rotina capilar completa, prática e extremamente eficaz contra o ressecamento. Composto por shampoo, condicionador e máscara capilar, o kit oferece uma experiência de hidratação profunda, brilho intenso e maciez duradoura.",
+    "store": "AMAZON",
+    "brand": {
+      "label": "ALHE",
+      "value": "alhe"
+    },
+    "new": true,
+    "img": "https://m.media-amazon.com/images/I/61ZnWjXfwqL._AC_SX522_.jpg",
+    "link": "https://www.amazon.com.br/dp/B0G3Y73KP9"
+  },
+  {
+    "id": "19",
+    "name": "KIT ALHE Banana & Mel – Shampoo, Condicionador e Máscara Capilar Veganos para Hidratação Profunda, Maciez Instantânea, Brilho Natural e Recuperação dos Fios Secos ou Danificados",
+    "category": {
+      "label": "Cosméticos",
+      "value": "cosmeticos"
+    },
+    "description": "O KIT ALHE Banana & Mel foi criado para quem deseja um cuidado capilar completo, nutritivo e intensamente hidratante. Composto por shampoo, condicionador e máscara capilar, ele oferece um tratamento profundo que transforma cabelos secos, danificados ou sem vida em fios macios, brilhantes e cheios de movimento.",
+    "store": "AMAZON",
+    "brand": {
+      "label": "ALHE",
+      "value": "alhe"
+    },
+    "new": true,
+    "img": "https://m.media-amazon.com/images/I/61LxIgoZFsL._AC_SX522_.jpg",
+    "link": "https://www.amazon.com.br/dp/B0G3Y528P9"
+  },
+  {
+    "id": "20",
+    "name": "KIT ALHE Jaborandi – Shampoo, Condicionador e Máscara Capilar com Extrato de Jaborandi para Força, Crescimento Saudável, Controle de Queda e Brilho Natural",
+    "category": {
+      "label": "Cosméticos",
+      "value": "cosmeticos"
+    },
+    "description": "O KIT ALHE Jaborandi foi desenvolvido para quem busca força, crescimento saudável e revitalização profunda dos fios. Composto por shampoo, condicionador e máscara capilar, o trio atua em todas as etapas da rotina de cuidado, oferecendo um tratamento eficaz contra queda, quebra e enfraquecimento dos cabelos.",
+    "store": "AMAZON",
+    "brand": {
+      "label": "ALHE",
+      "value": "alhe"
+    },
+    "new": true,
+    "img": "https://m.media-amazon.com/images/I/61wsoL5dvWL._AC_SX522_.jpg",
+    "link": "https://www.amazon.com.br/dp/B0G3DBN4B9"
+  },
+  {
+    "id": "21",
+    "name": "(M) - Top Canelado Sport Fitness Sem Costura Selene Preto Mescla",
+    "category": {
+      "label": "Moda",
+      "value": "moda"
+    },
+    "description": "O Top Canelado Sport Fitness Sem Costura Selene é a escolha perfeita para mulheres que buscam conforto e estilo durante suas atividades físicas. Com um design que se adapta ao corpo, este top proporciona liberdade de movimento e suporte, permitindo que você se concentre no que realmente importa: seu desempenho.",
+    "store": "MERCADO_LIVRE",
+    "brand": {
+      "label": "Selene",
+      "value": "selene"
+    },
+    "new": true,
+    "img": "https://http2.mlstatic.com/D_NQ_NP_2X_867452-MLB93549006122_102025-F.webp",
+    "link": "https://www.mercadolivre.com.br/top-canelado-sport-fitness-sem-costura-selene/up/MLBU3457000425"
+  },
+  {
+    "id": "22",
+    "name": "(G) - Top Canelado Sport Fitness Sem Costura Selene Preto Mescla",
+    "category": {
+      "label": "Moda",
+      "value": "moda"
+    },
+    "description": "O Top Canelado Sport Fitness Sem Costura Selene é a escolha perfeita para mulheres que buscam conforto e estilo durante suas atividades físicas. Com um design que se adapta ao corpo, este top proporciona liberdade de movimento e suporte, permitindo que você se concentre no que realmente importa: seu desempenho.",
+    "store": "MERCADO_LIVRE",
+    "brand": {
+      "label": "Selene",
+      "value": "selene"
+    },
+    "new": true,
+    "img": "https://http2.mlstatic.com/D_NQ_NP_2X_867452-MLB93549006122_102025-F.webp",
+    "link": "https://www.mercadolivre.com.br/top-canelado-sport-fitness-sem-costura-selene/up/MLBU3457000425"
   }
   
 ]
