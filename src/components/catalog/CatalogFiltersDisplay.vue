@@ -3,13 +3,12 @@ import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
 import { computed } from 'vue';
 import Button from '../Button.vue';
 import Icon from '../Icon.vue';
-import FadeFromRightTransition from '../transitions/FadeFromRightTransition.vue';
-import FadeinTransition from '../transitions/FadeinTransition.vue';
-import CatalogFiltersDisplayItem from './CatalogFiltersDisplayItem.vue';
-import FadeFromTopTransition from '../transitions/FadeFromTopTransition.vue';
 import GroupFadeInTransition from '../transitions/GroupFadeInTransition.vue';
+import CatalogFiltersDisplayItem from './CatalogFiltersDisplayItem.vue';
+import { useProductStore } from '@/stores/product.store';
 
 const catalogFilterStore = useCataLogFilterStore();
+const productStore = useProductStore();
 
 const showFilters = computed(() => {
   return (
@@ -48,7 +47,7 @@ const showFilters = computed(() => {
 
     <div class="flex items-center gap-2 text-text-primary ml-auto">
       <p class="font-light">
-        (15)
+        ({{ productStore.filteredProducts.length }} de {{ productStore.products.length }})
       </p>
       <p class="font-semibold">
         Resultados
