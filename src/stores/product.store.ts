@@ -5,10 +5,10 @@ import { useCataLogFilterStore } from './catalog-filter-store'
 
 export const useProductStore = defineStore('products', () => {
   const catalogFilterStore = useCataLogFilterStore()
-
   const products = ref<Product[]>([])
+
   const filteredProducts = computed<Product[]>(() => {
-    return products.value.filter((product) => {
+    const filtered = products.value.filter((product) => {
       const matchesTerm = catalogFilterStore.filter.term
         ? product.name.toLowerCase().includes(catalogFilterStore.filter.term.toLowerCase())
         : true
@@ -18,13 +18,28 @@ export const useProductStore = defineStore('products', () => {
           ? product.brand.value === catalogFilterStore.filter.brand?.value
           : true
 
-      const matchesCategories = catalogFilterStore.filter.categories?.length
-        ? catalogFilterStore.filter.categories.every(
-            (category) => product.category.value === category.value,
-          )
-        : true
+      return matchesTerm && matchesBrand
+    })
 
-      return matchesTerm && matchesBrand && matchesCategories
+    const orderBy = catalogFilterStore.filter.orderBy
+
+    return [...filtered].sort((a, b) => {
+      switch (orderBy) {
+        case 'asc':
+          return a.name.localeCompare(b.name)
+
+        case 'desc':
+          return b.name.localeCompare(a.name)
+
+        case 'newFirst':
+          return Number(b.new) - Number(a.new)
+
+        case 'oldFirst':
+          return Number(a.new) - Number(b.new)
+
+        default:
+          return 0
+      }
     })
   })
 

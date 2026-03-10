@@ -22,7 +22,8 @@ import Icon from '../Icon.vue';
         class="uppercase absolute top-0 left-0 bg-white text-primary text-xs font-semibold px-2 py-1 rounded-lg border border-border">
         {{ props.brand.label }}
       </span>
-      <span class="uppercase absolute top-0 right-0 bg-pink-400 text-white text-xs font-semibold px-2 py-1 rounded-lg">
+      <span v-if="props.new"
+        class="uppercase absolute top-0 right-0 bg-pink-400 text-white text-xs font-semibold px-2 py-1 rounded-lg">
         <Icon icon="star" class="me-1" />
         novo
       </span>

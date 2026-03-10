@@ -17,12 +17,6 @@ type CatalogFilter = {
   orderBy?: OrderByOption
 }
 
-type FilterCategoryOptions = 'Limpeza' | 'Moda' | 'Proteção' | 'Lazer' | 'Cosméticos'
-type FilterCategory = {
-  label: FilterCategoryOptions
-  value: string
-}
-
 export const useCataLogFilterStore = defineStore('catalog-filter', () => {
   const route = useRoute()
   const router = useRouter()
