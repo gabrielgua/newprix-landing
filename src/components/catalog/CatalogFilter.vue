@@ -26,11 +26,29 @@ const { brands } = useBrandStore();
         <p class="text-base">Pesquisar</p>
       </div>
       <div
-        class="flex items-center gap-4 bg-bg-base border border-border rounded-lg p-2 ps-4 outline-none focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all">
+        class="flex items-center gap-4 bg-bg-base border border-border rounded-lg p-2 ps-3 outline-none focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all">
         <input type="text" v-model="catalogFilterStore.filter.term" class="w-full outline-none"
           placeholder="Buscar por produtos..." />
       </div>
     </div>
+
+    <div class="space-y-2">
+      <div class="flex items-center gap-2 text-text-primary ">
+        <Icon icon="arrow-down-wide-short" />
+        <p class="text-base">Ordenar por</p>
+      </div>
+      <div
+        class="flex items-center gap-4 bg-bg-base border border-border rounded-lg p-2 outline-none focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all">
+        <select v-model="catalogFilterStore.filter.orderBy" class="w-full outline-none">
+          <option value="default" selected>Padrão</option>
+          <option value="asc">Nome: de A-Z</option>
+          <option value="desc">Nome: de Z-A</option>
+          <option value="newFirst">Lançamentos</option>
+          <option value="oldFirst">Antigos</option>
+        </select>
+      </div>
+    </div>
+
 
 
     <div class="space-y-2">
@@ -50,41 +68,6 @@ const { brands } = useBrandStore();
         </CatalogFilterBrandButton>
       </div>
     </div>
-
-    <div class="space-y-2">
-      <div class="flex items-center gap-2 text-text-primary">
-        <Icon icon="folder-open" />
-        <p class="text-base">Categorias </p>
-      </div>
-      <div class="space-y-0.5">
-        <div class="flex items-center gap-2">
-          <input type="checkbox" id="limpeza"
-            class="w-4 h-4 text-primary bg-bg-base border-border rounded focus:ring-primary">
-          <label for="limpeza" class="text-text-secondary">Limpeza</label>
-        </div>
-        <div class="flex items-center gap-2">
-          <input type="checkbox" id="moda"
-            class="w-4 h-4 text-primary bg-bg-base border-border rounded focus:ring-primary">
-          <label for="moda" class="text-text-secondary">Moda</label>
-        </div>
-        <div class="flex items-center gap-2">
-          <input type="checkbox" id="protecao"
-            class="w-4 h-4 text-primary bg-bg-base border-border rounded focus:ring-primary">
-          <label for="protecao" class="text-text-secondary">Proteção</label>
-        </div>
-        <div class="flex items-center gap-2">
-          <input type="checkbox" id="lazer"
-            class="w-4 h-4 text-primary bg-bg-base border-border rounded focus:ring-primary">
-          <label for="lazer" class="text-text-secondary">Lazer</label>
-        </div>
-        <div class="flex items-center gap-2">
-          <input type="checkbox" id="cosmeticos"
-            class="w-4 h-4 text-primary bg-bg-base border-border rounded focus:ring-primary">
-          <label for="cosmeticos" class="text-text-secondary">Cosméticos</label>
-        </div>
-      </div>
-    </div>
-
 
   </div>
 </template>

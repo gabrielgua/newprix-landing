@@ -9,10 +9,12 @@ type FilterBrand = {
   value: string
 }
 
+type OrderByOption = 'default' | 'asc' | 'desc' | 'newFirst' | 'oldFirst'
+
 type CatalogFilter = {
   term?: string
   brand?: FilterBrand
-  categories?: FilterCategory[]
+  orderBy?: OrderByOption
 }
 
 type FilterCategoryOptions = 'Limpeza' | 'Moda' | 'Proteção' | 'Lazer' | 'Cosméticos'
@@ -26,36 +28,13 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
   const router = useRouter()
   const brandStore = useBrandStore()
 
-  const categories = ref<FilterCategory[]>([
-    {
-      label: 'Limpeza',
-      value: 'limpeza',
-    },
-    {
-      label: 'Moda',
-      value: 'moda',
-    },
-    {
-      label: 'Proteção',
-      value: 'protecao',
-    },
-    {
-      label: 'Lazer',
-      value: 'lazer',
-    },
-    {
-      label: 'Cosméticos',
-      value: 'cosmeticos',
-    },
-  ])
-
   const filter = ref<CatalogFilter>({
     term: '',
     brand: {
       label: 'Todos',
       value: 'all',
     },
-    categories: [],
+    orderBy: 'default',
   })
 
   const brands = computed<FilterBrand[]>(() => [
@@ -68,10 +47,6 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
 
   const isValidBrand = (value: string) => {
     return brands.value.some((brand) => brand.value === value)
-  }
-
-  const isValidCategory = (category: string) => {
-    return categories.value.some((c) => c.value === category)
   }
 
   const selectBrand = (brand: string) => {
@@ -87,21 +62,22 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
     })
   }
 
-  const selectCategory = (category: string) => {
-    if (!isValidCategory(category)) {
-      return
-    }
+  const resetFilters = () => {
+    resetTerm()
+    resetOrderBy()
+    resetBrand()
+    router.replace({ query: {} })
+  }
 
-    const categoryAlreadySelected = filter.value.categories?.some((c) => c.value === category)
+  const resetTerm = () => {
+    filter.value.term = ''
+  }
 
-    if (categoryAlreadySelected) {
-      return
-    }
-
-    const selectedCategory = categories.value.find((c) => c.value === category)
-    if (selectedCategory) {
-      filter.value.categories?.push(selectedCategory)
-    }
+  const resetOrderBy = () => {
+    filter.value.orderBy = 'default'
+  }
+  const resetBrand = () => {
+    filter.value.brand = { label: 'Todos', value: 'all' }
   }
 
   watch(
@@ -126,5 +102,13 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
     { immediate: true },
   )
 
-  return { selectBrand, selectCategory, filter, brands, categories }
+  return {
+    selectBrand,
+    resetFilters,
+    resetTerm,
+    resetOrderBy,
+    resetBrand,
+    filter,
+    brands,
+  }
 })

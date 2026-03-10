@@ -15,12 +15,12 @@ export const useProductStore = defineStore('products', () => {
 
       const matchesBrand =
         catalogFilterStore.filter.brand?.value !== 'all'
-          ? product.brand === catalogFilterStore.filter.brand?.value
+          ? product.brand.value === catalogFilterStore.filter.brand?.value
           : true
 
       const matchesCategories = catalogFilterStore.filter.categories?.length
         ? catalogFilterStore.filter.categories.every(
-            (category) => product.category === category.value,
+            (category) => product.category.value === category.value,
           )
         : true
 

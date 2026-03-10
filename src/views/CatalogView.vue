@@ -64,7 +64,7 @@ const toggleFilterModal = () => {
       <CatalogFilter class="hidden md:flex" />
     </template>
     <template #second-column-content>
-      <div class="space-y-4">
+      <div class="space-y-4 w-full">
         <CatalogListingHeader />
         <CatalogFiltersDisplay />
         <CatalogListing />
