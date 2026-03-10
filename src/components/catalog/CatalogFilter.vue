@@ -10,6 +10,9 @@ const catalogFilterStore = useCataLogFilterStore();
 const { brands } = useBrandStore();
 
 
+
+
+
 </script>
 
 <template>
@@ -24,7 +27,8 @@ const { brands } = useBrandStore();
       </div>
       <div
         class="flex items-center gap-4 bg-bg-base border border-border rounded-lg p-2 ps-4 outline-none focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all">
-        <input type="text" class="w-full outline-none" placeholder="Buscar por produtos..." />
+        <input type="text" v-model="catalogFilterStore.filter.term" class="w-full outline-none"
+          placeholder="Buscar por produtos..." />
       </div>
     </div>
 

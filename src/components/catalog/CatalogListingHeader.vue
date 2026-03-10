@@ -3,7 +3,7 @@ import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
 import { computed, watch } from 'vue';
 
 import { useBrandStore } from '@/stores/brand-store';
-import FadeFromBottomTransition from '@/transitions/FadeFromRightTransition.vue';
+import FadeFromBottomTransition from '@/components/transitions/FadeFromRightTransition.vue';
 import type { Brand } from '@/types/brand';
 import { ref } from 'vue';
 import Icon from '../Icon.vue';

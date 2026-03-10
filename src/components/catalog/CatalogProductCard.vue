@@ -20,7 +20,7 @@ import Icon from '../Icon.vue';
         class="group-hover:scale-105 rounded-xl max-h-[200px] md:max-h-[300px] lg:max-h-[250px] xl:max-h-[300px] transition-all" />
       <span
         class="uppercase absolute top-0 left-0 bg-white text-primary text-xs font-semibold px-2 py-1 rounded-lg border border-border">
-        {{ props.brand }}
+        {{ props.brand.label }}
       </span>
       <span class="uppercase absolute top-0 right-0 bg-pink-400 text-white text-xs font-semibold px-2 py-1 rounded-lg">
         <Icon icon="star" class="me-1" />
@@ -28,7 +28,7 @@ import Icon from '../Icon.vue';
       </span>
     </div>
     <div class="flex flex-col flex-grow mt-6 md:mt-5 lg:mt-4">
-      <h2 class="text-primary-400 text-xs font-semibold">{{ props.category }}</h2>
+      <h2 class="text-primary-400 text-xs font-semibold uppercase">{{ props.category.label }}</h2>
       <h3 class="text-text-primary font-semibold text-lg mb-2 line-clamp-2">{{ props.name }}</h3>
       <p class="text-text-secondary flex-grow text-xs line-clamp-3">
         {{ description }}

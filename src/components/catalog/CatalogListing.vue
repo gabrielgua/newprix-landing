@@ -10,6 +10,6 @@ const productStore = useProductStore();
 
 <template>
   <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 transition-all">
-    <CatalogProductCard v-for="product in productStore.products" :key="product.id" v-bind="product" />
+    <CatalogProductCard v-for="product in productStore.filteredProducts" :key="product.id" v-bind="product" />
   </div>
 </template>

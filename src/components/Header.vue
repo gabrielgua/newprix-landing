@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useScrollLock } from '@/composables/useScrollLock';
-import FadeinTransition from '@/transitions/FadeinTransition.vue';
+import FadeinTransition from '@/components/transitions/FadeinTransition.vue';
 import { onMounted, onUnmounted, ref } from 'vue';
 import Button from './Button.vue';
 import Container from './Container.vue';

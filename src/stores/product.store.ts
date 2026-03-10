@@ -1,9 +1,33 @@
 import type { Product } from '@/types/product'
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
+import { useCataLogFilterStore } from './catalog-filter-store'
 
 export const useProductStore = defineStore('products', () => {
+  const catalogFilterStore = useCataLogFilterStore()
+
   const products = ref<Product[]>([])
+  const filteredProducts = computed<Product[]>(() => {
+    return products.value.filter((product) => {
+      const matchesTerm = catalogFilterStore.filter.term
+        ? product.name.toLowerCase().includes(catalogFilterStore.filter.term.toLowerCase())
+        : true
+
+      const matchesBrand =
+        catalogFilterStore.filter.brand?.value !== 'all'
+          ? product.brand === catalogFilterStore.filter.brand?.value
+          : true
+
+      const matchesCategories = catalogFilterStore.filter.categories?.length
+        ? catalogFilterStore.filter.categories.every(
+            (category) => product.category === category.value,
+          )
+        : true
+
+      return matchesTerm && matchesBrand && matchesCategories
+    })
+  })
+
   const state = ref<'loading' | 'loaded' | 'error'>()
 
   const loadProducts = async () => {
@@ -20,5 +44,5 @@ export const useProductStore = defineStore('products', () => {
     }
   }
 
-  return { products, loadProducts, state }
+  return { products, filteredProducts, loadProducts, state }
 })

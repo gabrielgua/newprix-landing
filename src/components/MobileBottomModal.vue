@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import FadeFromBottomTransition from '@/transitions/FadeFromBottomTransition.vue';
-import FadeTransition from '@/transitions/FadeTransition.vue';
+import FadeFromBottomTransition from '@/components/transitions/FadeFromBottomTransition.vue';
+import FadeTransition from '@/components/transitions/FadeTransition.vue';
 import { computed, ref, Teleport } from 'vue';
 import Logo from './Logo.vue';
 import Divider from './Divider.vue';
