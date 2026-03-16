@@ -32,14 +32,6 @@ const getBrand = () => {
   return brand ? brand : allFilter;
 }
 
-const getColors = (brandValue: string) => {
-  const brand = brandHeaders.value.find(b => b.value === brandValue);
-  return {
-    textColor: brand?.textColor || 'text-primary',
-    gradientColor: brand?.gradientColor || 'from-slate-800',
-  };
-};
-
 watch(() => catalogFilterStore.filter.brand?.value, () => {
   brandHeaders.value.pop();
   brandHeaders.value.push(getBrand());

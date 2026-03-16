@@ -8,7 +8,7 @@ defineEmits(['remove'])
 
 <template>
   <li
-    class="flex items-center gap-3 bg-bg-base border border-border p-2 ps-2.5 rounded-xl text-text-primary text-xs -my-2">
+    class="flex items-center gap-3 bg-bg-base border border-border p-2 ps-2.5 rounded-xl text-text-primary text-xs md:-my-2">
     <p>
       <slot />
     </p>

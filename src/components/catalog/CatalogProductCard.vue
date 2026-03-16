@@ -15,7 +15,7 @@ import Icon from '../Icon.vue';
 <template>
   <div
     class="bg-bg-base rounded-3xl p-4 md:p-5 lg:p-4 group border border-border/50 shadow-slate-800/5 overflow-hidden hover:shadow-xl hover:border-primary-300 transition-all flex flex-col">
-    <div class="w-full aspect-square relative max-h-[300px] flex items-center justify-center ">
+    <div class="w-full aspect-square relative max-h-[250px] md:max-h-[300px] flex items-center justify-center ">
       <img :src="props.img" :alt="`Imagem do produto ${props.name}`"
         class="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300 rounded-2xl" />
       <span

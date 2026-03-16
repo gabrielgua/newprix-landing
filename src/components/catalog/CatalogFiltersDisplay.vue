@@ -21,10 +21,10 @@ const showFilters = computed(() => {
 </script>
 
 <template>
-  <div class="text-sm border-y border-border flex items-center gap-4 justify-between py-4 ">
+  <div class="text-sm border-y border-border flex flex-wrap gap-4 justify-between py-4 ">
     <div class="flex items-center gap-4 transition-all">
       <p>Filtros: </p>
-      <GroupFadeInTransition class="flex items-center gap-2 transition-all">
+      <GroupFadeInTransition class="flex items-center gap-2 transition-all flex-wrap">
         <CatalogFiltersDisplayItem v-if="catalogFilterStore.filter.term" @remove="catalogFilterStore.resetTerm()">
           "{{ catalogFilterStore.filter.term }}"
         </CatalogFiltersDisplayItem>

@@ -9,8 +9,10 @@ import Divider from '@/components/Divider.vue';
 import Icon from '@/components/Icon.vue';
 import MobileBottomModal from '@/components/MobileBottomModal.vue';
 import Section from '@/components/Section.vue';
+import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
 import { ref } from 'vue';
 
+const catalogFilterStore = useCataLogFilterStore();
 
 const showFilterModal = ref(false);
 const toggleFilterModal = () => {
@@ -44,7 +46,8 @@ const toggleFilterModal = () => {
         <div
           class="flex items-center grow gap-4 bg-bg-base border border-border rounded-lg p-2 ps-4 outline-none focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all">
           <Icon icon="magnifying-glass" class="text-xs" />
-          <input type="text" class="w-full outline-none" placeholder="Buscar por produtos..." />
+          <input type="text" v-model="catalogFilterStore.filter.term" class="w-full outline-none"
+            placeholder="Buscar por produtos..." />
         </div>
         <Button @click="toggleFilterModal" variant="neutral" class="p-0! size-9! grid place-items-center rounded-lg!">
           <Icon icon="filter" />
