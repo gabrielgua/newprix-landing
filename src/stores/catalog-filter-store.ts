@@ -74,6 +74,17 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
     filter.value.brand = { label: 'Todos', value: 'all' }
   }
 
+  //sanitize filter term
+  watch(
+    () => filter.value.term,
+    (newTerm) => {
+      const sanitizedTerm = newTerm?.replace(/^\s+/, '').replace(/\s{2,}/g, ' ')
+      if (sanitizedTerm !== newTerm) {
+        filter.value.term = sanitizedTerm
+      }
+    },
+  )
+
   watch(
     () => route.query.brand,
     (brand) => {
