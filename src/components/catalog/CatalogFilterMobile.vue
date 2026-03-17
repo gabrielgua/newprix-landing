@@ -62,8 +62,29 @@ defineEmits(['on-close']);
       </div>
     </div>
 
+    <div class="space-y-2 text-sm">
+      <div class="flex items-center gap-2 text-text-primary">
+        <Icon icon="shop" />
+        <p>Loja</p>
+      </div>
+      <div class="flex items-center gap-2 flex-wrap">
+        <CatalogFilterBrandButton selected-bg-color="bg-zinc-800" :selected="catalogFilterStore.filter.store === 'all'"
+          @click="catalogFilterStore.selectStore('all')">
+          Todas
+        </CatalogFilterBrandButton>
+        <CatalogFilterBrandButton :selected="catalogFilterStore.filter.store === 'AMAZON'"
+          selected-bg-color="bg-zinc-800" @click="catalogFilterStore.selectStore('AMAZON')">
+          Amazon
+        </CatalogFilterBrandButton>
+        <CatalogFilterBrandButton :selected="catalogFilterStore.filter.store === 'MERCADO_LIVRE'"
+          selected-bg-color="bg-zinc-800" @click="catalogFilterStore.selectStore('MERCADO_LIVRE')">
+          Mercado Livre
+        </CatalogFilterBrandButton>
+      </div>
+    </div>
+
     <Divider />
-    <div class="flex items-center gap-2 justify-between *:grow">
+    <div class="flex items-center flex-wrap gap-2 justify-between *:grow">
       <Button variant="neutral" @click="catalogFilterStore.resetFilters()">
         <Icon icon="rotate-left" />
         Resetar filtros

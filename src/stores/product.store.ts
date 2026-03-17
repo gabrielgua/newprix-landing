@@ -18,7 +18,12 @@ export const useProductStore = defineStore('products', () => {
           ? product.brand.value === catalogFilterStore.filter.brand?.value
           : true
 
-      return matchesTerm && matchesBrand
+      const matchesStore =
+        catalogFilterStore.filter.store !== 'all'
+          ? product.store === catalogFilterStore.filter.store
+          : true
+
+      return matchesTerm && matchesBrand && matchesStore
     })
 
     const orderBy = catalogFilterStore.filter.orderBy

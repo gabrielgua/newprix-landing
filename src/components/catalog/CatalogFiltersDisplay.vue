@@ -36,6 +36,10 @@ const showFilters = computed(() => {
           @remove="catalogFilterStore.resetOrderBy()">
           {{ catalogFilterStore.filter.orderBy }}
         </CatalogFiltersDisplayItem>
+        <CatalogFiltersDisplayItem v-if="catalogFilterStore.filter.store !== 'all'"
+          @remove="catalogFilterStore.resetStore()">
+          {{ catalogFilterStore.filter.store }}
+        </CatalogFiltersDisplayItem>
 
         <Button variant="neutral-icon" size="xs" @click="catalogFilterStore.resetFilters()" v-if="showFilters">
           <Icon icon="rotate-left" class="text-xs" />

@@ -1,20 +1,23 @@
-import { defineStore } from 'pinia'
+import { defineStore, type Store } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useBrandStore } from './brand-store'
 import { normalizeQueryParam } from '@/composables/normalizeQueryParam'
+import type { ProductStore } from '@/types/product'
 
 type FilterBrand = {
   label: string
   value: string
 }
 
+type StoreOption = ProductStore | 'all'
 type OrderByOption = 'default' | 'asc' | 'desc' | 'newFirst' | 'oldFirst'
 
 type CatalogFilter = {
   term?: string
   brand?: FilterBrand
   orderBy?: OrderByOption
+  store?: StoreOption
 }
 
 export const useCataLogFilterStore = defineStore('catalog-filter', () => {
@@ -29,6 +32,7 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
       value: 'all',
     },
     orderBy: 'default',
+    store: 'all',
   })
 
   const brands = computed<FilterBrand[]>(() => [
@@ -41,6 +45,10 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
 
   const isValidBrand = (value: string) => {
     return brands.value.some((brand) => brand.value === value)
+  }
+
+  const selectStore = (store: StoreOption) => {
+    filter.value.store = store
   }
 
   const selectBrand = (brand: string) => {
@@ -60,7 +68,12 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
     resetTerm()
     resetOrderBy()
     resetBrand()
+    resetStore()
     router.replace({ query: {} })
+  }
+
+  const resetStore = () => {
+    filter.value.store = 'all'
   }
 
   const resetTerm = () => {
@@ -108,11 +121,13 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
   )
 
   return {
+    selectStore,
     selectBrand,
     resetFilters,
     resetTerm,
     resetOrderBy,
     resetBrand,
+    resetStore,
     filter,
     brands,
   }

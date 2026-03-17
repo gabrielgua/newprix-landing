@@ -1,5 +1,7 @@
 import type { Brand } from './brand'
 
+export type ProductStore = 'AMAZON' | 'MERCADO_LIVRE'
+
 export type ProductBrand = {
   label: string
   value: string
@@ -15,7 +17,7 @@ export type Product = {
   name: string
   category: ProductCategory
   description: string
-  store: 'AMAZON' | 'MERCADO_LIVRE'
+  store: ProductStore
   brand: ProductBrand
   img: string
   link: string
