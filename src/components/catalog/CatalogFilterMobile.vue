@@ -49,7 +49,7 @@ defineEmits(['on-close']);
         <Icon icon="tags" />
         <p>Marcas </p>
       </div>
-      <div class="flex items-center gap-2 flex-wrap">
+      <div class="flex items-center gap-2 flex-wrap *:grow *:min-w-[20%]">
         <CatalogFilterBrandButton :selected="catalogFilterStore.filter.brand?.value === 'all'"
           @click="catalogFilterStore.selectBrand('all')">
           Todas
@@ -67,17 +67,17 @@ defineEmits(['on-close']);
         <Icon icon="shop" />
         <p>Loja</p>
       </div>
-      <div class="flex items-center gap-2 flex-wrap">
-        <CatalogFilterBrandButton selected-bg-color="bg-zinc-800" :selected="catalogFilterStore.filter.store === 'all'"
+      <div class="flex items-center gap-2 flex-wrap *:grow *:min-w-[25%]">
+        <CatalogFilterBrandButton selected-bg-color="bg-primary" :selected="catalogFilterStore.filter.store === 'all'"
           @click="catalogFilterStore.selectStore('all')">
           Todas
         </CatalogFilterBrandButton>
         <CatalogFilterBrandButton :selected="catalogFilterStore.filter.store === 'AMAZON'"
-          selected-bg-color="bg-zinc-800" @click="catalogFilterStore.selectStore('AMAZON')">
+          selected-bg-color="bg-primary" @click="catalogFilterStore.selectStore('AMAZON')">
           Amazon
         </CatalogFilterBrandButton>
         <CatalogFilterBrandButton :selected="catalogFilterStore.filter.store === 'MERCADO_LIVRE'"
-          selected-bg-color="bg-zinc-800" @click="catalogFilterStore.selectStore('MERCADO_LIVRE')">
+          selected-bg-color="bg-primary" @click="catalogFilterStore.selectStore('MERCADO_LIVRE')">
           Mercado Livre
         </CatalogFilterBrandButton>
       </div>

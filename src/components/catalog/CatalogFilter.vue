@@ -40,11 +40,10 @@ const { brands } = useBrandStore();
       <div
         class="flex items-center gap-4 bg-bg-base border border-border rounded-lg p-2 outline-none focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all">
         <select v-model="catalogFilterStore.filter.orderBy" class="w-full outline-none">
-          <option value="default" selected>Padrão</option>
-          <option value="asc">Nome: de A-Z</option>
-          <option value="desc">Nome: de Z-A</option>
-          <option value="newFirst">Lançamentos</option>
-          <option value="oldFirst">Antigos</option>
+          <option v-for="filter in catalogFilterStore.orderByFilters" :value="filter.value" :key="filter.value"
+            placeholder="Selecione um...">
+            {{ filter.label }}
+          </option>
         </select>
       </div>
     </div>
@@ -56,7 +55,7 @@ const { brands } = useBrandStore();
         <Icon icon="tags" />
         <p class="text-base">Marcas </p>
       </div>
-      <div class="flex items-center gap-2 flex-wrap">
+      <div class="flex items-center gap-2 flex-wrap *:grow">
         <CatalogFilterBrandButton :selected="catalogFilterStore.filter.brand?.value === 'all'"
           @click="catalogFilterStore.selectBrand('all')">
           Todas
@@ -74,17 +73,17 @@ const { brands } = useBrandStore();
         <Icon icon="shop" />
         <p class="text-base">Loja</p>
       </div>
-      <div class="flex items-center gap-2 flex-wrap ">
-        <CatalogFilterBrandButton selected-bg-color="bg-zinc-800" :selected="catalogFilterStore.filter.store === 'all'"
+      <div class="flex items-center gap-2 flex-wrap *:grow">
+        <CatalogFilterBrandButton selected-bg-color="bg-primary" :selected="catalogFilterStore.filter.store === 'all'"
           @click="catalogFilterStore.selectStore('all')">
           Todas
         </CatalogFilterBrandButton>
         <CatalogFilterBrandButton :selected="catalogFilterStore.filter.store === 'AMAZON'"
-          selected-bg-color="bg-zinc-800" @click="catalogFilterStore.selectStore('AMAZON')">
+          selected-bg-color="bg-primary" @click="catalogFilterStore.selectStore('AMAZON')">
           Amazon
         </CatalogFilterBrandButton>
         <CatalogFilterBrandButton :selected="catalogFilterStore.filter.store === 'MERCADO_LIVRE'"
-          selected-bg-color="bg-zinc-800" @click="catalogFilterStore.selectStore('MERCADO_LIVRE')">
+          selected-bg-color="bg-primary" @click="catalogFilterStore.selectStore('MERCADO_LIVRE')">
           Mercado Livre
         </CatalogFilterBrandButton>
       </div>

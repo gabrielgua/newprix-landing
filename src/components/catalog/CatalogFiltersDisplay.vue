@@ -34,11 +34,11 @@ const showFilters = computed(() => {
         </CatalogFiltersDisplayItem>
         <CatalogFiltersDisplayItem v-if="catalogFilterStore.filter.orderBy !== 'default'"
           @remove="catalogFilterStore.resetOrderBy()">
-          {{ catalogFilterStore.filter.orderBy }}
+          {{ catalogFilterStore.selectedOrderByLabel }}
         </CatalogFiltersDisplayItem>
         <CatalogFiltersDisplayItem v-if="catalogFilterStore.filter.store !== 'all'"
           @remove="catalogFilterStore.resetStore()">
-          {{ catalogFilterStore.filter.store }}
+          {{ catalogFilterStore.selectedStoreLabel }}
         </CatalogFiltersDisplayItem>
 
         <Button variant="neutral-icon" size="xs" @click="catalogFilterStore.resetFilters()" v-if="showFilters">

@@ -1,21 +1,31 @@
-import { defineStore, type Store } from 'pinia'
+import { normalizeQueryParam } from '@/composables/normalizeQueryParam'
+import type { ProductStore } from '@/types/product'
+import { defineStore } from 'pinia'
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useBrandStore } from './brand-store'
-import { normalizeQueryParam } from '@/composables/normalizeQueryParam'
-import type { ProductStore } from '@/types/product'
 
-type FilterBrand = {
+type BrandFilter = {
   label: string
   value: string
 }
 
-type StoreOption = ProductStore | 'all'
 type OrderByOption = 'default' | 'asc' | 'desc' | 'newFirst' | 'oldFirst'
+
+type OrderByFilter = {
+  label: string
+  value: OrderByOption
+}
+
+type StoreOption = ProductStore | 'all'
+type StoreFilter = {
+  label: string
+  value: StoreOption
+}
 
 type CatalogFilter = {
   term?: string
-  brand?: FilterBrand
+  brand?: BrandFilter
   orderBy?: OrderByOption
   store?: StoreOption
 }
@@ -24,6 +34,28 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
   const route = useRoute()
   const router = useRouter()
   const brandStore = useBrandStore()
+
+  const orderByFilters: OrderByFilter[] = [
+    { value: 'default', label: 'Padrão' },
+    { value: 'asc', label: 'Nome: de A - Z' },
+    { value: 'desc', label: 'Nome: de Z - A' },
+    { value: 'newFirst', label: 'Lançamentos Primeiro' },
+    { value: 'oldFirst', label: 'Antigos Primeiro' },
+  ]
+
+  const storeFilters: StoreFilter[] = [
+    { value: 'all', label: 'Todas' },
+    { value: 'MERCADO_LIVRE', label: 'Mercado Livre' },
+    { value: 'AMAZON', label: 'Amazon' },
+  ]
+
+  const selectedOrderByLabel = computed(() => {
+    return orderByFilters.find((f) => f.value === filter.value.orderBy)?.label
+  })
+
+  const selectedStoreLabel = computed(() => {
+    return storeFilters.find((f) => f.value === filter.value.store)?.label
+  })
 
   const filter = ref<CatalogFilter>({
     term: '',
@@ -35,7 +67,7 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
     store: 'all',
   })
 
-  const brands = computed<FilterBrand[]>(() => [
+  const brands = computed<BrandFilter[]>(() => [
     { label: 'Todos', value: 'all' },
     ...brandStore.brands.map((brand) => ({
       label: brand.label,
@@ -83,6 +115,7 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
   const resetOrderBy = () => {
     filter.value.orderBy = 'default'
   }
+
   const resetBrand = () => {
     filter.value.brand = { label: 'Todos', value: 'all' }
   }
@@ -129,6 +162,10 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
     resetBrand,
     resetStore,
     filter,
+    orderByFilters,
+    storeFilters,
+    selectedOrderByLabel,
+    selectedStoreLabel,
     brands,
   }
 })
