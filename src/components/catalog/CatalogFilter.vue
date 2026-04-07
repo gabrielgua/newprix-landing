@@ -20,10 +20,10 @@ const { brands } = useBrandStore();
     <p class="text-text-primary text-base">Filtrar</p>
     <Divider />
 
-    <div class="space-y-2">
-      <div class="flex items-center gap-2 text-text-primary ">
+    <div class="space-y-2 ">
+      <div class="flex items-center gap-2 text-text-primary text-sm">
         <Icon icon="magnifying-glass" />
-        <p class="text-base">Pesquisar</p>
+        <p>Pesquisar</p>
       </div>
       <div
         class="flex items-center gap-4 bg-bg-base border border-border rounded-lg p-2 ps-3 outline-none focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all">
@@ -33,9 +33,9 @@ const { brands } = useBrandStore();
     </div>
 
     <div class="space-y-2">
-      <div class="flex items-center gap-2 text-text-primary ">
+      <div class="flex items-center gap-2 text-text-primary text-sm">
         <Icon icon="arrow-down-wide-short" />
-        <p class="text-base">Ordenar por</p>
+        <p>Ordenar por</p>
       </div>
       <div
         class="flex items-center gap-4 bg-bg-base border border-border rounded-lg p-2 outline-none focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all">
@@ -51,9 +51,9 @@ const { brands } = useBrandStore();
 
 
     <div class="space-y-2">
-      <div class="flex items-center gap-2 text-text-primary">
+      <div class="flex items-center gap-2 text-text-primary text-sm">
         <Icon icon="tags" />
-        <p class="text-base">Marcas </p>
+        <p>Marcas </p>
       </div>
       <div class="flex items-center gap-2 flex-wrap *:grow">
         <CatalogFilterBrandButton :selected="catalogFilterStore.filter.brand?.value === 'all'"
@@ -71,7 +71,7 @@ const { brands } = useBrandStore();
     <div class="space-y-2">
       <div class="flex items-center gap-2 text-text-primary">
         <Icon icon="shop" />
-        <p class="text-base">Loja</p>
+        <p>Loja</p>
       </div>
       <div class="flex items-center gap-2 flex-wrap *:grow">
         <CatalogFilterBrandButton selected-bg-color="bg-primary" :selected="catalogFilterStore.filter.store === 'all'"
