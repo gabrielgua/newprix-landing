@@ -1,5 +1,12 @@
+<script setup lang="ts">
+import { RouterLink } from 'vue-router';
+
+</script>
+
 <template>
-  <h2 class="font-bold text-2xl title text-primary">newprix</h2>
+  <RouterLink to="/home">
+    <h2 class="font-bold text-2xl title text-primary">newprix</h2>
+  </RouterLink>
 </template>
 
 <style scoped>
