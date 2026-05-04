@@ -23,10 +23,10 @@ const toggleFilterModal = () => {
 </script>
 
 <template>
-  <Section ref="heroRef" centered class="bg-bg-base py-24!">
+  <Section ref="heroRef" centered class="bg-bg-base py-14!">
     <template #title>Nossa seleção</template>
     <template #title-hero>
-      <p class="mb-4 text-6xl max-w-[700px]">
+      <p class="mb-4 text-5xl ">
         As melhores marcas,
         <span class="text-primary">um só lugar.</span>
       </p>
