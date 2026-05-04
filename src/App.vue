@@ -5,6 +5,7 @@ import Header from './components/Header.vue';
 import { useBrandStore } from './stores/brand-store';
 import { useProductStore } from './stores/product.store';
 import { useRoute } from 'vue-router';
+import Footer from './components/Footer.vue';
 
 const { loadBrands } = useBrandStore();
 const { loadProducts } = useProductStore();
@@ -24,6 +25,7 @@ const isHomePage = computed(() => route.name === 'home');
     <AnnouncementBar v-if="isHomePage" />
     <Header />
     <RouterView />
+    <Footer />
   </div>
 </template>
 

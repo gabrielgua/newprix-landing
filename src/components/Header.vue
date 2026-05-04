@@ -34,7 +34,7 @@ const toggleHeaderMobile = () => showMobileHeader.value = !showMobileHeader.valu
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 transition-all bg-bg-base"
+  <header class="sticky top-0 z-50 transition-all bg-bg-base border-b border-b-border"
     :class="scrolled ? 'py-4! lg:py-6! space-y-3 md:space-y-0' : 'py-6! lg:py-8! space-y-6 md:space-y-0 text-normal'">
     <Container class="flex items-center justify-between ">
       <RouterLink to="/">

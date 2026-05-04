@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 export type ButtonProps = {
   variant?: ButtonVariant,
-  size?: ButtonSize
+  size?: ButtonSize,
+  disabled?: boolean
 }
 
 export type ButtonVariant = 'neutral' | 'primary' | 'secondary' | 'dark' | 'primary-outlined' | 'neutral-outlined' | 'primary-icon' | 'neutral-icon' | 'dark-icon';
@@ -38,7 +39,8 @@ const buttonSizes = new Map<ButtonSize, string>([
 <template>
   <button
     class="flex items-center rounded-full active:scale-[98%] cursor-pointer transition-all shadow-xs hover:scale-101"
-    :class="[buttonStyles.get(variant), buttonSizes.get(size)]">
+    :class="[buttonStyles.get(variant), buttonSizes.get(size), { 'pointer-events-none opacity-70': disabled }]"
+    :disabled="disabled">
     <slot />
   </button>
 </template>

@@ -5,6 +5,7 @@ const router = createRouter({
   routes: [
     { name: 'home', path: '/home', component: () => import('@/views/HomeView.vue') },
     { name: 'catalog', path: '/catalog', component: () => import('@/views/CatalogView.vue') },
+    { name: 'contact', path: '/contact', component: () => import('@/views/ContactView.vue') },
     { path: '/:pathMatch(.*)*', redirect: '/home' },
   ],
   scrollBehavior(to, from) {

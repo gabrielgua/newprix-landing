@@ -10,9 +10,12 @@ import { Transition } from 'vue';
 </template>
 
 <style scoped>
-.fade-in-enter-active,
+.fade-in-enter-active {
+  transition: all 200ms ease-in-out;
+}
+
 .fade-in-leave-active {
-  transition: all 200ms ease;
+  transition: all 100ms ease-in-out;
 }
 
 .fade-in-enter-from,
