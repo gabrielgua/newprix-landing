@@ -43,13 +43,13 @@ import Logo from './Logo.vue';
               </RouterLink>
             </li>
             <li>
-              <RouterLink active-class="text-primary font-semibold"
+              <RouterLink active-class="text-primary! font-semibold"
                 class="text-text-secondary hover:text-primary transition-colors" to="/catalog">
                 Catálogo
               </RouterLink>
             </li>
             <li>
-              <RouterLink active-class="text-primary font-semibold"
+              <RouterLink active-class="text-primary! font-semibold"
                 class="text-text-secondary hover:text-primary transition-colors" to="/contact">
                 Contato
               </RouterLink>
