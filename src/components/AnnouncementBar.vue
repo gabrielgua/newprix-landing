@@ -17,12 +17,10 @@ import Icon from './Icon.vue';
         <span class="font-semibold">Lançamento! </span>
         <span class="font-bold">NWX</span> Protetores Auriculares Antirruído.
       </p>
-      <p class="md:hidden">
-        Protetores Auriculares Antirruído NWX.
-      </p>
-      <RouterLink to="/catalog?brand=nwx" class="ml-auto min-w-max ">
-        <Button variant="neutral" size="xs">
-          Confira
+
+      <RouterLink to="/catalog?brand=nwx" class="ml-auto w-full md:max-w-max">
+        <Button variant="neutral" size="xs" class="w-full! justify-center md:max-w-max ">
+          Confira já!
           <Icon icon="arrow-right" />
         </Button>
       </RouterLink>

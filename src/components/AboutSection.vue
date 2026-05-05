@@ -53,20 +53,20 @@ import Topic from './Topic.vue';
           </Topic>
         </div>
         <Divider />
-        <div class="flex flex-items-center justify-between gap-8">
+        <div class="flex items-center justify-between gap-3 *:grow">
           <div>
             <MadimiOneFont>
               <h4 class="text-3xl font-bold text-text-primary">3 +</h4>
             </MadimiOneFont>
             <p class="text-text-secondary font-light">Anos de Experiência</p>
           </div>
-          <div>
+          <div class="text-center">
             <MadimiOneFont>
               <h4 class="text-3xl font-bold text-text-primary">5k +</h4>
             </MadimiOneFont>
             <p class="text-text-secondary font-light">Pedidos Concluídos</p>
           </div>
-          <div>
+          <div class="text-right">
             <MadimiOneFont>
               <h4 class="text-3xl font-bold text-text-primary">100 %</h4>
             </MadimiOneFont>
@@ -82,14 +82,15 @@ import Topic from './Topic.vue';
           <img src="@/assets/images/about_us.jpg" alt="About us image"
             class="z-1 w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           <div
-            class="absolute left-6 right-6 bottom-6 rounded-2xl flex items-center gap-5 p-5 z-1 bg-bg-secondary border-l-4 border-l-primary shadow-md">
-            <div class="size-14 grid place-items-center bg-primary-200 rounded-full">
-              <Icon icon="fa-regular fa-circle-check" class="text-2xl text-primary-600" />
+            class="absolute left-0 right-0 -bottom-10 md:left-6 md:right-6 md:bottom-6 rounded-2xl flex items-start flex-col md:flex-row md:items-center gap-2 p-4 md:gap-5 md:p-6 z-1 bg-bg-secondary/90 md:bg-bg-secondary shadow-md">
+            <div class="w-10! h-10 md:w-14! md:h-14! grid place-items-center bg-primary-200 rounded-full">
+              <Icon icon="fa-regular fa-circle-check" class="text-base md:text-2xl text-primary-600" />
             </div>
             <div>
               <h5 class="text-lg font-semibold text-text-primary">Satisfação Garantida</h5>
-              <p class="text-text-secondary text-sm">Nosso compromisso é oferecer a melhor experiência de compra
-                possível.</p>
+              <p class="text-text-secondary text-sm">
+                Nosso compromisso é oferecer a melhor experiência de compra possível.
+              </p>
             </div>
           </div>
         </div>

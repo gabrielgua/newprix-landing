@@ -9,7 +9,7 @@ import Section from './Section.vue';
 </script>
 
 <template>
-  <Section centered icon="shield-halved" class="bg-gradient-to-b from-bg-muted to-bg-base pt-0!">
+  <Section centered icon="shield-halved" class="bg-gradient-to-b from-bg-muted to-bg-base pt-12! lg:pt-8!">
     <template #header>
       <div
         class="flex flex-col outline-4 outline-white outline-offset-2 items-center justify-between gap-2 mb-12 bg-white px-10 py-8 rounded-4xl border border-primary-100 shadow-xl shadow-primary scale-101 transition-all">

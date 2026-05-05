@@ -12,7 +12,7 @@ import Icon from './Icon.vue'
         <img src="../assets/images/newprix_landing_hero_blob.png" alt="Hero Green Blob"
           class="w-[60%] max-w-[600px] hidden xl:block" />
         <div class="space-y-6">
-          <h2 class="font-semibold text-6xl text-text-primary">
+          <h2 class="font-semibold text-4xl md:text-6xl text-text-primary">
             Conectando <span class="text-primary">você</span>. <br />
             Impulsionando <span class="text-primary">resultados</span>.
           </h2>
@@ -22,13 +22,13 @@ import Icon from './Icon.vue'
           </p>
           <div class="flex flex-col lg:flex-row items-center gap-6">
             <RouterLink to="/catalog" class="w-full">
-              <Button size="xl" class="font-semibold w-full justify-between">
+              <Button size="xl" class="font-semibold w-full justify-between text-sm md:text-xl">
                 Conheça nosso catálogo
                 <Icon icon="bag-shopping" />
               </Button>
             </RouterLink>
             <RouterLink to="/contact" class="w-full">
-              <Button variant="neutral" size="xl" class="font-semibold w-full justify-center">
+              <Button variant="neutral" size="xl" class="font-semibold w-full justify-center text-sm md:text-xl">
                 Fale Conosco
               </Button>
             </RouterLink>

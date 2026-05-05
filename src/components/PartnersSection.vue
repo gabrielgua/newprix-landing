@@ -64,7 +64,7 @@ const partnerBrands: PartnerBrand[] = [
       Conheça as marcas parceiras que confiam em nossa representação comercial para levar seus produtos ao mercado.
     </template>
     <template #first-column-content>
-      <div class="grid gap-6 lg:gap-8 grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 ">
+      <div class="grid gap-6 lg:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 ">
 
         <BrandCard v-for="(brand, index) in partnerBrands" :key="index" :imgSrc="brand.imgSrc"
           :shadowColor="brand.shadowColor" :hoverColor="brand.hoverColor" :value="brand.value">

@@ -24,7 +24,7 @@ const getInitials = (name: string) => {
 
     <Icon icon="quote-left" class="absolute top-2 right-2 text-6xl text-text-primary/5 pointer-events-none" />
 
-    <div class="flex items-center gap-2 relative z-10">
+    <div class="flex items-center gap-2 relative z-10 flex-wrap">
       <div class="flex items-center gap-1">
         <Icon icon="star" v-for="_ in 5" :key="_" class="text-base text-primary" />
         <span class="text-xs text-text-secondary/70 ml-1">(5.0/5)</span>
