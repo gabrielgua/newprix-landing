@@ -27,9 +27,11 @@ import Icon from './Icon.vue'
                 <Icon icon="bag-shopping" />
               </Button>
             </RouterLink>
-            <Button variant="neutral" size="xl" class="font-semibold w-full justify-center">
-              Fale Conosco
-            </Button>
+            <RouterLink to="/contact" class="w-full">
+              <Button variant="neutral" size="xl" class="font-semibold w-full justify-center">
+                Fale Conosco
+              </Button>
+            </RouterLink>
           </div>
         </div>
       </div>

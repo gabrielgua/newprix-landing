@@ -4,12 +4,13 @@ import Container from './Container.vue';
 import Divider from './Divider.vue';
 import Icon from './Icon.vue';
 import Logo from './Logo.vue';
+import HeaderLink from './HeaderLink.vue';
 
 </script>
 
 <template>
-  <footer class="bg-bg-base py-8 border-t border-border text-text-secondary text-sm">
-    <Container class="space-y-6">
+  <footer class="bg-bg-base pt-8 pb-5 border-t border-border text-text-secondary text-sm">
+    <Container class="space-y-5">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-12 place-items-start">
         <div class="md:col-span-2">
           <Logo />
@@ -34,29 +35,20 @@ import Logo from './Logo.vue';
           </div>
         </div>
 
-        <div>
+        <nav>
           <h4 class="font-bold text-text-primary mb-5">Navegação</h4>
-          <ul class="space-y-3 text-sm">
+          <ul class="space-y-3">
             <li>
-              <RouterLink active-class="text-primary! font-semibold"
-                class="text-text-secondary hover:text-primary transition-colors" to="/home">
-                Home
-              </RouterLink>
+              <HeaderLink to="/home" class="text-sm">Home</HeaderLink>
             </li>
             <li>
-              <RouterLink active-class="text-primary! font-semibold"
-                class="text-text-secondary hover:text-primary transition-colors" to="/catalog">
-                Catálogo
-              </RouterLink>
+              <HeaderLink to="/catalog" class="text-sm">Catálogo</HeaderLink>
             </li>
             <li>
-              <RouterLink active-class="text-primary! font-semibold"
-                class="text-text-secondary hover:text-primary transition-colors" to="/contact">
-                Contato
-              </RouterLink>
+              <HeaderLink to="/contact" class="text-sm">Contato</HeaderLink>
             </li>
           </ul>
-        </div>
+        </nav>
 
         <div>
           <h4 class="font-bold text-text-primary mb-5">Atendimento</h4>
@@ -75,13 +67,13 @@ import Logo from './Logo.vue';
 
       <Divider />
 
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-text-secondary">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-secondary">
         <p>&copy; 2026 Newprix. Todos os direitos reservados.</p>
 
-        <p class="flex items-center gap-1.5">
-          Made with <span class="text-rose-500 text-lg leading-none animate-pulse">❤️</span> by
+        <p class="flex items-center gap-1">
+          Made with <span class="text-rose-500 text-sm leading-none animate-pulse">❤️</span> by
           <a href="https://github.com/gabrielgua" target="_blank" rel="noopener noreferrer"
-            class="font-bold text-gray-800 hover:text-brand-green transition-colors ml-0.5">
+            class="font-bold text-gray-800 hover:text-brand-green hover:underline transition-colors ml-0.5">
             gabrielgua
           </a>
         </p>

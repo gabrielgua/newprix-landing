@@ -14,8 +14,8 @@ defineProps<{
 <template>
 
   <div
-    class="px-4 py-2 rounded-full shadow-lg shadow-slate-800/5 font-medium border-2 transition-all border-border w-min-content grid place-items-center"
-    :class="selected ? `${selectedBgColor ?? 'bg-primary'} ${selectedTextColor ?? 'text-white'}` : 'bg-bg-base text-text-secondary cursor-pointer active:scale-95 '">
+    class="px-4 py-2 rounded-xl shadow-lg shadow-slate-800/5 font-medium  transition-all ring-border w-min-content grid place-items-center"
+    :class="selected ? `${selectedBgColor ?? 'bg-primary'} ${selectedTextColor ?? 'text-white'} ring-2` : 'ring bg-bg-muted text-text-secondary cursor-pointer active:scale-95 '">
     <p class="text-sm">
       <slot />
     </p>

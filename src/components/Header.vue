@@ -10,6 +10,8 @@ import Icon from './Icon.vue';
 import Logo from './Logo.vue';
 import MobileBottomModal from './MobileBottomModal.vue';
 import MadimiOneFont from './MadimiOneFont.vue';
+import Input from './inputs/Input.vue';
+import Divider from './Divider.vue';
 
 const scrolled = ref(false);
 
@@ -34,41 +36,52 @@ const toggleHeaderMobile = () => showMobileHeader.value = !showMobileHeader.valu
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 transition-all bg-bg-base border-b border-b-border"
-    :class="scrolled ? 'py-4! lg:py-6! space-y-3 md:space-y-0' : 'py-6! lg:py-8! space-y-6 md:space-y-0 text-normal'">
+  <header class="sticky top-0 z-50 transition-all border-b  bg-bg-base/80  backdrop-blur-3xl"
+    :class="scrolled ? 'py-4! lg:py-6! space-y-3 md:space-y-0  border-b-border' : 'border-b-transparent py-6! lg:py-8! space-y-6 md:space-y-0 text-normal'">
     <Container class="flex items-center justify-between ">
       <RouterLink to="/">
         <Logo />
       </RouterLink>
       <HeaderLinks class="hidden md:flex" />
-      <Button @click="toggleHeaderMobile" variant="neutral-icon" class="md:hidden">
-        <FadeinTransition>
-          <Icon v-if="showMobileHeader" icon="xmark" size="lg" class="text-primary-500" />
-          <Icon v-else icon="bars" size="lg" class="text-primary-500" />
-        </FadeinTransition>
-      </Button>
+      <div class="flex items-center md:hidden">
+        <Button size="md-icon" variant="primary-ghost">
+          <Icon icon="magnifying-glass" />
+        </Button>
+        <Button @click="toggleHeaderMobile" size="md-icon" variant="primary-ghost">
+          <FadeinTransition>
+            <Icon v-if="showMobileHeader" icon="xmark" />
+            <Icon v-else icon="bars" />
+          </FadeinTransition>
+        </Button>
+      </div>
     </Container>
 
     <MobileBottomModal title="Menu" :show="showMobileHeader" @on-close="toggleHeaderMobile">
-      <ul class="divide-y divide-border">
-        <li class="pb-4">
-          <HeaderLink to="/home" icon="house" class="w-full text-sm" @clicked="toggleHeaderMobile">Home</HeaderLink>
+      <ul class="space-y-6 my-6">
+        <li>
+          <Input id="search" placeholder="Pesquisar por produtos..." />
         </li>
-        <li class="py-4">
-          <HeaderLink to="/catalog" icon="tags" class="w-full text-sm" @clicked="toggleHeaderMobile">
+        <li>
+          <HeaderLink to="/home" class="w-full text-sm" @clicked="toggleHeaderMobile">Home
+          </HeaderLink>
+        </li>
+        <li>
+          <HeaderLink to="/catalog" class="w-full text-sm" @clicked="toggleHeaderMobile">
             Catálogo
           </HeaderLink>
         </li>
-        <li class="py-4">
-          <HeaderLink to="/contact" icon="paper-plane" class="w-full text-sm" @clicked="toggleHeaderMobile">
+        <li>
+          <HeaderLink to="/contact" class="w-full text-sm" @clicked="toggleHeaderMobile">
             Contato
           </HeaderLink>
         </li>
       </ul>
-      <div class="border-t border-border bottom-0 left-0 fixed w-full bg-bg-secondary p-4">
-        <p class="text-center text-sm text-text-secondary">&copy; 2026 <MadimiOneFont>newprix</MadimiOneFont>. Todos os
-          direitos reservados. </p>
-      </div>
+      <Divider />
+      <footer class="py-3">
+        <p class="text-center text-sm text-text-secondary">
+          &copy; 2026 <MadimiOneFont>newprix</MadimiOneFont>. Todos os direitos reservados.
+        </p>
+      </footer>
     </MobileBottomModal>
 
   </header>

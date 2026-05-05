@@ -5,12 +5,12 @@ import CatalogFilterMobile from '@/components/catalog/CatalogFilterMobile.vue';
 import CatalogFiltersDisplay from '@/components/catalog/CatalogFiltersDisplay.vue';
 import CatalogListing from '@/components/catalog/CatalogListing.vue';
 import CatalogListingHeader from '@/components/catalog/CatalogListingHeader.vue';
-import Divider from '@/components/Divider.vue';
 import Icon from '@/components/Icon.vue';
+import Input from '@/components/inputs/Input.vue';
 import MobileBottomModal from '@/components/MobileBottomModal.vue';
 import Section from '@/components/Section.vue';
 import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 
 const catalogFilterStore = useCataLogFilterStore();
 
@@ -18,6 +18,10 @@ const showFilterModal = ref(false);
 const toggleFilterModal = () => {
   showFilterModal.value = !showFilterModal.value;
 };
+
+onMounted(() => {
+  document.title = 'Newprix - Nossos Produtos'
+})
 
 
 </script>
@@ -40,18 +44,14 @@ const toggleFilterModal = () => {
   </Section>
 
 
-  <Section class="md:hidden bg-bg-base border py-2! border-border sticky top-16 z-10">
+  <Section class="md:hidden bg-bg-base border py-2! border-border sticky top-18 z-10">
     <template #first-column-content>
-      <div class="flex items-center  gap-2 text-text-primary text-sm">
-        <div
-          class="flex items-center grow gap-4 bg-bg-base border border-border rounded-lg p-2 ps-4 outline-none focus-within:border-primary focus-within:ring-2 focus-within:ring-primary transition-all">
-          <Icon icon="magnifying-glass" class="text-xs" />
-          <input type="text" v-model="catalogFilterStore.filter.term" class="w-full outline-none"
-            placeholder="Buscar por produtos..." />
-        </div>
-        <Button @click="toggleFilterModal" variant="neutral" class="p-0! size-9! grid place-items-center rounded-lg!">
+      <div class="grid grid-cols-[1fr_auto] items-center gap-2 text-text-primary text-sm">
+        <Input id="search" placeholder="Buscar por produtos..." v-model="catalogFilterStore.filter.term" />
+        <Button @click="toggleFilterModal" size="md-icon" variant="neutral-outlined">
           <Icon icon="filter" />
         </Button>
+
       </div>
     </template>
   </Section>
@@ -62,7 +62,7 @@ const toggleFilterModal = () => {
 
 
 
-  <Section class="bg-bg-muted py-0! md:py-8!" flex-row gap="gap-4">
+  <Section class="bg-bg-muted pt-0 pb-8! md:pt-8!" flex-row gap="gap-4">
     <template #first-column-content>
       <CatalogFilter class="hidden md:flex" />
     </template>

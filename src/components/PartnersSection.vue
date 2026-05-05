@@ -74,9 +74,9 @@ const partnerBrands: PartnerBrand[] = [
       </div>
       <div class="mt-24 text-sm text-text-secondary text-center">
         <span>Sua marca também quer veder mais?</span> <br />
-        <a class="text-primary-400 font-medium hover:underline cursor-pointer">
-          Seja um parceiro newprix.
-        </a>
+        <RouterLink to="/contact" class="text-primary-400 font-medium hover:underline cursor-pointer">
+          Seja um parceiro <MadimiOneFont class="text-text-secondary">newprix</MadimiOneFont>.
+        </RouterLink>
       </div>
     </template>
   </Section>

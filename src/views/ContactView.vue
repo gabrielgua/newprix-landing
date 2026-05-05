@@ -6,8 +6,13 @@ import Section from '@/components/Section.vue';
 import FadeinTransition from '@/components/transitions/FadeinTransition.vue';
 import { ContactInformation } from '@/constants/constants';
 import { useContactStore } from '@/stores/contact.store';
+import { onMounted } from 'vue';
 
 const contactStore = useContactStore();
+
+onMounted(() => {
+  document.title = 'Newprix - Fale Conosco'
+})
 
 </script>
 

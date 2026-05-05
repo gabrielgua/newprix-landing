@@ -33,8 +33,7 @@ defineEmits(['on-close', 'on-confirm']);
             <header class="flex items-center justify-between">
               <p v-if="title" class="text-text-primary text-lg font-medium">{{ title }}</p>
               <Logo v-else />
-              <Button @click="$emit('on-close')" variant="neutral"
-                class="p-0! size-9! grid place-items-center rounded-lg!">
+              <Button @click="$emit('on-close')" variant="neutral-outlined" size="sm-icon">
                 <Icon icon="xmark" />
               </Button>
             </header>

@@ -1,16 +1,11 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
+import MadimiOneFont from './MadimiOneFont.vue';
 
 </script>
 
 <template>
-  <RouterLink to="/home">
-    <h2 class="font-bold text-2xl title text-primary">newprix</h2>
+  <RouterLink to="/home" class="text-primary">
+    <MadimiOneFont class="text-2xl">newprix</MadimiOneFont>
   </RouterLink>
 </template>
-
-<style scoped>
-.title {
-  font-family: 'Madimi One', sans-serif;
-}
-</style>

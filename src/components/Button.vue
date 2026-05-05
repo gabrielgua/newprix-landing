@@ -5,8 +5,8 @@ export type ButtonProps = {
   disabled?: boolean
 }
 
-export type ButtonVariant = 'neutral' | 'primary' | 'secondary' | 'dark' | 'primary-outlined' | 'neutral-outlined' | 'primary-icon' | 'neutral-icon' | 'dark-icon';
-export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+export type ButtonVariant = 'neutral' | 'primary' | 'secondary' | 'dark' | 'primary-outlined' | 'neutral-outlined' | 'primary-ghost' | 'neutral-ghost';
+export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'sm-icon' | 'md-icon' | 'lg-icon';
 
 
 withDefaults(defineProps<ButtonProps>(), {
@@ -19,11 +19,10 @@ const buttonStyles = new Map<ButtonVariant, string>([
   ['secondary', 'bg-secondary text-white'],
   ['neutral', 'bg-bg-base text-text-primary outline-1 outline-slate-200'],
   ['dark', 'bg-zinc-800 text-white'],
-  ['primary-outlined', 'outline-2 outline-primary text-primary bg-transparent'],
-  ['neutral-outlined', 'outline-2 outline-bg-text-secondary text-text-primary bg-transparent'],
-  ['primary-icon', 'text-primary-800 justify-center p-0! shadow-none!'],
-  ['neutral-icon', 'text-text-secondary justify-center p-0! shadow-none!'],
-  ['dark-icon', 'text-zinc-800 justify-center p-0! shadow-none!']
+  ['primary-outlined', 'outline outline-primary text-primary bg-transparent'],
+  ['neutral-outlined', 'outline outline-border text-text-primary bg-transparent'],
+  ['primary-ghost', 'text-primary bg-transparent hover:bg-primary/5 shadow-none!'],
+  ['neutral-ghost', 'text-text-primary bg-transparent hover:bg-border/20 shadow-none!'],
 ])
 
 const buttonSizes = new Map<ButtonSize, string>([
@@ -31,7 +30,10 @@ const buttonSizes = new Map<ButtonSize, string>([
   ['sm', 'p-2 px-3 text-sm gap-3'],
   ['md', 'p-3 px-4 text-sm gap-4'],
   ['lg', 'p-4 px-5 text-base gap-5'],
-  ['xl', 'p-5 px-6 text-lg gap-6']
+  ['xl', 'p-5 px-6 text-lg gap-6'],
+  ['sm-icon', 'size-9! text-sm grid place-items-center rounded-xl!'],
+  ['md-icon', 'size-10! grid place-items-center rounded-xl!'],
+  ['lg-icon', 'size-11! grid place-items-center rounded-xl!']
 ])
 
 </script>

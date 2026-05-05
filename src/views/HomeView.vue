@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import AboutSection from '@/components/AboutSection.vue';
-import Divider from '@/components/Divider.vue';
 import Hero from '@/components/Hero.vue';
 import PartnersSection from '@/components/PartnersSection.vue';
 import ReviewSection from '@/components/ReviewSection.vue';
+import { onMounted } from 'vue';
 
-
+onMounted(() => {
+  document.title = 'Newprix - Home'
+})
 
 
 </script>
