@@ -4,6 +4,7 @@ import ContactInfo from '@/components/contact/ContactInfo.vue';
 import Icon from '@/components/Icon.vue';
 import Section from '@/components/Section.vue';
 import FadeinTransition from '@/components/transitions/FadeinTransition.vue';
+import { ContactInformation } from '@/constants/constants';
 import { useContactStore } from '@/stores/contact.store';
 
 const contactStore = useContactStore();
@@ -33,12 +34,12 @@ const contactStore = useContactStore();
         <div class="space-y-6">
           <ContactInfo icon="fa-regular fa-envelope">
             <template #title>Email</template>
-            <template #primary-info>support.help@newprix.com.br</template>
+            <template #primary-info>{{ ContactInformation.contactEmail }}</template>
             <template #description-info>Nossa equipe responde em até 24h.</template>
           </ContactInfo>
           <ContactInfo icon="fa-regular fa-comment">
             <template #title>WhatsApp</template>
-            <template #primary-info>(11) 99999-9999</template>
+            <template #primary-info>{{ ContactInformation.contactPhone }}</template>
             <template #description-info>Segunda a Sexta, das 8h às 18h.</template>
           </ContactInfo>
           <ContactInfo icon="fa-regular fa-compass">

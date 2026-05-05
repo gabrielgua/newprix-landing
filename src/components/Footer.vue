@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ContactInformation } from '@/constants/constants';
 import Container from './Container.vue';
 import Divider from './Divider.vue';
 import Icon from './Icon.vue';
@@ -62,11 +63,11 @@ import Logo from './Logo.vue';
           <ul class="space-y-4 text-sm text-text-secondary">
             <li class="flex items-center gap-3">
               <Icon icon="fa-regular fa-envelope" styles="size-4! text-primary" />
-              support.help@newprix.com.br
+              {{ ContactInformation.contactEmail }}
             </li>
             <li class="flex items-center gap-3">
               <Icon icon="fa-regular fa-comment" styles="size-4! text-primary" />
-              (11) 99999-9999
+              {{ ContactInformation.contactPhone }}
             </li>
           </ul>
         </div>
