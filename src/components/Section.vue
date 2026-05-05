@@ -20,10 +20,10 @@ defineProps<{ icon?: string, flexRow?: boolean, centered?: boolean, gap?: string
             </h5>
             <Icon v-if="icon" :icon="icon" class="text-primary" />
           </div>
-          <h6 class="text-4xl font-semibold text-text-primary" v-if="$slots['title-hero']">
+          <h6 class="text-3xl md:text-4xl font-semibold text-text-primary" v-if="$slots['title-hero']">
             <slot name="title-hero"></slot>
           </h6>
-          <p class="text-base text-text-secondary" v-if="$slots['subtitle']">
+          <p class="text-sm md:text-base text-text-secondary" v-if="$slots['subtitle']">
             <slot name="subtitle"></slot>
           </p>
         </div>
