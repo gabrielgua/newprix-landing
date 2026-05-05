@@ -5,8 +5,8 @@ export type ButtonProps = {
   disabled?: boolean
 }
 
-export type ButtonVariant = 'neutral' | 'primary' | 'secondary' | 'dark' | 'primary-outlined' | 'neutral-outlined' | 'primary-ghost' | 'neutral-ghost';
-export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'sm-icon' | 'md-icon' | 'lg-icon';
+export type ButtonVariant = 'neutral' | 'primary' | 'secondary' | 'dark' | 'primary-outlined' | 'neutral-outlined' | 'primary-ghost' | 'neutral-ghost' | 'neutral-icon';
+export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xs-icon' | 'sm-icon' | 'md-icon' | 'lg-icon';
 
 
 withDefaults(defineProps<ButtonProps>(), {
@@ -23,6 +23,7 @@ const buttonStyles = new Map<ButtonVariant, string>([
   ['neutral-outlined', 'outline outline-border text-text-primary bg-transparent'],
   ['primary-ghost', 'text-primary bg-transparent hover:bg-primary/5 shadow-none!'],
   ['neutral-ghost', 'text-text-primary bg-transparent hover:bg-border/20 shadow-none!'],
+  ['neutral-icon', 'text-text-primary bg-transparent p-0! hover:bg-transparent! shadow-none!']
 ])
 
 const buttonSizes = new Map<ButtonSize, string>([
@@ -31,6 +32,7 @@ const buttonSizes = new Map<ButtonSize, string>([
   ['md', 'p-3 px-4 text-sm gap-4'],
   ['lg', 'p-4 px-5 text-base gap-5'],
   ['xl', 'p-5 px-6 text-lg gap-6'],
+  ['xs-icon', 'size-8! text-xs grid place-items-center rounded-lg!'],
   ['sm-icon', 'size-9! text-sm grid place-items-center rounded-xl!'],
   ['md-icon', 'size-10! grid place-items-center rounded-xl!'],
   ['lg-icon', 'size-11! grid place-items-center rounded-xl!']

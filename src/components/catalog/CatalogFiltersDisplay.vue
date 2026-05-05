@@ -21,7 +21,8 @@ const showFilters = computed(() => {
 </script>
 
 <template>
-  <div class="text-sm border-y border-border flex flex-wrap gap-4 justify-between py-4 ">
+  <div class="text-sm border-y border-border flex flex-wrap gap-4 justify-between"
+    :class="[showFilters ? 'py-2.5' : 'py-4']">
     <div class="flex items-center gap-4 transition-all">
       <p>Filtros: </p>
       <GroupFadeInTransition class="flex items-center gap-2 transition-all flex-wrap">
@@ -41,7 +42,8 @@ const showFilters = computed(() => {
           {{ catalogFilterStore.selectedStoreLabel }}
         </CatalogFiltersDisplayItem>
 
-        <Button variant="neutral-icon" size="xs" @click="catalogFilterStore.resetFilters()" v-if="showFilters">
+        <Button variant="neutral-ghost" size="xs" class="gap-2!" @click="catalogFilterStore.resetFilters()"
+          v-if="showFilters">
           <Icon icon="rotate-left" class="text-xs" />
           Resetar filtros
         </Button>
