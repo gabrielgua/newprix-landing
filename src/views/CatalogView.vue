@@ -15,7 +15,8 @@ import FadeFromRightTransition from '@/components/transitions/FadeFromRightTrans
 import FadeinTransition from '@/components/transitions/FadeinTransition.vue';
 import GroupFadeInTransition from '@/components/transitions/GroupFadeInTransition.vue';
 import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
-import { computed, onMounted, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
+import { onBeforeRouteLeave } from 'vue-router';
 
 const catalogFilterStore = useCataLogFilterStore();
 
@@ -26,6 +27,10 @@ const toggleFilterModal = () => {
 
 onMounted(() => {
   document.title = 'Newprix - Nossos Produtos'
+})
+
+onUnmounted(() => {
+  catalogFilterStore.resetFilters();
 })
 
 const showResetFiltersBtn = computed(() => catalogFilterStore.showFiltersMobile)
