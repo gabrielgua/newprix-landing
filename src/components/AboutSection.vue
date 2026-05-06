@@ -94,7 +94,8 @@ import Topic from './Topic.vue';
             </div>
           </div>
         </div>
-        <div class="absolute -bottom-6 -right-6 w-full h-full bg-primary-300 rounded-[54px]">
+        <div
+          class="absolute -top-3 md:-bottom-6 md:-right-6 w-full h-full bg-primary-300 rounded-[30px] md:rounded-[54px]">
         </div>
       </div>
     </template>
