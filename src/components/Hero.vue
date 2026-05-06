@@ -20,9 +20,9 @@ import Icon from './Icon.vue'
             A <span class="font-semibold text-primary">newprix</span> é o elo entre grandes marcas e
             revendedores que buscam qualidade, agilidade e oportunidades.
           </p>
-          <div class="flex flex-col lg:flex-row items-center gap-6">
+          <div class="flex flex-col lg:flex-row items-center gap-4">
             <RouterLink to="/catalog" class="w-full">
-              <Button size="xl" class="font-semibold w-full justify-between text-sm md:text-xl">
+              <Button size="xl" class="font-semibold w-full justify-center text-sm md:text-xl gap-4!">
                 Conheça nosso catálogo
                 <Icon icon="bag-shopping" />
               </Button>
