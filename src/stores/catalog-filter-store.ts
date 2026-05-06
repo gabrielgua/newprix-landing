@@ -10,20 +10,20 @@ type BrandFilter = {
   value: string
 }
 
-type OrderByOption = 'default' | 'asc' | 'desc' | 'newFirst' | 'oldFirst'
+export type OrderByOption = 'default' | 'asc' | 'desc' | 'newFirst' | 'oldFirst'
 
 type OrderByFilter = {
   label: string
   value: OrderByOption
 }
 
-type StoreOption = ProductStore | 'all'
+export type StoreOption = ProductStore | 'all'
 type StoreFilter = {
   label: string
   value: StoreOption
 }
 
-type CatalogFilter = {
+export type CatalogFilter = {
   term?: string
   brand?: BrandFilter
   orderBy?: OrderByOption

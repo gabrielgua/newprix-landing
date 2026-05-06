@@ -4,15 +4,59 @@ import CatalogFilterBrandButton from '@/components/catalog/CatalogFilterBrandBut
 import Divider from '@/components/Divider.vue';
 import Icon from '@/components/Icon.vue';
 import { useBrandStore } from '@/stores/brand-store';
-import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
+import { useCataLogFilterStore, type OrderByOption, type StoreOption } from '@/stores/catalog-filter-store';
+import { ref } from 'vue';
 import InputGroup from '../inputs/InputGroup.vue';
-import Input from '../inputs/Input.vue';
 import Select from '../inputs/Select.vue';
 
 const catalogFilterStore = useCataLogFilterStore();
-const { brands } = useBrandStore();
+const brandStore = useBrandStore();
 
-defineEmits(['on-close']);
+const emit = defineEmits(['on-close']);
+
+
+const filter = ref<{
+  term: string,
+  brand: string,
+  store: StoreOption,
+  orderBy: OrderByOption,
+}>({
+  term: catalogFilterStore.filter.term ?? '',
+  brand: catalogFilterStore.filter.brand?.value ?? 'all',
+  orderBy: catalogFilterStore.filter.orderBy ?? 'default',
+  store: catalogFilterStore.filter.store ?? 'all'
+})
+
+const selectBrand = (value: string) => {
+  filter.value.brand = value
+}
+
+const selectStore = (value: StoreOption) => {
+  filter.value.store = value;
+
+}
+const submitFilters = () => {
+  catalogFilterStore.filter.term = filter.value.term;
+  catalogFilterStore.filter.orderBy = filter.value.orderBy;
+  catalogFilterStore.selectBrand(filter.value.brand);
+  catalogFilterStore.selectStore(filter.value.store);
+
+  emit('on-close');
+}
+
+const resetFilters = () => {
+  catalogFilterStore.resetFilters();
+
+  filter.value = {
+    term: catalogFilterStore.filter.term ?? '',
+    brand: catalogFilterStore.filter.brand?.value ?? 'all',
+    orderBy: catalogFilterStore.filter.orderBy ?? 'default',
+    store: catalogFilterStore.filter.store ?? 'all'
+  }
+
+  emit('on-close')
+}
+
 
 </script>
 
@@ -24,7 +68,7 @@ defineEmits(['on-close']);
       </template>
       <template #label>Ordenar por</template>
       <template #input>
-        <Select id="orderBy" v-model="catalogFilterStore.filter.orderBy" size="sm">
+        <Select id="orderBy" v-model="filter.orderBy" size="sm">
           <option v-for="filter in catalogFilterStore.orderByFilters" :value="filter.value" :key="filter.value"
             placeholder="Selecione um...">
             {{ filter.label }}
@@ -40,13 +84,12 @@ defineEmits(['on-close']);
       <template #label>Marcas</template>
       <template #input>
         <div class="flex items-center gap-2 flex-wrap *:grow">
-          <CatalogFilterBrandButton :selected="catalogFilterStore.filter.brand?.value === 'all'"
-            @click="catalogFilterStore.selectBrand('all')">
+          <CatalogFilterBrandButton :selected="filter.brand === 'all'" @click="selectBrand('all')">
             Todas
           </CatalogFilterBrandButton>
-          <CatalogFilterBrandButton v-for="brand in brands" :key="brand.value"
-            :selected="catalogFilterStore.filter.brand?.value === brand.value" :selected-bg-color="brand.bgColor"
-            @click="catalogFilterStore.selectBrand(brand.value)">
+          <CatalogFilterBrandButton v-for="brand in brandStore.brands" :key="brand.value"
+            :selected="filter.brand === brand.value" :selected-bg-color="brand.bgColor"
+            @click="selectBrand(brand.value)">
             {{ brand.fullName }}
           </CatalogFilterBrandButton>
         </div>
@@ -60,16 +103,16 @@ defineEmits(['on-close']);
       <template #label>Loja</template>
       <template #input>
         <div class="flex items-center gap-2 flex-wrap *:grow">
-          <CatalogFilterBrandButton selected-bg-color="bg-primary" :selected="catalogFilterStore.filter.store === 'all'"
-            @click="catalogFilterStore.selectStore('all')">
+          <CatalogFilterBrandButton selected-bg-color="bg-primary" :selected="filter.store === 'all'"
+            @click="selectStore('all')">
             Todas
           </CatalogFilterBrandButton>
-          <CatalogFilterBrandButton :selected="catalogFilterStore.filter.store === 'AMAZON'"
-            selected-bg-color="bg-primary" @click="catalogFilterStore.selectStore('AMAZON')">
+          <CatalogFilterBrandButton :selected="filter.store === 'AMAZON'" selected-bg-color="bg-primary"
+            @click="selectStore('AMAZON')">
             Amazon
           </CatalogFilterBrandButton>
-          <CatalogFilterBrandButton :selected="catalogFilterStore.filter.store === 'MERCADO_LIVRE'"
-            selected-bg-color="bg-primary" @click="catalogFilterStore.selectStore('MERCADO_LIVRE')">
+          <CatalogFilterBrandButton :selected="filter.store === 'MERCADO_LIVRE'" selected-bg-color="bg-primary"
+            @click="selectStore('MERCADO_LIVRE')">
             Mercado Livre
           </CatalogFilterBrandButton>
         </div>
@@ -78,11 +121,11 @@ defineEmits(['on-close']);
 
     <Divider />
     <div class="flex items-center flex-wrap gap-2 justify-between *:grow">
-      <Button variant="neutral" @click="catalogFilterStore.resetFilters()">
+      <Button variant="neutral" @click="resetFilters()">
         <Icon icon="rotate-left" />
         Resetar filtros
       </Button>
-      <Button @click="$emit('on-close')" variant="primary">
+      <Button @click="submitFilters()" variant="primary">
         <Icon icon="check" />
         Concluído
       </Button>
