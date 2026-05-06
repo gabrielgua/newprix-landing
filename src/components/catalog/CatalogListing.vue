@@ -36,7 +36,7 @@ const { resetFilters } = useCataLogFilterStore();
     </div>
   </div>
 
-  <GroupFadeInTransition class="grid lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4 transition-all">
+  <GroupFadeInTransition class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4 transition-all">
     <CatalogProductCard v-for="product in productStore.filteredProducts" :key="product.id" v-bind="product" />
   </GroupFadeInTransition>
 </template>

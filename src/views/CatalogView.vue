@@ -11,12 +11,9 @@ import Icon from '@/components/Icon.vue';
 import Input from '@/components/inputs/Input.vue';
 import MobileBottomModal from '@/components/MobileBottomModal.vue';
 import Section from '@/components/Section.vue';
-import FadeFromRightTransition from '@/components/transitions/FadeFromRightTransition.vue';
-import FadeinTransition from '@/components/transitions/FadeinTransition.vue';
 import GroupFadeInTransition from '@/components/transitions/GroupFadeInTransition.vue';
 import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
-import { onBeforeRouteLeave } from 'vue-router';
 
 const catalogFilterStore = useCataLogFilterStore();
 
@@ -27,6 +24,7 @@ const toggleFilterModal = () => {
 
 onMounted(() => {
   document.title = 'Newprix - Nossos Produtos'
+  catalogFilterStore.resetFilters();
 })
 
 onUnmounted(() => {
