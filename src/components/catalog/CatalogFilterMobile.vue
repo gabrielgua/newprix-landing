@@ -18,23 +18,13 @@ defineEmits(['on-close']);
 
 <template>
   <div class="space-y-4">
-    <InputGroup for="search">
-      <template #label-icon>
-        <Icon icon="magnifying-glass" styles="text-sm" />
-      </template>
-      <template #label>Pesquisar</template>
-      <template #input>
-        <Input id="search" type="text" v-model="catalogFilterStore.filter.term" placeholder="Buscar por produtos..." />
-      </template>
-    </InputGroup>
-
     <InputGroup for="orderBy">
       <template #label-icon>
         <Icon icon="arrow-down-wide-short" styles="text-sm" />
       </template>
       <template #label>Ordenar por</template>
       <template #input>
-        <Select id="orderBy" v-model="catalogFilterStore.filter.orderBy">
+        <Select id="orderBy" v-model="catalogFilterStore.filter.orderBy" size="sm">
           <option v-for="filter in catalogFilterStore.orderByFilters" :value="filter.value" :key="filter.value"
             placeholder="Selecione um...">
             {{ filter.label }}

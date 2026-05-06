@@ -8,7 +8,6 @@
 .fade-in-leave-active {
   transition: all 100ms ease;
   position: absolute;
-
 }
 
 .fade-in-enter-active {

@@ -96,6 +96,19 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
     })
   }
 
+  const showFilters = computed(() => {
+    return (
+      !!filter.value.term ||
+      filter.value.orderBy !== 'default' ||
+      filter.value.store !== 'all' ||
+      filter.value.brand?.value !== 'all'
+    )
+  })
+
+  const showFiltersMobile = computed(() => {
+    return !!filter.value.term || filter.value.orderBy !== 'default' || filter.value.store !== 'all'
+  })
+
   const resetFilters = () => {
     resetTerm()
     resetOrderBy()
@@ -167,5 +180,7 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
     selectedOrderByLabel,
     selectedStoreLabel,
     brands,
+    showFilters,
+    showFiltersMobile,
   }
 })

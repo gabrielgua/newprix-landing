@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import BaseInput from './BaseInput.vue';
+import BaseInput, { type BaseInputProps } from './BaseInput.vue';
 
-defineProps<{
+defineProps<BaseInputProps & {
   id: string,
   disabled?: boolean,
   required?: boolean,
@@ -18,8 +18,8 @@ defineExpose({ inputRef })
 </script>
 
 <template>
-  <BaseInput>
+  <BaseInput :size="size" :icon-start="iconStart" :icon-end="iconEnd" :inverted="inverted">
     <input ref="inputRef" :id="id" :required="required" :disabled="disabled" v-bind="$attrs" v-model="model"
-      class="outline-none bg-inherit text-inherit px-4 py-3 w-full" :placeholder="placeholder" />
+      class="outline-none bg-inherit text-inherit" :placeholder="placeholder" />
   </BaseInput>
 </template>

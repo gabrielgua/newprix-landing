@@ -6,18 +6,11 @@ import Icon from '../Icon.vue';
 import GroupFadeInTransition from '../transitions/GroupFadeInTransition.vue';
 import CatalogFiltersDisplayItem from './CatalogFiltersDisplayItem.vue';
 import { useProductStore } from '@/stores/product.store';
-import Divider from '../Divider.vue';
 
 const catalogFilterStore = useCataLogFilterStore();
 const productStore = useProductStore();
 
-const showFilters = computed(() => {
-  return (
-    catalogFilterStore.filter.term ||
-    catalogFilterStore.filter.brand?.value !== 'all' ||
-    catalogFilterStore.filter.orderBy !== 'default'
-  )
-})
+const showFilters = computed(() => catalogFilterStore.showFilters)
 
 </script>
 

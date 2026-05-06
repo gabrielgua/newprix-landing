@@ -11,8 +11,11 @@ import Icon from '@/components/Icon.vue';
 import Input from '@/components/inputs/Input.vue';
 import MobileBottomModal from '@/components/MobileBottomModal.vue';
 import Section from '@/components/Section.vue';
+import FadeFromRightTransition from '@/components/transitions/FadeFromRightTransition.vue';
+import FadeinTransition from '@/components/transitions/FadeinTransition.vue';
+import GroupFadeInTransition from '@/components/transitions/GroupFadeInTransition.vue';
 import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 
 const catalogFilterStore = useCataLogFilterStore();
 
@@ -25,6 +28,7 @@ onMounted(() => {
   document.title = 'Newprix - Nossos Produtos'
 })
 
+const showResetFiltersBtn = computed(() => catalogFilterStore.showFiltersMobile)
 
 </script>
 
@@ -43,19 +47,21 @@ onMounted(() => {
     </template>
   </Section>
 
-
   <Section class="md:hidden bg-bg-base/80 backdrop-blur-3xl py-2! px-0! border-y border-border sticky top-18 z-10">
     <template #first-column-content>
       <div class="space-y-2">
-        <div class="grid grid-cols-[1fr_auto_auto] items-center gap-2 text-text-primary text-sm">
-          <Input id="search" placeholder="Buscar por produtos..." v-model="catalogFilterStore.filter.term" />
+        <GroupFadeInTransition class="grid items-center gap-2 text-text-primary text-sm"
+          :class="[showResetFiltersBtn ? 'grid-cols-[1fr_auto_auto] ' : 'grid-cols-[1fr_auto] ']">
+          <Input id="search" placeholder="Buscar por produtos..." v-model="catalogFilterStore.filter.term" inverted
+            icon-start="magnifying-glass" size="sm" />
           <Button @click="toggleFilterModal" size="xs-icon" variant="neutral-outlined">
             <Icon icon="sliders" />
           </Button>
-          <Button @click="catalogFilterStore.resetFilters()" size="xs-icon" variant="neutral-outlined">
+          <Button v-if="catalogFilterStore.showFiltersMobile" @click="catalogFilterStore.resetFilters()" size="xs-icon"
+            variant="neutral-outlined">
             <Icon icon="arrow-rotate-left" />
           </Button>
-        </div>
+        </GroupFadeInTransition>
         <Divider />
         <CatalogFiltersDisplayMobile />
       </div>

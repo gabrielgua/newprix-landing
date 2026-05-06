@@ -9,21 +9,15 @@ import CatalogFiltersDisplayItem from './CatalogFiltersDisplayItem.vue';
 const catalogFilterStore = useCataLogFilterStore();
 const productStore = useProductStore();
 
-const showFilters = computed(() => {
-  return (
-    catalogFilterStore.filter.term ||
-    catalogFilterStore.filter.orderBy !== 'default' ||
-    catalogFilterStore.filter.store !== "all"
-  )
-})
+const showFilters = computed(() => catalogFilterStore.showFiltersMobile)
 
 </script>
 
 <template>
-  <div class="text-sm flex flex-wrap gap-2 justify-between">
+  <div class="text-sm flex flex-wrap gap-2 justify-between transition-all">
 
 
-    <div class="flex items-center justify-between w-full">
+    <div class="flex items-center justify-between w-full transition-all">
       <div class="flex items-center gap-1 text-xs text-text-secondary">
         <p class="font-medium">Produtos</p>
         <Icon icon="chevron-right" styles="text-[10px]" />
@@ -53,5 +47,4 @@ const showFilters = computed(() => {
       </GroupFadeInTransition>
     </div>
   </div>
-
 </template>
