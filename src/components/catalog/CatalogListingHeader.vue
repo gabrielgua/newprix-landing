@@ -23,6 +23,7 @@ const allFilter: BrandHeader = {
   fullName: 'Todas as Marcas',
   textColor: 'text-primary',
   gradientColor: 'from-slate-200',
+  description: 'Mostrando todo o nosso catálogo.'
 }
 
 const brandHeaders = ref<BrandHeader[]>([]);
@@ -46,7 +47,7 @@ watch(() => catalogFilterStore.filter.brand?.value, () => {
         <CatalogListingHeaderBrandCard v-for="brandHeader in brandHeaders" :key="brandHeader.value"
           :brand-name="brandHeader.label" :color="brandHeader.textColor">
           <template #img>
-            <div class="group size-20! md:size-30 rounded-2xl overflow-hidden border border-border/50">
+            <div class="group size-24 md:size-30 rounded-xl md:rounded-2xl overflow-hidden border border-border/50">
               <img v-if="brandHeader.logoSrc" :src="brandHeader.logoSrc" :alt="`${brandHeader.label} Logo`"
                 class="object-cover object-center size-full shadow group-hover:scale-105 transition-all" />
               <div v-else
@@ -55,7 +56,8 @@ watch(() => catalogFilterStore.filter.brand?.value, () => {
               </div>
             </div>
           </template>
-          {{ brandHeader.fullName }}
+          <template #brand-name>{{ brandHeader.fullName }}</template>
+          <template #brand-description>{{ brandHeader.description }}</template>
         </CatalogListingHeaderBrandCard>
       </FadeFromBottomTransition>
     </ul>

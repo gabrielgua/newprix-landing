@@ -20,7 +20,7 @@ const buttonStyles = new Map<ButtonVariant, string>([
   ['neutral', 'bg-bg-base text-text-primary outline-1 outline-slate-200'],
   ['dark', 'bg-zinc-800 text-white'],
   ['primary-outlined', 'outline outline-primary text-primary bg-transparent'],
-  ['neutral-outlined', 'outline outline-border text-text-primary bg-transparent'],
+  ['neutral-outlined', 'bg-bg-base outline outline-border text-text-primary'],
   ['primary-ghost', 'text-primary bg-transparent hover:bg-primary/5 shadow-none!'],
   ['neutral-ghost', 'text-text-primary bg-transparent hover:bg-border/20 shadow-none!'],
   ['neutral-icon', 'text-text-primary bg-transparent p-0! hover:bg-transparent! shadow-none!']

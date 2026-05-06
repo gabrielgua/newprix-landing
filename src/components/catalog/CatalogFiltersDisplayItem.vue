@@ -2,6 +2,10 @@
 import Button from '../Button.vue';
 import Icon from '../Icon.vue';
 
+defineProps<{
+  btnDisabled?: boolean
+}>();
+
 defineEmits(['remove'])
 
 </script>
@@ -12,7 +16,7 @@ defineEmits(['remove'])
     <p>
       <slot />
     </p>
-    <Button variant="neutral-icon" size="xs" @click="$emit('remove')">
+    <Button v-if="!btnDisabled" variant="neutral-icon" size="xs" @click="$emit('remove')">
       <Icon icon="xmark" />
     </Button>
   </li>

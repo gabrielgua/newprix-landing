@@ -3,8 +3,10 @@ import Button from '@/components/Button.vue';
 import CatalogFilter from '@/components/catalog/CatalogFilter.vue';
 import CatalogFilterMobile from '@/components/catalog/CatalogFilterMobile.vue';
 import CatalogFiltersDisplay from '@/components/catalog/CatalogFiltersDisplay.vue';
+import CatalogFiltersDisplayMobile from '@/components/catalog/CatalogFiltersDisplayMobile.vue';
 import CatalogListing from '@/components/catalog/CatalogListing.vue';
 import CatalogListingHeader from '@/components/catalog/CatalogListingHeader.vue';
+import Divider from '@/components/Divider.vue';
 import Icon from '@/components/Icon.vue';
 import Input from '@/components/inputs/Input.vue';
 import MobileBottomModal from '@/components/MobileBottomModal.vue';
@@ -42,13 +44,20 @@ onMounted(() => {
   </Section>
 
 
-  <Section class="md:hidden bg-bg-base border py-2! border-border sticky top-18 z-10">
+  <Section class="md:hidden bg-bg-base/80 backdrop-blur-3xl py-2! px-0! border-y border-border sticky top-18 z-10">
     <template #first-column-content>
-      <div class="grid grid-cols-[1fr_auto] items-center gap-2 text-text-primary text-sm">
-        <Input id="search" placeholder="Buscar por produtos..." v-model="catalogFilterStore.filter.term" />
-        <Button @click="toggleFilterModal" size="md-icon" variant="neutral-outlined">
-          <Icon icon="filter" />
-        </Button>
+      <div class="space-y-2">
+        <div class="grid grid-cols-[1fr_auto_auto] items-center gap-2 text-text-primary text-sm">
+          <Input id="search" placeholder="Buscar por produtos..." v-model="catalogFilterStore.filter.term" />
+          <Button @click="toggleFilterModal" size="xs-icon" variant="neutral-outlined">
+            <Icon icon="sliders" />
+          </Button>
+          <Button @click="catalogFilterStore.resetFilters()" size="xs-icon" variant="neutral-outlined">
+            <Icon icon="arrow-rotate-left" />
+          </Button>
+        </div>
+        <Divider />
+        <CatalogFiltersDisplayMobile />
       </div>
     </template>
   </Section>
@@ -57,16 +66,15 @@ onMounted(() => {
     <CatalogFilterMobile @on-close="toggleFilterModal" />
   </MobileBottomModal>
 
-
-
   <Section class="bg-bg-muted pt-0 pb-8! md:pt-8!" flex-row gap="gap-4">
     <template #first-column-content>
       <CatalogFilter class="hidden md:flex" />
+
     </template>
     <template #second-column-content>
       <div class="space-y-4 w-full">
         <CatalogListingHeader />
-        <CatalogFiltersDisplay />
+        <CatalogFiltersDisplay class="hidden md:block" />
         <CatalogListing />
       </div>
     </template>
