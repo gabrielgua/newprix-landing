@@ -17,25 +17,23 @@ onMounted(() => {
 </script>
 
 <template>
-  <Section ref="heroRef" centered class="bg-bg-base py-14!">
+  <Section ref="heroRef" centered class="bg-bg-base py-10! md:py-14!">
     <template #title>Fale conosco</template>
     <template #title-hero>
-      <p class="text-5xl">
-        Como podemos ajudar?
-      </p>
+      Como podemos ajudar?
     </template>
     <template #subtitle>
-      <p class="max-w-[700px] text-lg">
+      <p class="max-w-full md:max-w-[700px]">
         Tem alguma dúvida sobre pedidos, parcerias ou produtos? Preencha o formulário abaixo e nossa equipe entrará em
         contato rapidamente.
       </p>
     </template>
   </Section>
 
-  <Section flex-row class="py-14! lg:py-24!" gap="gap-8 lg:gap-12">
+  <Section flex-row class="py-10! lg:py-24!" gap="gap-8 lg:gap-12">
     <template #first-column-content>
       <div class="flex flex-col items-center lg:items-start gap-8 lg:gap-12 lg:max-w-[600px]">
-        <h2 class="text-2xl font-bold text-text-primary">Informações de Contato</h2>
+        <h2 class="text-xl md:text-2xl font-bold text-text-primary">Informações de Contato</h2>
         <div class="space-y-6">
           <ContactInfo icon="fa-regular fa-envelope">
             <template #title>Email</template>
@@ -69,7 +67,7 @@ onMounted(() => {
 
     <template #second-column-content>
       <div
-        class="bg-bg-base rounded-3xl lg:rounded-[2.5rem] p-6 md:p-8 lg:p-10 overflow-hidden border border-border w-full max-h-max">
+        class="bg-bg-base rounded-3xl lg:rounded-[2.5rem] p-4 md:p-8 lg:p-10 overflow-hidden border border-border w-full max-h-max">
         <FadeinTransition>
           <div v-if="contactStore.state.submitted" class="py-12 flex flex-col items-center text-center relative z-10">
             <div class="w-20 h-20 bg-green-100 rounded-full grid place-items-center text-primary mb-6">

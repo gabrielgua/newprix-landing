@@ -46,7 +46,7 @@ watch(() => catalogFilterStore.filter.brand?.value, () => {
         <CatalogListingHeaderBrandCard v-for="brandHeader in brandHeaders" :key="brandHeader.value"
           :brand-name="brandHeader.label" :color="brandHeader.textColor">
           <template #img>
-            <div class="group size-20 md:size-30 rounded-2xl overflow-hidden border border-border/50">
+            <div class="group size-20! md:size-30 rounded-2xl overflow-hidden border border-border/50">
               <img v-if="brandHeader.logoSrc" :src="brandHeader.logoSrc" :alt="`${brandHeader.label} Logo`"
                 class="object-cover object-center size-full shadow group-hover:scale-105 transition-all" />
               <div v-else

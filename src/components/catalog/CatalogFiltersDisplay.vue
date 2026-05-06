@@ -6,6 +6,7 @@ import Icon from '../Icon.vue';
 import GroupFadeInTransition from '../transitions/GroupFadeInTransition.vue';
 import CatalogFiltersDisplayItem from './CatalogFiltersDisplayItem.vue';
 import { useProductStore } from '@/stores/product.store';
+import Divider from '../Divider.vue';
 
 const catalogFilterStore = useCataLogFilterStore();
 const productStore = useProductStore();
@@ -22,8 +23,8 @@ const showFilters = computed(() => {
 
 <template>
   <div class="text-sm border-y border-border flex flex-wrap gap-4 justify-between"
-    :class="[showFilters ? 'py-2.5' : 'py-4']">
-    <div class="flex items-center gap-4 transition-all">
+    :class="[showFilters ? 'py-4 md:py-2.5' : 'py-4']">
+    <div v-if="showFilters" class="flex items-center gap-2.5 md:gap-4 transition-all w-full">
       <p>Filtros: </p>
       <GroupFadeInTransition class="flex items-center gap-2 transition-all flex-wrap">
         <CatalogFiltersDisplayItem v-if="catalogFilterStore.filter.term" @remove="catalogFilterStore.resetTerm()">
@@ -41,23 +42,24 @@ const showFilters = computed(() => {
           @remove="catalogFilterStore.resetStore()">
           {{ catalogFilterStore.selectedStoreLabel }}
         </CatalogFiltersDisplayItem>
-
-        <Button variant="neutral-ghost" size="xs" class="gap-2!" @click="catalogFilterStore.resetFilters()"
-          v-if="showFilters">
-          <Icon icon="rotate-left" class="text-xs" />
-          Resetar filtros
-        </Button>
       </GroupFadeInTransition>
     </div>
 
-
-    <div class="flex items-center gap-2 text-text-primary ml-auto">
-      <p class="font-light">
-        ({{ productStore.filteredProducts.length }} de {{ productStore.products.length }})
-      </p>
-      <p class="font-semibold">
-        Resultados
-      </p>
+    <div class="flex items-center gap-4">
+      <div class="flex items-center gap-2 text-text-primary ml-auto">
+        <p class="font-light">
+          ({{ productStore.filteredProducts.length }} de {{ productStore.products.length }})
+        </p>
+        <p class="font-semibold">
+          Resultados
+        </p>
+      </div>
+      <Button v-if="showFilters" variant="neutral-outlined" size="xs" class="gap-2!"
+        @click="catalogFilterStore.resetFilters()">
+        <Icon icon="rotate-left" class="text-xs" />
+        Resetar filtros
+      </Button>
     </div>
+
   </div>
 </template>

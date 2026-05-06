@@ -30,13 +30,11 @@ onMounted(() => {
   <Section ref="heroRef" centered class="bg-bg-base py-14!">
     <template #title>Nossa seleção</template>
     <template #title-hero>
-      <p class="mb-4 text-5xl ">
-        As melhores marcas,
-        <span class="text-primary">um só lugar.</span>
-      </p>
+      As melhores marcas,
+      <span class="text-primary">um só lugar.</span>
     </template>
     <template #subtitle>
-      <p class="max-w-[600px] text-lg">
+      <p class="max-w-full md:max-w-[600px]">
         Explore nosso catálogo completo. Produtos originais WAP, Vonder, Selene e muito mais,
         disponíveis na Amazon e Mercado Livre.
       </p>
@@ -51,7 +49,6 @@ onMounted(() => {
         <Button @click="toggleFilterModal" size="md-icon" variant="neutral-outlined">
           <Icon icon="filter" />
         </Button>
-
       </div>
     </template>
   </Section>

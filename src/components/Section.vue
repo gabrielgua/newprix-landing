@@ -8,8 +8,7 @@ defineProps<{ icon?: string, flexRow?: boolean, centered?: boolean, gap?: string
 
 <template>
   <section class="py-10 lg:py-38">
-    <Container class="flex flex-col [--padding:1.5rem] md:[--padding:2rem] lg:[--padding:3rem] transition-all"
-      :class="[{ 'lg:flex-row': flexRow }, gap ? gap : 'gap-8']" margin="var(--padding)">
+    <Container class="flex flex-col transition-all" :class="[{ 'lg:flex-row': flexRow }, gap ? gap : 'gap-8']">
       <div class="flex flex-col space-y-12" :class="{ 'items-center': centered }">
         <div class="flex flex-col space-y-2" :class="{ 'items-center text-center': centered }"
           v-if="$slots['title'] || $slots['title-hero'] || $slots['header'] || $slots['subtitle']">
@@ -21,10 +20,10 @@ defineProps<{ icon?: string, flexRow?: boolean, centered?: boolean, gap?: string
             <Icon v-if="icon" :icon="icon" class="text-primary" />
           </div>
           <h6 class="text-3xl md:text-4xl font-semibold text-text-primary" v-if="$slots['title-hero']">
-            <slot name="title-hero"></slot>
+            <slot name="title-hero" />
           </h6>
           <p class="text-sm md:text-base text-text-secondary" v-if="$slots['subtitle']">
-            <slot name="subtitle"></slot>
+            <slot name="subtitle" />
           </p>
         </div>
         <div v-if="$slots['first-column-content']">
