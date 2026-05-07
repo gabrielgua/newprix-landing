@@ -1,7 +1,8 @@
 <script lang="ts" setup>
+import type { LucideIcon } from '@lucide/vue';
 import Icon from './Icon.vue';
 
-defineProps<{ to: string; disabled?: boolean, icon?: string }>()
+defineProps<{ to: string; disabled?: boolean, icon?: LucideIcon }>()
 defineEmits(['clicked'])
 </script>
 
