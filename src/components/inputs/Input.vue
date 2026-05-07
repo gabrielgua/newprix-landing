@@ -1,17 +1,24 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import BaseInput, { type BaseInputProps } from './BaseInput.vue';
+import BaseInput, { type BaseInputProps, type BaseInputSizes } from './BaseInput.vue';
 
-defineProps<BaseInputProps & {
+withDefaults(defineProps<BaseInputProps & {
   id: string,
   disabled?: boolean,
   required?: boolean,
   placeholder?: string
-}>();
+}>(), {
+  size: 'md'
+})
 
 const model = defineModel<string | number>();
 const inputRef = ref<HTMLInputElement>();
 
+const inputSizeStyles = new Map<BaseInputSizes, string>([
+  ['sm', 'px-3 py-2'],
+  ['md', 'px-4 py-3'],
+  ['lg', 'px-4.5 py-3.5']
+])
 
 defineExpose({ inputRef })
 
@@ -20,6 +27,7 @@ defineExpose({ inputRef })
 <template>
   <BaseInput :size="size" :icon-start="iconStart" :icon-end="iconEnd" :inverted="inverted">
     <input ref="inputRef" :id="id" :required="required" :disabled="disabled" v-bind="$attrs" v-model="model"
-      class="outline-none bg-inherit text-inherit" :placeholder="placeholder" />
+      class="outline-none bg-inherit text-inherit w-full" :class="[inputSizeStyles.get(size)]"
+      :placeholder="placeholder" />
   </BaseInput>
 </template>

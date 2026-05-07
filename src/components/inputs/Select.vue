@@ -1,30 +1,37 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import BaseInput, { type BaseInputProps } from './BaseInput.vue';
+import BaseInput, { type BaseInputProps, type BaseInputSizes } from './BaseInput.vue';
 import Icon from '../Icon.vue';
 
-defineProps<BaseInputProps & {
+withDefaults(defineProps<BaseInputProps & {
   id: string,
   disabled?: boolean,
   required?: boolean,
   placeholder?: string
-}>();
+}>(), {
+  size: 'md',
+  iconEnd: 'chevron-down'
+})
 
 const model = defineModel<string | number>();
 const selectRef = ref<HTMLInputElement>();
 
+const selectSizeStyles = new Map<BaseInputSizes, string>([
+  ['sm', 'px-3 py-2'],
+  ['md', 'px-4 py-3'],
+  ['lg', 'px-4.5 py-3.5']
+])
 
 defineExpose({ inputRef: selectRef })
 
 </script>
 
 <template>
-  <BaseInput class="relative grid place-items-center" :size="size" :inverted="inverted" :icon-start="iconStart"
-    :icon-end="iconEnd">
+  <BaseInput :size="size" :inverted="inverted" :icon-start="iconStart" :icon-end="iconEnd">
     <select ref="selectRef" :id="id" :required="required" :disabled="disabled" v-bind="$attrs" v-model="model"
-      class="outline-none bg-inherit text-inherit w-full appearance-none" :placeholder="placeholder">
+      class="outline-none bg-inherit text-inherit w-full appearance-none" :class="[selectSizeStyles.get(size)]"
+      :placeholder="placeholder">
       <slot />
     </select>
-    <Icon icon="angle-down" styles="absolute right-4 z-10 size-4!" />
   </BaseInput>
 </template>

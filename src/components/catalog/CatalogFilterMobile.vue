@@ -68,7 +68,7 @@ const resetFilters = () => {
       </template>
       <template #label>Ordenar por</template>
       <template #input>
-        <Select id="orderBy" v-model="filter.orderBy" size="sm">
+        <Select id="orderBy" v-model="filter.orderBy">
           <option v-for="filter in catalogFilterStore.orderByFilters" :value="filter.value" :key="filter.value"
             placeholder="Selecione um...">
             {{ filter.label }}
@@ -120,12 +120,12 @@ const resetFilters = () => {
     </InputGroup>
 
     <Divider />
-    <div class="flex items-center flex-wrap gap-2 justify-between *:grow">
-      <Button variant="neutral" @click="resetFilters()">
+    <div class="flex items-center *:flex-1 flex-wrap gap-2">
+      <Button variant="neutral" class="min-w-[160px]" @click="resetFilters()">
         <Icon icon="rotate-left" />
         Resetar filtros
       </Button>
-      <Button @click="submitFilters()" variant="primary">
+      <Button @click="submitFilters()" class="min-w-[160px]" variant="primary">
         <Icon icon="check" />
         Concluído
       </Button>
