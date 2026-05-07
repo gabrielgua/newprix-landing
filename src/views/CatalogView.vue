@@ -24,7 +24,6 @@ const toggleFilterModal = () => {
 
 onMounted(() => {
   document.title = 'Newprix - Nossos Produtos'
-  catalogFilterStore.resetFilters();
 })
 
 onUnmounted(() => {

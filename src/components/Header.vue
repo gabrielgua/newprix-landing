@@ -12,6 +12,7 @@ import MobileBottomModal from './MobileBottomModal.vue';
 import MadimiOneFont from './MadimiOneFont.vue';
 import Input from './inputs/Input.vue';
 import Divider from './Divider.vue';
+import InputGroup from './inputs/InputGroup.vue';
 
 const scrolled = ref(false);
 
@@ -44,9 +45,6 @@ const toggleHeaderMobile = () => showMobileHeader.value = !showMobileHeader.valu
       </RouterLink>
       <HeaderLinks class="hidden md:flex" />
       <div class="flex items-center md:hidden">
-        <Button size="md-icon" variant="primary-ghost">
-          <Icon icon="magnifying-glass" />
-        </Button>
         <Button @click="toggleHeaderMobile" size="md-icon" variant="primary-ghost">
           <FadeinTransition>
             <Icon v-if="showMobileHeader" icon="xmark" />
@@ -59,7 +57,11 @@ const toggleHeaderMobile = () => showMobileHeader.value = !showMobileHeader.valu
     <MobileBottomModal title="Menu" :show="showMobileHeader" @on-close="toggleHeaderMobile">
       <ul class="space-y-6 my-6">
         <li>
-          <Input id="search" placeholder="Pesquisar por produtos..." />
+          <InputGroup for="search">
+            <template #input>
+              <Input id="search" placeholder="Pesquisar por produtos..." icon-start="magnifying-glass" />
+            </template>
+          </InputGroup>
         </li>
         <li>
           <HeaderLink to="/home" class="w-full text-sm" @clicked="toggleHeaderMobile">Home
