@@ -8,6 +8,7 @@ import type { Brand } from '@/types/brand';
 import { ref } from 'vue';
 import Icon from '../Icon.vue';
 import CatalogListingHeaderBrandCard from './CatalogListingHeaderBrandCard.vue';
+import { Layers } from '@lucide/vue';
 
 const catalogFilterStore = useCataLogFilterStore();
 const brandStore = useBrandStore();
@@ -52,7 +53,7 @@ watch(() => catalogFilterStore.filter.brand?.value, () => {
                 class="object-cover object-center size-full shadow group-hover:scale-105 transition-all" />
               <div v-else
                 class="grid place-items-center size-full bg-bg-base shadow group-hover:scale-105 transition-all">
-                <Icon icon="layer-group" class="text-primary text-3xl" />
+                <Icon :icon="Layers" class="text-primary" />
               </div>
             </div>
           </template>

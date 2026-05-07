@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { X } from '@lucide/vue';
 import Button from '../Button.vue';
 import Icon from '../Icon.vue';
 
@@ -12,12 +13,10 @@ defineEmits(['remove'])
 
 <template>
   <li
-    class="flex items-center gap-3 bg-bg-base border border-border p-1 px-1.5 md:p-2 md:px-2.5 rounded-lg md:rounded-xl text-text-primary text-[11px] md:text-xs">
-    <p>
-      <slot />
-    </p>
+    class="flex items-center gap-3 bg-bg-base border border-border p-1 px-1.5 md:p-2 md:px-2.5 rounded-lg md:rounded-xl text-text-primary text-xs">
+    <slot />
     <Button v-if="!btnDisabled" variant="neutral-icon" size="xs" @click="$emit('remove')">
-      <Icon icon="xmark" />
+      <Icon :icon="X" :size="12" />
     </Button>
   </li>
 </template>

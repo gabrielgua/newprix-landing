@@ -1,19 +1,17 @@
 <script setup lang="ts">
-import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
-import CatalogFilterBrandButton from './CatalogFilterBrandButton.vue';
-import Icon from '../Icon.vue';
 import { useBrandStore } from '@/stores/brand-store';
+import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
+import { ArrowDownUp, Search, Store, Tags } from '@lucide/vue';
 import Divider from '../Divider.vue';
+import Icon from '../Icon.vue';
 import Input from '../inputs/Input.vue';
 import InputGroup from '../inputs/InputGroup.vue';
 import Select from '../inputs/Select.vue';
+import CatalogFilterBrandButton from './CatalogFilterBrandButton.vue';
 
 
 const catalogFilterStore = useCataLogFilterStore();
 const { brands } = useBrandStore();
-
-
-
 
 
 </script>
@@ -23,9 +21,9 @@ const { brands } = useBrandStore();
     <p class="text-text-primary text-base">Filtrar</p>
     <Divider />
 
-    <InputGroup for="search">
+    <InputGroup inputId="search">
       <template #label-icon>
-        <Icon icon="magnifying-glass" styles="text-sm" />
+        <Icon :icon="Search" />
       </template>
       <template #label>Pesquisar</template>
       <template #input>
@@ -33,24 +31,23 @@ const { brands } = useBrandStore();
       </template>
     </InputGroup>
 
-    <InputGroup for="orderBy">
+    <InputGroup inputId="orderBy">
       <template #label-icon>
-        <Icon icon="arrow-down-wide-short" styles="text-sm" />
+        <Icon :icon="ArrowDownUp" />
       </template>
       <template #label>Ordenar por</template>
       <template #input>
         <Select id="orderBy" v-model="catalogFilterStore.filter.orderBy">
-          <option v-for="filter in catalogFilterStore.orderByFilters" :value="filter.value" :key="filter.value"
-            placeholder="Selecione um...">
+          <option v-for="filter in catalogFilterStore.orderByFilters" :value="filter.value" :key="filter.value">
             {{ filter.label }}
           </option>
         </Select>
       </template>
     </InputGroup>
 
-    <InputGroup for="brands">
+    <InputGroup inputId="brands">
       <template #label-icon>
-        <Icon icon="tags" styles="text-sm" />
+        <Icon :icon="Tags" />
       </template>
       <template #label>Marcas</template>
       <template #input>
@@ -68,9 +65,9 @@ const { brands } = useBrandStore();
       </template>
     </InputGroup>
 
-    <InputGroup for="store">
+    <InputGroup inputId="store">
       <template #label-icon>
-        <Icon icon="shop" styles="text-sm" />
+        <Icon :icon="Store" />
       </template>
       <template #label>Loja</template>
       <template #input>

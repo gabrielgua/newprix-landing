@@ -47,11 +47,13 @@ const iconSizes = new Map<BaseInputSizes, number>([
   <div
     class="flex items-center w-full rounded-2xl border border-border  text-text-secondary focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all duration-200 overflow-hidden"
     :class="[inverted ? 'bg-bg-base focus-within:bg-bg-base' : 'bg-bg-muted focus-within:bg-bg-base', baseInputSizeStyles.get(size)]">
-    <Icon v-if="iconStart" :icon="iconStart" :size="iconSizes.get(size)" styles="text-text-secondary/50"
-      :class="iconLeftSizeStyles.get(size)" />
+    <template v-if="iconStart">
+      <Icon :icon="iconStart" :size="iconSizes.get(size)" :class="iconLeftSizeStyles.get(size)" />
+    </template>
     <slot />
-    <Icon v-if="iconEnd" :icon="iconEnd" :size="iconSizes.get(size)" styles="text-text-secondary/50"
-      :class="iconRightSizeStyles.get(size)" />
+    <template v-if="iconEnd">
+      <Icon :icon="iconEnd" :size="iconSizes.get(size)" :class="iconRightSizeStyles.get(size)" />
+    </template>
   </div>
 
 </template>

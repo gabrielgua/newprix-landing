@@ -15,9 +15,9 @@ const model = defineModel<string | number>();
 const textareaRef = ref<HTMLInputElement>();
 
 const textareaSizeStyles = new Map<BaseInputSizes, string>([
-  ['sm', 'px-2'],
-  ['md', 'px-3'],
-  ['lg', 'px-3.5']
+  ['sm', 'p-2'],
+  ['md', 'p-3'],
+  ['lg', 'p-3.5']
 ])
 
 defineExpose({ inputRef: textareaRef })
@@ -25,7 +25,7 @@ defineExpose({ inputRef: textareaRef })
 </script>
 
 <template>
-  <BaseInput>
+  <BaseInput :size="size" :inverted="inverted">
     <textarea ref="textareaRef" :id="id" :required="required" :disabled="disabled" v-bind="$attrs" v-model="model"
       class="outline-none bg-inherit text-inherit w-full" :class="textareaSizeStyles.get(size)"
       :placeholder="placeholder" />

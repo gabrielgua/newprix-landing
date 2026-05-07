@@ -5,6 +5,7 @@ import Icon from '../Icon.vue';
 import GroupFadeInTransition from '../transitions/GroupFadeInTransition.vue';
 import Button from '../Button.vue';
 import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
+import { Frown, House, RotateCcw } from '@lucide/vue';
 
 const productStore = useProductStore();
 const { resetFilters } = useCataLogFilterStore();
@@ -16,19 +17,19 @@ const { resetFilters } = useCataLogFilterStore();
 <template>
   <div v-if="!productStore.filteredProducts.length"
     class="col-span-full flex flex-col items-center text-center py-16 bg-bg-base border border-border rounded-2xl">
-    <Icon icon="fa-regular fa-face-frown" class="text-4xl mb-4 text-text-secondary/40" />
+    <Icon :icon="Frown" class="text-4xl mb-4 text-text-secondary/40" />
     <p class="text-sm md:text-base">Nenhum produto <br class="block md:hidden"> encontrado para esses filtros.</p>
     <p class="text-xs md:text-sm text-text-secondary/80 max-w-content">
       Tente ajustar seus filtros ou volte mais tarde.
     </p>
     <div class="flex flex-col md:flex-row items-center gap-4 mt-4">
       <Button @click="resetFilters()" size="lg">
-        <Icon icon="arrow-rotate-left" />
+        <Icon :icon="RotateCcw" />
         Resetar filtros
       </Button>
       <RouterLink to="/home">
-        <Button @click="" variant="neutral" size="sm">
-          <Icon icon="fa-regular fa-house" />
+        <Button variant="neutral" size="sm">
+          <Icon :icon="House" :size="16" />
           Voltar à Home
         </Button>
       </RouterLink>

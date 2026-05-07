@@ -1,15 +1,15 @@
 <script lang="ts" setup>
-import type { LucideIcon, LucideProps } from '@lucide/vue';
+import { CircleHelp, type LucideIcon } from '@lucide/vue';
 
 withDefaults(defineProps<{
-  icon: LucideIcon,
+  icon?: LucideIcon,
   size?: number,
-  color?: string,
 }>(), {
+  icon: CircleHelp,
   size: 18
 })
 </script>
 
 <template>
-  <component :is="icon" :size="size" :color="color" />
+  <component :is="icon" :size="size" v-bind="$attrs" />
 </template>

@@ -147,23 +147,27 @@ export const useCataLogFilterStore = defineStore('catalog-filter', () => {
   watch(
     () => route.query.brand,
     (brand) => {
-      const treatedBrand: string = normalizeQueryParam(brand)
-      if (!isValidBrand(treatedBrand)) {
-        filter.value.brand = { label: 'Todos', value: 'all' }
+      const treatedBrand = normalizeQueryParam(brand)
 
-        if (brand !== undefined) {
-          router.replace({ query: {} })
+      if (!isValidBrand(treatedBrand)) {
+        filter.value.brand = {
+          label: 'Todos',
+          value: 'all',
         }
+
         return
       }
 
       const selectedBrand = brands.value.find((b) => b.value === treatedBrand)
+
       if (selectedBrand) {
         filter.value.brand = selectedBrand
-        return
       }
     },
-    { immediate: true },
+    {
+      immediate: true,
+      flush: 'post',
+    },
   )
 
   return {

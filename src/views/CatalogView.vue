@@ -13,6 +13,7 @@ import MobileBottomModal from '@/components/MobileBottomModal.vue';
 import Section from '@/components/Section.vue';
 import GroupFadeInTransition from '@/components/transitions/GroupFadeInTransition.vue';
 import { useCataLogFilterStore } from '@/stores/catalog-filter-store';
+import { RotateCcw, Search, SlidersHorizontal } from '@lucide/vue';
 import { computed, onMounted, onUnmounted, ref } from 'vue';
 
 const catalogFilterStore = useCataLogFilterStore();
@@ -30,12 +31,12 @@ onUnmounted(() => {
   catalogFilterStore.resetFilters();
 })
 
-const showResetFiltersBtn = computed(() => catalogFilterStore.showFiltersMobile)
+const showResetFiltersBtn = computed(() => catalogFilterStore.showFilters)
 
 </script>
 
 <template>
-  <Section ref="heroRef" centered class="bg-bg-base py-14!">
+  <Section centered class="bg-bg-base py-14!">
     <template #title>Nossa seleção</template>
     <template #title-hero>
       As melhores marcas,
@@ -55,13 +56,13 @@ const showResetFiltersBtn = computed(() => catalogFilterStore.showFiltersMobile)
         <GroupFadeInTransition class="grid items-center gap-2 text-text-primary text-sm"
           :class="[showResetFiltersBtn ? 'grid-cols-[1fr_auto_auto] ' : 'grid-cols-[1fr_auto] ']">
           <Input id="search" placeholder="Buscar por produtos..." v-model="catalogFilterStore.filter.term" inverted
-            icon-start="magnifying-glass" size="sm" />
+            :icon-start="Search" size="sm" />
           <Button @click="toggleFilterModal" size="xs-icon" variant="neutral-outlined">
-            <Icon icon="sliders" />
+            <Icon :icon="SlidersHorizontal" />
           </Button>
-          <Button v-if="catalogFilterStore.showFiltersMobile" @click="catalogFilterStore.resetFilters()" size="xs-icon"
+          <Button v-if="showResetFiltersBtn" @click="catalogFilterStore.resetFilters()" size="xs-icon"
             variant="neutral-outlined">
-            <Icon icon="arrow-rotate-left" />
+            <Icon :icon="RotateCcw" />
           </Button>
         </GroupFadeInTransition>
         <Divider />
@@ -70,14 +71,13 @@ const showResetFiltersBtn = computed(() => catalogFilterStore.showFiltersMobile)
     </template>
   </Section>
 
-  <MobileBottomModal :show="showFilterModal" title="Filtros" @on-close="toggleFilterModal">
-    <CatalogFilterMobile @on-close="toggleFilterModal" />
+  <MobileBottomModal :show="showFilterModal" title="Filtros" @on-close="toggleFilterModal()">
+    <CatalogFilterMobile @on-close="toggleFilterModal()" />
   </MobileBottomModal>
 
-  <Section class="bg-bg-muted pt-0 pb-8! md:pt-8!" flex-row gap="gap-4">
+  <Section class="bg-bg-muted pt-0 pb-8! md:pt-8!" gap="gap-4" flexRow>
     <template #first-column-content>
       <CatalogFilter class="hidden md:flex" />
-
     </template>
     <template #second-column-content>
       <div class="space-y-4 w-full">

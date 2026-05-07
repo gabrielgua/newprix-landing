@@ -16,7 +16,7 @@ defineProps<{ icon?: LucideIcon, flexRow?: boolean, centered?: boolean, gap?: st
           <slot name="header" />
           <div class="flex items-center gap-4" v-if="$slots['title']">
             <h5 class="text-base font-semibold uppercase text-primary">
-              <slot name="title"></slot>
+              <slot name="title" />
             </h5>
             <Icon v-if="icon" :icon="icon" :size="24" class="text-primary" />
           </div>
@@ -31,7 +31,9 @@ defineProps<{ icon?: LucideIcon, flexRow?: boolean, centered?: boolean, gap?: st
           <slot name="first-column-content" />
         </div>
       </div>
-      <slot name="second-column-content" v-if="$slots['second-column-content']" />
+      <template v-if="$slots['second-column-content']">
+        <slot name="second-column-content" />
+      </template>
     </Container>
   </section>
 </template>

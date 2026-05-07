@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Award, ShieldHalf, SquareArrowOutUpRight, Star, StarHalf } from '@lucide/vue';
+import { Award, SquareArrowOutUpRight, Star, StarHalf } from '@lucide/vue';
 import Button from './Button.vue';
 import Icon from './Icon.vue';
 import MadimiOneFont from './MadimiOneFont.vue';

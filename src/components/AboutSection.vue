@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Astroid, CircleCheck, Feather, Martini, MessageCircleCheck, ShieldCheck } from '@lucide/vue';
+import { Astroid, CircleCheck, Feather, Martini, MessageCircleCheck, ShieldCheck, Star } from '@lucide/vue';
 import Divider from './Divider.vue';
 import Icon from './Icon.vue';
 import MadimiOneFont from './MadimiOneFont.vue';

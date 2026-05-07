@@ -6,6 +6,7 @@ import Icon from '../Icon.vue';
 import GroupFadeInTransition from '../transitions/GroupFadeInTransition.vue';
 import CatalogFiltersDisplayItem from './CatalogFiltersDisplayItem.vue';
 import { useProductStore } from '@/stores/product.store';
+import { RotateCcw } from '@lucide/vue';
 
 const catalogFilterStore = useCataLogFilterStore();
 const productStore = useProductStore();
@@ -49,7 +50,7 @@ const showFilters = computed(() => catalogFilterStore.showFilters)
       </div>
       <Button v-if="showFilters" variant="neutral-outlined" size="xs" class="gap-2!"
         @click="catalogFilterStore.resetFilters()">
-        <Icon icon="rotate-left" class="text-xs" />
+        <Icon :icon="RotateCcw" :size="14" />
         Resetar filtros
       </Button>
     </div>

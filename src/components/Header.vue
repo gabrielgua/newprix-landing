@@ -54,7 +54,7 @@ const toggleHeaderMobile = () => showMobileHeader.value = !showMobileHeader.valu
     <MobileBottomModal title="Menu" :show="showMobileHeader" @on-close="toggleHeaderMobile">
       <ul class="space-y-6 my-6">
         <li>
-          <InputGroup for="search">
+          <InputGroup inputId="search">
             <template #input>
               <Input id="search" placeholder="Pesquisar por produtos..." :icon-start="Search" />
             </template>

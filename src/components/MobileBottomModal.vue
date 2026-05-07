@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import FadeFromBottomTransition from '@/components/transitions/FadeFromBottomTransition.vue';
 import FadeTransition from '@/components/transitions/FadeTransition.vue';
-import { computed, ref, Teleport } from 'vue';
-import Logo from './Logo.vue';
-import Divider from './Divider.vue';
-import Button from './Button.vue';
 import { useScrollLock } from '@/composables/useScrollLock';
-import Icon from './Icon.vue';
 import { X } from '@lucide/vue';
+import { computed, Teleport } from 'vue';
+import Button from './Button.vue';
+import Divider from './Divider.vue';
+import Icon from './Icon.vue';
+import Logo from './Logo.vue';
 
 const props = withDefaults(defineProps<{
   show: boolean,
@@ -20,8 +20,6 @@ const show = computed(() => props.show);
 useScrollLock(show);
 
 defineEmits(['on-close', 'on-confirm']);
-
-
 
 </script>
 

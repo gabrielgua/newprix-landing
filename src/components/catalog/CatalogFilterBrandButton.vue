@@ -7,8 +7,6 @@ defineProps<{
   textColor?: string
 }>();
 
-//get textColor and BorderColor on HOVER
-
 </script>
 
 <template>

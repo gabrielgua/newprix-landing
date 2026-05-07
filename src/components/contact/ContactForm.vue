@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { useContactStore } from '@/stores/contact.store';
+import { Loader, Send } from '@lucide/vue';
 import Button from '../Button.vue';
 import Icon from '../Icon.vue';
 import Input from '../inputs/Input.vue';
 import InputGroup from '../inputs/InputGroup.vue';
 import Select from '../inputs/Select.vue';
 import Textarea from '../inputs/Textarea.vue';
-import { useContactStore } from '@/stores/contact.store';
+import { computed } from 'vue';
 
 
 const contactStore = useContactStore();
@@ -21,14 +22,14 @@ defineEmits(['submit'])
     <h2 class="text-2xl font-bold text-text-primary mb-6">Envie uma Mensagem</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-      <InputGroup for="name">
+      <InputGroup inputId="name">
         <template #label>Nome Completo</template>
         <template #input>
           <Input id="name" type="text" v-model="contactStore.form.name" required placeholder="João da Silva." />
         </template>
       </InputGroup>
 
-      <InputGroup for="email">
+      <InputGroup inputId="email">
         <template #label>Email</template>
         <template #input>
           <Input id="email" type="email" v-model="contactStore.form.email" required placeholder="seu@email.com" />
@@ -36,7 +37,7 @@ defineEmits(['submit'])
       </InputGroup>
     </div>
 
-    <InputGroup for="subject">
+    <InputGroup inputId="subject">
       <template #label>Assunto</template>
       <template #input>
         <Select id="subject" v-model="contactStore.form.subject" required>
@@ -49,7 +50,7 @@ defineEmits(['submit'])
       </template>
     </InputGroup>
 
-    <InputGroup for="message">
+    <InputGroup inputId="message">
       <template #label>Mensagem</template>
       <template #input>
         <Textarea id="message" type="text" v-model="contactStore.form.message" rows="5" required
@@ -59,8 +60,8 @@ defineEmits(['submit'])
 
     <Button size="lg" class="w-full justify-center" :disabled="loading">
       {{ loading ? 'Enviando...' : 'Enviar Mensagem' }}
-      <Icon v-if="loading" icon="spinner" styles="size-5! animate-spin" />
-      <Icon v-else icon="fa-regular fa-paper-plane" styles="size-5!" />
+      <Icon v-if="loading" :icon="Loader" class="animate-spin" />
+      <Icon v-else :icon="Send" />
     </Button>
   </form>
 </template>

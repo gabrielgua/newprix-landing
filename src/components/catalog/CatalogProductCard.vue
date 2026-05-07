@@ -7,8 +7,7 @@ import type { Product } from '@/types/product';
 import Button from '../Button.vue';
 import Divider from '../Divider.vue';
 import Icon from '../Icon.vue';
-
-
+import { ExternalLink, Star } from '@lucide/vue';
 
 </script>
 
@@ -24,8 +23,8 @@ import Icon from '../Icon.vue';
         {{ props.brand.label }}
       </span>
       <div v-if="props.new"
-        class="uppercase absolute top-0 right-0 bg-pink-400 text-white text-[10px] md:text-xs font-medium md:font-semibold px-1.5 md:px-2 py-1 rounded-lg flex items-center gap-1">
-        <Icon icon="star" />
+        class="uppercase absolute top-0 right-0 bg-pink-400 text-white text-xs font-medium md:font-semibold px-1.5 md:px-2 py-1 rounded-lg flex items-center gap-1">
+        <Icon :icon="Star" :size="14" />
         <span>Novo</span>
       </div>
     </div>
@@ -43,22 +42,22 @@ import Icon from '../Icon.vue';
         <a :href="props.link" target="blank" class="hidden md:block">
           <Button v-if="props.store === 'AMAZON'" variant="dark" class="w-full justify-between">
             Ver na Amazon
-            <Icon icon="arrow-up-right-from-square" />
+            <Icon :icon="ExternalLink" />
           </Button>
           <Button v-else variant="neutral" class="w-full justify-between bg-accent-200! text-accent-800!">
             Ver no Mercado Livre
-            <Icon icon="arrow-up-right-from-square" />
+            <Icon :icon="ExternalLink" />
           </Button>
         </a>
 
         <a :href="props.link" target="blank" class="block md:hidden">
           <Button v-if="props.store === 'AMAZON'" variant="dark" size="xs" class="w-full justify-between">
             Ver na Amazon
-            <Icon icon="arrow-up-right-from-square" />
+            <Icon :icon="ExternalLink" />
           </Button>
           <Button v-else variant="neutral" size="xs" class="w-full justify-between bg-accent-200! text-accent-800!">
             Ver no ML
-            <Icon icon="arrow-up-right-from-square" />
+            <Icon :icon="ExternalLink" />
           </Button>
         </a>
       </div>

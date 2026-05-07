@@ -23,12 +23,15 @@ import { Mail, MessageCircle } from '@lucide/vue';
           <div class="flex gap-3">
             <RouterLink to="/home"
               class="size-10 rounded-full bg-bg-muted border-border grid place-items-center text-text-secondary hover:bg-primary hover:text-white transition-all duration-300">
+              <ficon icon="fa-brands fa-instagram" />
             </RouterLink>
             <RouterLink to="/home"
               class="size-10 rounded-full bg-bg-muted border-border grid place-items-center text-text-secondary hover:bg-primary hover:text-white transition-all duration-300">
+              <ficon icon="fa-brands fa-facebook" />
             </RouterLink>
             <RouterLink to="/home"
               class="size-10 rounded-full bg-bg-muted border-border grid place-items-center text-text-secondary hover:bg-primary hover:text-white transition-all duration-300">
+              <ficon icon="fa-brands fa-linkedin" />
             </RouterLink>
           </div>
         </div>
@@ -51,12 +54,12 @@ import { Mail, MessageCircle } from '@lucide/vue';
         <div>
           <h4 class="font-bold text-text-primary mb-5">Atendimento</h4>
           <ul class="space-y-4 text-sm text-text-secondary">
-            <li class="flex items-center gap-3 text-primary">
-              <Icon :icon="Mail" />
+            <li class="flex items-center gap-3">
+              <Icon :icon="Mail" class="text-primary" />
               {{ ContactInformation.contactEmail }}
             </li>
-            <li class="flex items-center gap-3 text-primary">
-              <Icon :icon="MessageCircle" />
+            <li class="flex items-center gap-3">
+              <Icon :icon="MessageCircle" class="text-primary" />
               {{ ContactInformation.contactPhone }}
             </li>
           </ul>

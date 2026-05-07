@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import type { LucideIcon } from '@lucide/vue';
 import Icon from '../Icon.vue';
 
 defineProps<{
-  icon: string,
+  icon: LucideIcon,
 }>();
 </script>
 

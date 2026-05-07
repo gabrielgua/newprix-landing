@@ -5,6 +5,7 @@ import { computed } from 'vue';
 import Icon from '../Icon.vue';
 import GroupFadeInTransition from '../transitions/GroupFadeInTransition.vue';
 import CatalogFiltersDisplayItem from './CatalogFiltersDisplayItem.vue';
+import { ChevronRight } from '@lucide/vue';
 
 const catalogFilterStore = useCataLogFilterStore();
 const productStore = useProductStore();
@@ -20,7 +21,7 @@ const showFilters = computed(() => catalogFilterStore.showFiltersMobile)
     <div class="flex items-center justify-between w-full transition-all">
       <div class="flex items-center gap-1 text-xs text-text-secondary">
         <p class="font-medium">Produtos</p>
-        <Icon icon="chevron-right" styles="text-[10px]" />
+        <Icon :icon="ChevronRight" :size="14" />
         <CatalogFiltersDisplayItem v-if="catalogFilterStore.filter.brand?.value"
           :btn-disabled="catalogFilterStore.filter.brand.value === 'all'" @remove="catalogFilterStore.resetBrand()">
           {{ catalogFilterStore.filter.brand.label }}

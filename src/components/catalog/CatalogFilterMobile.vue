@@ -8,6 +8,7 @@ import { useCataLogFilterStore, type OrderByOption, type StoreOption } from '@/s
 import { ref } from 'vue';
 import InputGroup from '../inputs/InputGroup.vue';
 import Select from '../inputs/Select.vue';
+import { ArrowDownUp, Check, RotateCcw, Store, Tags } from '@lucide/vue';
 
 const catalogFilterStore = useCataLogFilterStore();
 const brandStore = useBrandStore();
@@ -62,9 +63,9 @@ const resetFilters = () => {
 
 <template>
   <div class="space-y-4">
-    <InputGroup for="orderBy">
+    <InputGroup inputId="orderBy">
       <template #label-icon>
-        <Icon icon="arrow-down-wide-short" styles="text-sm" />
+        <Icon :icon="ArrowDownUp" />
       </template>
       <template #label>Ordenar por</template>
       <template #input>
@@ -77,9 +78,9 @@ const resetFilters = () => {
       </template>
     </InputGroup>
 
-    <InputGroup for="brands">
+    <InputGroup inputId="brands">
       <template #label-icon>
-        <Icon icon="tags" styles="text-sm" />
+        <Icon :icon="Tags" />
       </template>
       <template #label>Marcas</template>
       <template #input>
@@ -96,9 +97,9 @@ const resetFilters = () => {
       </template>
     </InputGroup>
 
-    <InputGroup for="store">
+    <InputGroup inputId="store">
       <template #label-icon>
-        <Icon icon="shop" styles="text-sm" />
+        <Icon :icon="Store" />
       </template>
       <template #label>Loja</template>
       <template #input>
@@ -122,11 +123,11 @@ const resetFilters = () => {
     <Divider />
     <div class="flex items-center *:flex-1 flex-wrap gap-2">
       <Button variant="neutral" class="min-w-[160px]" @click="resetFilters()">
-        <Icon icon="rotate-left" />
+        <Icon :icon="RotateCcw" />
         Resetar filtros
       </Button>
       <Button @click="submitFilters()" class="min-w-[160px]" variant="primary">
-        <Icon icon="check" />
+        <Icon :icon="Check" />
         Concluído
       </Button>
     </div>
