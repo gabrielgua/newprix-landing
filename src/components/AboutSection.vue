@@ -83,7 +83,7 @@ import Topic from './Topic.vue';
             class="z-1 w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
           <div
             class="absolute left-0 right-0 -bottom-10 md:left-6 md:right-6 md:bottom-6 rounded-2xl flex items-start flex-col md:flex-row md:items-center gap-2 p-4 md:gap-5 md:p-6 z-1 bg-bg-secondary/90 md:bg-bg-secondary shadow-md">
-            <div class="w-10! h-10 md:w-14! md:h-14! grid place-items-center bg-primary-200 rounded-full">
+            <div class="w-10! h-10! md:w-14! md:h-14! grid place-items-center bg-primary-200 rounded-full">
               <Icon icon="fa-regular fa-circle-check" class="text-base md:text-2xl text-primary-600" />
             </div>
             <div>
@@ -95,7 +95,7 @@ import Topic from './Topic.vue';
           </div>
         </div>
         <div
-          class="absolute -top-3 md:-bottom-6 md:-right-6 w-full h-full bg-primary-300 rounded-[30px] md:rounded-[54px]">
+          class="absolute -top-3 md:top-6 md:-bottom-6 md:-right-6 w-full h-full bg-primary-300 rounded-[30px] md:rounded-[54px]">
         </div>
       </div>
     </template>
