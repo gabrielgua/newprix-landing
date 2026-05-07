@@ -1,7 +1,15 @@
 <script lang="ts" setup>
-defineProps<{ icon: string; styles?: string }>()
+import type { LucideIcon, LucideProps } from '@lucide/vue';
+
+withDefaults(defineProps<{
+  icon: LucideIcon,
+  size?: number,
+  color?: string,
+}>(), {
+  size: 18
+})
 </script>
 
 <template>
-  <ficon :icon="icon" :class="styles" />
+  <component :is="icon" :size="size" :color="color" />
 </template>

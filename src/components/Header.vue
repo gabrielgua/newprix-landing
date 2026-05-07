@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { useScrollLock } from '@/composables/useScrollLock';
-import FadeinTransition from '@/components/transitions/FadeinTransition.vue';
+import { Menu, Search } from '@lucide/vue';
 import { onMounted, onUnmounted, ref } from 'vue';
 import Button from './Button.vue';
 import Container from './Container.vue';
+import Divider from './Divider.vue';
 import HeaderLink from './HeaderLink.vue';
 import HeaderLinks from './HeaderLinks.vue';
 import Icon from './Icon.vue';
 import Logo from './Logo.vue';
-import MobileBottomModal from './MobileBottomModal.vue';
 import MadimiOneFont from './MadimiOneFont.vue';
+import MobileBottomModal from './MobileBottomModal.vue';
 import Input from './inputs/Input.vue';
-import Divider from './Divider.vue';
 import InputGroup from './inputs/InputGroup.vue';
 
 const scrolled = ref(false);
@@ -46,10 +46,7 @@ const toggleHeaderMobile = () => showMobileHeader.value = !showMobileHeader.valu
       <HeaderLinks class="hidden md:flex" />
       <div class="flex items-center md:hidden">
         <Button @click="toggleHeaderMobile" size="md-icon" variant="primary-ghost">
-          <FadeinTransition>
-            <Icon v-if="showMobileHeader" icon="xmark" />
-            <Icon v-else icon="bars" />
-          </FadeinTransition>
+          <Icon :icon="Menu" />
         </Button>
       </div>
     </Container>
@@ -59,7 +56,7 @@ const toggleHeaderMobile = () => showMobileHeader.value = !showMobileHeader.valu
         <li>
           <InputGroup for="search">
             <template #input>
-              <Input id="search" placeholder="Pesquisar por produtos..." icon-start="magnifying-glass" />
+              <Input id="search" placeholder="Pesquisar por produtos..." :icon-start="Search" />
             </template>
           </InputGroup>
         </li>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import { Award, ShieldHalf, SquareArrowOutUpRight, Star, StarHalf } from '@lucide/vue';
 import Button from './Button.vue';
-import Divider from './Divider.vue';
 import Icon from './Icon.vue';
 import MadimiOneFont from './MadimiOneFont.vue';
 import ReviewCard from './ReviewCard.vue';
@@ -9,7 +9,7 @@ import Section from './Section.vue';
 </script>
 
 <template>
-  <Section centered icon="shield-halved" class="bg-gradient-to-b from-bg-muted to-bg-base pt-12! lg:pt-8!">
+  <Section centered :icon="Award" class="bg-gradient-to-b from-bg-muted to-bg-base pt-12! lg:pt-8!">
     <template #header>
       <div
         class="flex flex-col outline-4 outline-white outline-offset-2 items-center justify-between gap-2 mb-12 bg-white px-10 py-8 rounded-4xl border border-primary-100 shadow-xl shadow-primary scale-101 transition-all">
@@ -17,15 +17,15 @@ import Section from './Section.vue';
           <MadimiOneFont>4.9</MadimiOneFont>
         </span>
         <div class="flex items-center gap-1">
-          <Icon v-for="_ in 4" icon="star" class="text-lg text-primary" />
-          <Icon icon="star-half-stroke" class="text-lg text-primary" />
+          <Icon v-for="_ in 4" :icon="Star" class="text-lg text-primary" />
+          <Icon :icon="StarHalf" class="text-lg text-primary" />
           <span class="text-xs text-text-secondary">(4.9/5)</span>
         </div>
         <p class="uppercase font-medium text-sm text-text-secondary tracking-wide mt-1">Média de Avaliações</p>
       </div>
     </template>
     <template #title>
-      <span class="">Nossa Reputação</span>
+      <span>Nossa Reputação</span>
     </template>
     <template #title-hero>Aprovado por quem compra</template>
     <template #subtitle>
@@ -55,7 +55,7 @@ import Section from './Section.vue';
             class="inline-block w-full lg:w-auto">
             <Button variant="primary" class="justify-center w-full lg:w-auto" size="lg">
               Ver mais avaliações
-              <Icon icon="arrow-up-right-from-square" class="-mt-0.5" />
+              <Icon :icon="SquareArrowOutUpRight" class="-mt-0.5" />
             </Button>
           </a>
         </div>

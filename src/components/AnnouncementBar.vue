@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ArrowRight } from '@lucide/vue';
 import AnnoucementBarMarquee from './AnnoucementBarMarquee.vue';
 import Button from './Button.vue';
 import Container from './Container.vue';
@@ -21,7 +22,7 @@ import Icon from './Icon.vue';
       <RouterLink to="/catalog?brand=nwx" class="ml-auto w-full md:max-w-max">
         <Button variant="neutral" size="xs" class="w-full! justify-center md:max-w-max ">
           Confira já!
-          <Icon icon="arrow-right" />
+          <Icon :icon="ArrowRight" :size="16" />
         </Button>
       </RouterLink>
     </Container>

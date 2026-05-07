@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ShoppingBag } from '@lucide/vue';
 import Button from './Button.vue';
 import Container from './Container.vue'
 import Icon from './Icon.vue'
@@ -24,7 +25,7 @@ import Icon from './Icon.vue'
             <RouterLink to="/catalog" class="w-full">
               <Button size="xl" class="font-semibold w-full justify-center text-sm md:text-xl gap-4!">
                 Conheça nosso catálogo
-                <Icon icon="bag-shopping" />
+                <Icon :icon="ShoppingBag" />
               </Button>
             </RouterLink>
             <RouterLink to="/contact" class="w-full">

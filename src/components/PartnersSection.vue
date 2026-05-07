@@ -5,6 +5,7 @@ import BrandCardMobile from './BrandCardMobile.vue';
 import MadimiOneFont from './MadimiOneFont.vue';
 import Section from './Section.vue';
 import { computed } from 'vue';
+import { Handshake } from '@lucide/vue';
 
 const brandStore = useBrandStore()
 const brands = computed(() => brandStore.brands)
@@ -12,7 +13,7 @@ const brands = computed(() => brandStore.brands)
 </script>
 
 <template>
-  <Section icon="handshake" centered class="bg-white pb-20">
+  <Section :icon="Handshake" centered class="bg-white pb-20">
     <template #title>Nossos Parceiros</template>
     <template #title-hero>Quem Representamos?</template>
     <template #subtitle>

@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ArrowRight } from '@lucide/vue';
 import Divider from './Divider.vue';
 import Icon from './Icon.vue';
 
@@ -31,7 +32,7 @@ defineProps<{
       <Divider class="mt-auto" />
       <div class="flex items-center gap-2 text-sm text-text-primary font-medium" :class="hoverColor">
         <p>Ver Produtos</p>
-        <Icon icon="arrow-right" class="text-xs group-hover:translate-x-2 transition-all" />
+        <Icon :icon="ArrowRight" :size="16" class="group-hover:translate-x-2 transition-all" />
       </div>
     </div>
   </RouterLink>

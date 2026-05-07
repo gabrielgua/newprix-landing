@@ -7,6 +7,7 @@ import Divider from './Divider.vue';
 import Button from './Button.vue';
 import { useScrollLock } from '@/composables/useScrollLock';
 import Icon from './Icon.vue';
+import { X } from '@lucide/vue';
 
 const props = withDefaults(defineProps<{
   show: boolean,
@@ -34,7 +35,7 @@ defineEmits(['on-close', 'on-confirm']);
               <p v-if="title" class="text-text-primary text-lg font-medium">{{ title }}</p>
               <Logo v-else />
               <Button @click="$emit('on-close')" variant="neutral-outlined" size="sm-icon">
-                <Icon icon="xmark" />
+                <Icon :icon="X" />
               </Button>
             </header>
             <Divider />

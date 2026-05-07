@@ -5,6 +5,7 @@ import Divider from './Divider.vue';
 import Icon from './Icon.vue';
 import Logo from './Logo.vue';
 import HeaderLink from './HeaderLink.vue';
+import { Mail, MessageCircle } from '@lucide/vue';
 
 </script>
 
@@ -22,15 +23,12 @@ import HeaderLink from './HeaderLink.vue';
           <div class="flex gap-3">
             <RouterLink to="/home"
               class="size-10 rounded-full bg-bg-muted border-border grid place-items-center text-text-secondary hover:bg-primary hover:text-white transition-all duration-300">
-              <Icon icon="fa-brands fa-instagram" styles="size-4!" />
             </RouterLink>
             <RouterLink to="/home"
               class="size-10 rounded-full bg-bg-muted border-border grid place-items-center text-text-secondary hover:bg-primary hover:text-white transition-all duration-300">
-              <Icon icon="fa-brands fa-facebook" styles="size-4!" />
             </RouterLink>
             <RouterLink to="/home"
               class="size-10 rounded-full bg-bg-muted border-border grid place-items-center text-text-secondary hover:bg-primary hover:text-white transition-all duration-300">
-              <Icon icon="fa-brands fa-linkedin" styles="size-4!" />
             </RouterLink>
           </div>
         </div>
@@ -53,12 +51,12 @@ import HeaderLink from './HeaderLink.vue';
         <div>
           <h4 class="font-bold text-text-primary mb-5">Atendimento</h4>
           <ul class="space-y-4 text-sm text-text-secondary">
-            <li class="flex items-center gap-3">
-              <Icon icon="fa-regular fa-envelope" styles="size-4! text-primary" />
+            <li class="flex items-center gap-3 text-primary">
+              <Icon :icon="Mail" />
               {{ ContactInformation.contactEmail }}
             </li>
-            <li class="flex items-center gap-3">
-              <Icon icon="fa-regular fa-comment" styles="size-4! text-primary" />
+            <li class="flex items-center gap-3 text-primary">
+              <Icon :icon="MessageCircle" />
               {{ ContactInformation.contactPhone }}
             </li>
           </ul>

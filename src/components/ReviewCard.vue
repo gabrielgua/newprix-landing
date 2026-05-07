@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { BadgeCheck, Quote, Star } from '@lucide/vue';
 import Divider from './Divider.vue';
 import Icon from './Icon.vue';
 
@@ -22,11 +23,11 @@ const getInitials = (name: string) => {
   <div
     class="relative flex flex-col p-6 gap-6 rounded-3xl bg-bg-base border border-border ring-2 ring-primary/15 overflow-hidden transition-all duration-300 max-h-max">
 
-    <Icon icon="quote-left" class="absolute top-2 right-2 text-6xl text-text-primary/5 pointer-events-none" />
+    <Icon :icon="Quote" :size="64" class="absolute top-2 right-2 text-text-primary/5 pointer-events-none" />
 
     <div class="flex items-center gap-2 relative z-10 flex-wrap">
       <div class="flex items-center gap-1">
-        <Icon icon="star" v-for="_ in 5" :key="_" class="text-base text-primary" />
+        <Icon :icon="Star" v-for="_ in 5" :key="_" class="text-base text-primary" />
         <span class="text-xs text-text-secondary/70 ml-1">(5.0/5)</span>
       </div>
       <span class="text-text-secondary/30 text-[10px]">•</span>
@@ -52,7 +53,7 @@ const getInitials = (name: string) => {
         <div class="flex items-center flex-wrap gap-1.5 mt-1.5">
           <div class="flex items-center gap-1 text-xs text-primary font-semibold uppercase tracking-wide">
             <span>Compra verificada</span>
-            <Icon icon="check-circle" />
+            <Icon :icon="BadgeCheck" />
           </div>
 
           <span class="text-text-secondary/30 text-xs">•</span>

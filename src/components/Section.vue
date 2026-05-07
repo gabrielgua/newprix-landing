@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import type { LucideIcon } from '@lucide/vue';
 import Container from './Container.vue';
 import Icon from './Icon.vue';
 
-defineProps<{ icon?: string, flexRow?: boolean, centered?: boolean, gap?: string }>()
+defineProps<{ icon?: LucideIcon, flexRow?: boolean, centered?: boolean, gap?: string }>()
 
 </script>
 
@@ -17,7 +18,7 @@ defineProps<{ icon?: string, flexRow?: boolean, centered?: boolean, gap?: string
             <h5 class="text-base font-semibold uppercase text-primary">
               <slot name="title"></slot>
             </h5>
-            <Icon v-if="icon" :icon="icon" class="text-primary" />
+            <Icon v-if="icon" :icon="icon" :size="24" class="text-primary" />
           </div>
           <h6 class="text-3xl md:text-4xl font-semibold text-text-primary" v-if="$slots['title-hero']">
             <slot name="title-hero" />

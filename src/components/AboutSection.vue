@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { Astroid, CircleCheck, Feather, Martini, MessageCircleCheck, ShieldCheck } from '@lucide/vue';
 import Divider from './Divider.vue';
 import Icon from './Icon.vue';
 import MadimiOneFont from './MadimiOneFont.vue';
@@ -9,7 +10,7 @@ import Topic from './Topic.vue';
 </script>
 
 <template>
-  <Section icon="feather-pointed" flex-row gap="lg:gap-24 gap-8">
+  <Section :icon="Feather" flex-row gap="lg:gap-24 gap-8">
     <template #title>Nossa Hístoria</template>
     <template #title-hero>
       Conectando você às <span class="text-primary">melhores marcas</span> com total segurança.
@@ -27,25 +28,25 @@ import Topic from './Topic.vue';
     <template #first-column-content>
       <div class="space-y-8">
         <div class="grid lg:grid-cols-2 gap-8 transition-all">
-          <Topic icon="martini-glass-empty">
+          <Topic :icon="Martini">
             <template #title>Produtos de Qualidade</template>
             <template #description>
               Produtos 100% originais, e de qualidade garantida.
             </template>
           </Topic>
-          <Topic icon="fa-regular fa-star">
+          <Topic :icon="Astroid">
             <template #title>Marcas Premium</template>
             <template #description>
               Trabalhamos apenas com marcas de excelência.
             </template>
           </Topic>
-          <Topic icon="shield-halved">
+          <Topic :icon="ShieldCheck">
             <template #title>Compra Segura</template>
             <template #description>
               Garantia Amazon e Mercado Livre de segurança.
             </template>
           </Topic>
-          <Topic icon="fa-regular fa-comment">
+          <Topic :icon="MessageCircleCheck">
             <template #title>Suporte Ativo</template>
             <template #description>
               Atendimento rápido para tirar todas as suas dúvidas.
@@ -84,7 +85,7 @@ import Topic from './Topic.vue';
           <div
             class="absolute left-0 right-0 -bottom-10 md:left-6 md:right-6 md:bottom-6 rounded-2xl flex items-start flex-col md:flex-row md:items-center gap-2 p-4 md:gap-5 md:p-6 z-1 bg-bg-secondary/90 md:bg-bg-secondary shadow-md">
             <div class="w-10! h-10! md:w-14! md:h-14! grid place-items-center bg-primary-200 rounded-full">
-              <Icon icon="fa-regular fa-circle-check" class="text-base md:text-2xl text-primary-600" />
+              <Icon :icon="CircleCheck" class="text-base md:text-2xl text-primary-600" />
             </div>
             <div>
               <h5 class="text-lg font-semibold text-text-primary">Satisfação Garantida</h5>
