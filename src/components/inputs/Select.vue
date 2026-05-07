@@ -17,9 +17,9 @@ const model = defineModel<string | number>();
 const selectRef = ref<HTMLInputElement>();
 
 const selectSizeStyles = new Map<BaseInputSizes, string>([
-  ['sm', 'px-3 py-2'],
-  ['md', 'px-4 py-3'],
-  ['lg', 'px-4.5 py-3.5']
+  ['sm', 'p-2'],
+  ['md', 'p-3'],
+  ['lg', 'p-3.5']
 ])
 
 defineExpose({ inputRef: selectRef })

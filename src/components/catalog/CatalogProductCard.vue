@@ -23,11 +23,11 @@ import Icon from '../Icon.vue';
         class="uppercase absolute top-0 left-0 bg-white text-primary text-[10px] md:text-xs font-semibold px-1.5 md:px-2 py-1 rounded-lg border border-border">
         {{ props.brand.label }}
       </span>
-      <span v-if="props.new"
-        class="uppercase absolute top-0 right-0 bg-pink-400 text-white text-[10px] md:text-xs font-semibold px-1.5 md:px-2 py-1 rounded-lg flex items-center gap-1">
+      <div v-if="props.new"
+        class="uppercase absolute top-0 right-0 bg-pink-400 text-white text-[10px] md:text-xs font-medium md:font-semibold px-1.5 md:px-2 py-1 rounded-lg flex items-center gap-1">
         <Icon icon="star" />
-        Novo
-      </span>
+        <span>Novo</span>
+      </div>
     </div>
     <div class="flex flex-col gap-2 flex-grow mt-2 sm:mt-4">
       <h2 class="text-primary-400 text-[10px] md:text-xs font-semibold mb-1 uppercase">{{ props.category.label }}</h2>

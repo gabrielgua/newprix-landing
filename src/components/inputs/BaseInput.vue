@@ -22,13 +22,13 @@ const baseInputSizeStyles = new Map<BaseInputSizes, string>([
 ])
 
 const iconLeftSizeStyles = new Map<BaseInputSizes, string>([
-  ['sm', 'ml-2'],
+  ['sm', 'ml-2.5'],
   ['md', 'ml-3'],
   ['lg', 'ml-3.5']
 ])
 
 const iconRightSizeStyles = new Map<BaseInputSizes, string>([
-  ['sm', 'mr-2'],
+  ['sm', 'mr-2.5'],
   ['md', 'mr-3'],
   ['lg', 'mr-3.5']
 ])
