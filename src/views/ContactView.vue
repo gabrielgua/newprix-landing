@@ -7,12 +7,16 @@ import FadeinTransition from '@/components/transitions/FadeinTransition.vue';
 import { ContactInformation } from '@/constants/constants';
 import { useContactStore } from '@/stores/contact.store';
 import { CheckCircle, Info, Mail, MapPin, MessageCircle, XCircle } from '@lucide/vue';
-import { onMounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 
 const contactStore = useContactStore();
 
 onMounted(() => {
   document.title = 'Newprix - Fale Conosco'
+})
+
+onUnmounted(() => {
+  contactStore.reset()
 })
 
 </script>
@@ -76,8 +80,8 @@ onMounted(() => {
             </div>
             <h3 class="text-2xl font-bold text-text-primary mb-2">Mensagem Enviada!</h3>
             <p class="text-text-secondary mb-8 max-w-sm">
-              Obrigado por entrar em contato, {{ contactStore.form.name }}. Retornaremos no email <strong
-                class="text-gray-800">{{ contactStore.form.email }}</strong>
+              Obrigado por entrar em contato, {{ contactStore.response?.name }}. Retornaremos no email <strong
+                class="text-gray-800">{{ contactStore.response?.fromEmail }}</strong>
               o mais breve possível.
             </p>
           </div>

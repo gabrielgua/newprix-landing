@@ -42,10 +42,9 @@ defineEmits(['submit'])
       <template #input>
         <Select id="subject" v-model="contactStore.form.subject" required>
           <option value="" disabled selected>Selecione um motivo...</option>
-          <option value="duvida">Dúvida sobre o Produto</option>
-          <option value="pedido">Problema com Pedido</option>
-          <option value="parceria">Seja um Parceiro (B2B)</option>
-          <option value="outro">Outro assunto</option>
+          <option v-for="option in contactStore.CONTACT_SUBJECT_OPTIONS" :key="option.value" :value="option.value">
+            {{ option.label }}
+          </option>
         </Select>
       </template>
     </InputGroup>
