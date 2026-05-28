@@ -1,12 +1,14 @@
 <script setup lang="ts">
+import Button from '@/components/Button.vue';
 import ContactForm from '@/components/contact/ContactForm.vue';
 import ContactInfo from '@/components/contact/ContactInfo.vue';
+import Divider from '@/components/Divider.vue';
 import Icon from '@/components/Icon.vue';
 import Section from '@/components/Section.vue';
 import FadeinTransition from '@/components/transitions/FadeinTransition.vue';
 import { ContactInformation } from '@/constants/constants';
 import { useContactStore } from '@/stores/contact.store';
-import { CheckCircle, Info, Mail, MapPin, MessageCircle, XCircle } from '@lucide/vue';
+import { CheckCircle, House, Info, Mail, MapPin, MessageCircle, RotateCcw, XCircle } from '@lucide/vue';
 import { onMounted, onUnmounted } from 'vue';
 
 const contactStore = useContactStore();
@@ -80,10 +82,18 @@ onUnmounted(() => {
             </div>
             <h3 class="text-2xl font-bold text-text-primary mb-2">Mensagem Enviada!</h3>
             <p class="text-text-secondary mb-8 max-w-sm">
-              Obrigado por entrar em contato, {{ contactStore.response?.name }}. Retornaremos no email <strong
-                class="text-gray-800">{{ contactStore.response?.fromEmail }}</strong>
+              Obrigado por entrar em contato, {{ contactStore.form.fullname }}. Retornaremos no email <strong
+                class="text-gray-800">{{ contactStore.form.email }}</strong>
               o mais breve possível.
             </p>
+
+            <RouterLink to="/home">
+              <Button variant="neutral" class="gap-2!">
+                <Icon :icon="House" />
+                Voltar à Home
+              </Button>
+            </RouterLink>
+
           </div>
 
           <div v-else-if="contactStore.state.error" class="py-12 flex flex-col items-center text-center relative z-10">
@@ -95,6 +105,19 @@ onUnmounted(() => {
               Algum erro aconteceu enquanto tentávamos mandar a sua mensagem.
               Por favor, tente novamente mais tarde.
             </p>
+            <div class="flex flex-col items-center gap-2">
+              <Button class="gap-2!" @click="contactStore.reset()">
+                <Icon :icon="RotateCcw" />
+                Tentar novamente
+              </Button>
+              <p class="text-sm text-text-secondary">OU</p>
+              <RouterLink to="/home">
+                <Button variant="neutral" class="gap-2!">
+                  <Icon :icon="House" />
+                  Voltar à Home
+                </Button>
+              </RouterLink>
+            </div>
           </div>
 
           <ContactForm v-else />

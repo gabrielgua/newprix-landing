@@ -25,7 +25,7 @@ defineEmits(['submit'])
       <InputGroup inputId="name">
         <template #label>Nome Completo</template>
         <template #input>
-          <Input id="name" type="text" v-model="contactStore.form.name" required placeholder="João da Silva." />
+          <Input id="name" type="text" v-model="contactStore.form.fullname" required placeholder="João da Silva." />
         </template>
       </InputGroup>
 

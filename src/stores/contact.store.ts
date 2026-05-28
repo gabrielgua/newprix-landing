@@ -22,21 +22,15 @@ export const CONTACT_SUBJECT_OPTIONS = [
 ]
 
 export type ContactForm = {
-  name: string
+  fullname: string
   email: string
   subject: string
   message: string
 }
 
 export const useContactStore = defineStore('contact', () => {
-  const response = ref<{
-    name: string
-    fromEmail: string
-    timestamp: Date
-  }>()
-
   const form = ref<ContactForm>({
-    name: '',
+    fullname: '',
     email: '',
     subject: '',
     message: '',
@@ -51,22 +45,20 @@ export const useContactStore = defineStore('contact', () => {
     state.submitting = true
     http
       .post('/emails', {
-        name: form.value.name,
-        email: form.value.email,
-        subject: selectedSubject?.label || form.value.subject || 'No Subject',
-        message: form.value.message,
+        fields: {
+          fullname: form.value.fullname,
+          email: form.value.email,
+          subject: selectedSubject?.label || form.value.subject || 'No Subject',
+          message: form.value.message,
+        },
       })
-      .then((res) => {
-        response.value = res.data
-        state.submitted = true
-      })
+      .then(() => (state.submitted = true))
       .catch((error) => {
         console.error('Error sending email:', error)
         state.error = true
       })
       .finally(() => {
         state.submitting = false
-        resetForm()
       })
   }
 
@@ -79,12 +71,12 @@ export const useContactStore = defineStore('contact', () => {
 
   const resetForm = () => {
     form.value = {
-      name: '',
+      fullname: '',
       email: '',
       subject: '',
       message: '',
     }
   }
 
-  return { state, submit, form, reset, CONTACT_SUBJECT_OPTIONS, response }
+  return { state, submit, form, reset, CONTACT_SUBJECT_OPTIONS }
 })

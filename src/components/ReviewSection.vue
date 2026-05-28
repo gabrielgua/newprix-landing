@@ -17,8 +17,7 @@ import Section from './Section.vue';
           <MadimiOneFont>4.9</MadimiOneFont>
         </span>
         <div class="flex items-center gap-1">
-          <Icon v-for="_ in 4" :icon="Star" class="text-lg text-primary" />
-          <Icon :icon="StarHalf" class="text-lg text-primary" />
+          <Icon v-for="_ in 5" :icon="Star" class="text-lg text-primary" fill="var(--color-primary)" />
           <span class="text-xs text-text-secondary">(4.9/5)</span>
         </div>
         <p class="uppercase font-medium text-sm text-text-secondary tracking-wide mt-1">Média de Avaliações</p>

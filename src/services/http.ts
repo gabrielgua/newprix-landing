@@ -2,6 +2,7 @@ import axios from 'axios'
 
 export const http = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
+  // baseURL: 'http://localhost:8080/api',
 })
 
 http.interceptors.request.use((config) => {
