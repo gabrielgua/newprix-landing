@@ -25,14 +25,16 @@ defineEmits(['submit'])
       <InputGroup inputId="name">
         <template #label>Nome Completo</template>
         <template #input>
-          <Input id="name" type="text" v-model="contactStore.form.fullname" required placeholder="João da Silva." />
+          <Input id="name" type="text" v-model="contactStore.form.fullname" required placeholder="João da Silva."
+            :disabled="loading" />
         </template>
       </InputGroup>
 
       <InputGroup inputId="email">
         <template #label>Email</template>
         <template #input>
-          <Input id="email" type="email" v-model="contactStore.form.email" required placeholder="seu@email.com" />
+          <Input id="email" type="email" v-model="contactStore.form.email" required placeholder="seu@email.com"
+            :disabled="loading" />
         </template>
       </InputGroup>
     </div>
@@ -40,7 +42,7 @@ defineEmits(['submit'])
     <InputGroup inputId="subject">
       <template #label>Assunto</template>
       <template #input>
-        <Select id="subject" v-model="contactStore.form.subject" required>
+        <Select id="subject" v-model="contactStore.form.subject" required :disabled="loading">
           <option value="" disabled selected>Selecione um motivo...</option>
           <option v-for="option in contactStore.CONTACT_SUBJECT_OPTIONS" :key="option.value" :value="option.value">
             {{ option.label }}
@@ -53,7 +55,7 @@ defineEmits(['submit'])
       <template #label>Mensagem</template>
       <template #input>
         <Textarea id="message" type="text" v-model="contactStore.form.message" rows="5" required
-          placeholder="Escreva sua mensagem aqui..." />
+          placeholder="Escreva sua mensagem aqui..." :disabled="loading" />
       </template>
     </InputGroup>
 
